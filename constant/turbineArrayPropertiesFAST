@@ -17,29 +17,21 @@ FoamFile
 
 turbine0
 {
-  refx  1278.6292;
-  refy  1649.7201;
+  refx  4.0;
+  refy  0.5;
   refz  0.0;
-  hubz  90.0;
-}
-
-turbine1
-{
-  refx  1806.088;
-  refy  2246.5762;
-  refz  0.0;
-  hubz  90.0;
+  hubz  0.4;
 }
 
 general
 {
   yawAngle                0.0;
-  numberofBld             3;
-  numberofBldPts          62;           
-  rotorDiameter           126.3992;
-  epsilon                 55.9;
-  smearRadius             111.6;
-  effectiveRadiusFactor   1.21;
+  numberofBld             2;
+  numberofBldPts          30;           
+  rotorDiameter           0.45;
+  epsilon                 0.02;
+  smearRadius             0.2;
+  effectiveRadiusFactor   1.0;
   pointInterpType         1;
 }
 
