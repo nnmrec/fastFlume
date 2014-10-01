@@ -1,7 +1,0 @@
-#Turbine    Time(s)    dt(s)    generator torque (N-m)
-0 0 0.075 200
-
-0 0.075 0.075 1325
-
-0 0.15 0.075 2450
-

@@ -1,10 +1,4 @@
 #!/bin/sh
-cd ${0%/*} || exit 1    # run from this directory
-
-# Source tutorial clean functions
-. $WM_PROJECT_DIR/bin/tools/CleanFunctions
-
-cleanCase
 
 # rm -rf processor*
 # rm -rf log*
@@ -12,3 +6,30 @@ cleanCase
 # cp constant/polyMesh/blockMeshDict ./
 # rm -rf constant/polyMesh/*
 # mv ./blockMeshDict constant/polyMesh/blockMeshDict
+
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial clean functions
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+
+
+# cleanCase performs (under the hood):
+# rm -rf processor* > /dev/null 2>&1
+# rm -rf postProcessing > /dev/null 2>&1
+# rm -rf probes* > /dev/null 2>&1
+# rm -rf forces* > /dev/null 2>&1
+# rm -rf graphs* > /dev/null 2>&1
+# rm -rf sets > /dev/null 2>&1
+# rm -rf surfaceSampling > /dev/null 2>&1
+# rm -rf cuttingPlane > /dev/null 2>&1
+# rm -rf system/machines > /dev/null 2>&1
+cleanCase
+
+# suggest to perform some extra cleaning manually
+rm -rf log*
+rm -rf *.out
+rm -rf turbineOutput/*
+cp constant/polyMesh/blockMeshDict ./
+rm -rf constant/polyMesh/*
+mv ./blockMeshDict constant/polyMesh/blockMeshDict

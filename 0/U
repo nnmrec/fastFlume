@@ -17,7 +17,7 @@ FoamFile
 
 dimensions      [ 0 1 -1 0 0 0 0 ];
 
-internalField   uniform ( 8.0 0 0 );
+internalField   uniform ( 1.1 0 0 );
 
 boundaryField
 {
@@ -34,7 +34,7 @@ boundaryField
     west
     {
       type            fixedValue;
-      value           uniform ( 8.0 0 0 );
+      value           uniform ( 1.1 0 0 );
     }
 
     east

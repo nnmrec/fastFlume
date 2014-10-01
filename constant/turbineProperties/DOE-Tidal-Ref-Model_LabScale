@@ -129,6 +129,9 @@ FoamFile
 // 1.100   354.81  0.0
 // 1.200   387.06  0.0
 
+// NOTE: I think many inputs are unneeded when disable DoF for generator and blades
+//       these values are aligned farther towards right (maybe can add ignores in source code)
+
 NumBl            	                    2;
 TipRad           	      	     0.225000;
 HubRad           	             0.028575;
@@ -138,10 +141,10 @@ TowerHt                		       0.3429;
 Twr2Shft                	       0.0508;
 ShftTilt               		          0.0;
 PreCone               		(0.0 0.0 0.0);
-GBRatio                		          1.0;
-// GenIner               		                    534.116;
-// HubIner               		                    115.926E3;
-// BladeIner             		                    11.776047E6;
+GBRatio                		                       1.0;
+GenIner               		                    534.116;
+HubIner               		                    115.926E3;
+BladeIner             		                    11.776047E6;
 GenTorqueControllerType   	       "none";
 GenTorqueRateLimiter		        false;
 NacYawControllerType      	       "none";
@@ -150,40 +153,40 @@ RatedRotSpeed			              327;
 RotSpeedLimiter			             true;
 NacYawRateLimiter		             true;
 BladePitchRateLimiter		         true;
-// SpeedFilterCornerFrequency	                     10; // Hz
+SpeedFilterCornerFrequency	                     10; // Hz
 
 GenTorqueControllerParams
 {
-    CutInGenSpeed           	      327;
-    RatedGenSpeed          	          327;
-    Region2StartGenSpeed    	      327;
-    Region2EndGenSpeed     	          327;
-    CutInGenTorque            	      0.0;
-    // RatedGenTorque           	                  43.09355E3;
-    // RateLimitGenTorque       	                  15.0E3;
-    // KGen                                          2.55764E-2;
-    // TorqueControllerRelax     	1.0;
+    CutInGenSpeed           	               999.9;
+    RatedGenSpeed          	                    999.9;
+    Region2StartGenSpeed    	               999.9;
+    Region2EndGenSpeed     	                    999.9;
+    CutInGenTorque            	                 0.0;
+    RatedGenTorque           	                  43.09355E3;
+    RateLimitGenTorque       	                  15.0E3;
+    KGen                                          2.55764E-2;
+    TorqueControllerRelax     	                  1.0;
 }
 
   
 BladePitchControllerParams  
 {  
-    PitchControlStartPitch            0.0;
-    PitchControlEndPitch              0.0;
-    PitchControlStartSpeed          999.9;
-    PitchControlEndSpeed            999.9;
-    RateLimitBladePitch             999.9;
+    PitchControlStartPitch                          0.0;
+    PitchControlEndPitch                            0.0;
+    PitchControlStartSpeed                          999.9;
+    PitchControlEndSpeed                            999.9;
+    RateLimitBladePitch                             999.9;
 } 
  
 NacYawControllerParams 
 { 
-    RateLimitNacYaw		               20; 
+    RateLimitNacYaw		                            999.0; 
 }
 
 
 Airfoils
 (
-    "NACA_4415"
+    "NACA4415"
 );
 
 

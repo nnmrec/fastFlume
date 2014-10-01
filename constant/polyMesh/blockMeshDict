@@ -14,26 +14,44 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// further documentation of this file found at:
+// http://www.openfoam.org/docs/user/blockMesh.php 
+
 convertToMeters 1;
 
-vertices        
+// Nx  615;      // Number of elements in x direction
+// Ny  100;      // Number of elements in y direction
+// Nz   80;      // Number of elements in z direction
+Nx  100;      // Number of elements in x direction
+Ny   50;      // Number of elements in y direction
+Nz   50;      // Number of elements in z direction
+xi   0.0;      // Minimum x coordinate  
+xf  12.3;      // Maximum x coordinate
+yi   0.0;      // Minimum y coordinate
+yf   1.0;      // Maximum y coordinate
+zi   0.0;      // Minimum z coordinate
+zf   0.8;      // Maximum z coordinate
+
+
+vertices
 (
-    (0.0 -100.0 0.0)
-    (1000.0 -100.0 0.0)
-    (1000.0 100.0 0.0)
-    (0.0 100.0 0.0)
-    (0.0 -100.0 200.0)
-    (1000.0 -100.0 200.0)
-    (1000.0 100.0 200.0)
-    (0.0 100.0 200.0)
+    ($xi $yi $zi) //0
+    ($xf $yi $zi) //1
+    ($xf $yf $zi) //2
+    ($xi $yf $zi) //3
+    ($xi $yi $zf) //4
+    ($xf $yi $zf) //5
+    ($xf $yf $zf) //6
+    ($xi $yf $zf) //7
 );
 
-blocks          
+
+blocks
 (
-    hex (0 1 2 3 4 5 6 7) (250 100 100) simpleGrading (1 1 1)
+    hex (0 1 2 3 4 5 6 7) ($Nx $Ny $Nz) simpleGrading (1 1 1)
 );
 
-edges           
+edges
 (
 );
 
@@ -103,5 +121,95 @@ boundary
 mergePatchPairs
 (
 );
+
+// convertToMeters 1;
+
+// vertices        
+// (
+//     (    0.0  -100.0    0.0)
+//     ( 1000.0  -100.0    0.0)
+//     ( 1000.0   100.0    0.0)
+//     (    0.0   100.0    0.0)
+//     (    0.0  -100.0  200.0)
+//     ( 1000.0  -100.0  200.0)
+//     ( 1000.0   100.0  200.0)
+//     (    0.0   100.0  200.0)
+// );
+
+// blocks          
+// (
+//     hex (0 1 2 3 4 5 6 7) (250 100 100) simpleGrading (1 1 1)
+// );
+
+// edges           
+// (
+// );
+
+// boundary
+// (
+
+//    bottom
+//    {
+//      type cyclic;
+//      neighbourPatch top;
+//      faces
+//      (
+//        (0 3 2 1)
+//      );
+//    }
+
+//    top
+//    {
+//      type cyclic;
+//      neighbourPatch bottom;
+//      faces
+//      (
+//        (4 5 6 7)
+//      );
+//    }
+
+//    west
+//    {
+//      type inflow;
+//      faces
+//      (
+//        (0 4 7 3)
+//      );
+//    }
+
+//    east
+//    {
+//      type outflow;
+//      faces
+//      (
+//        (1 2 6 5)
+//      );
+//    }
+
+//    north
+//    {
+//      type cyclic;
+//      neighbourPatch south;
+//      faces
+//      (
+//        (3 7 6 2)
+//      );
+//    }
+  
+//    south
+//    {
+//      type cyclic;
+//      neighbourPatch north;
+//      faces
+//      (
+//        (0 1 5 4)
+//      );
+//    }
+
+// );
+
+// mergePatchPairs
+// (
+// );
 
 // ************************************************************************* //

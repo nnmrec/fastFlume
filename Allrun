@@ -14,8 +14,14 @@ decomposePar 2>&1 | tee log.decomposePar
 # Run the solver (parallel)
 # mpirun -np $(($nodes*$cores)) fastPisoSolver -parallel 2>&1 | tee log.fastPisoSolver
 mpirun -np $(($nodes*$cores)) pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+# mpirun -np 4 pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+
 
 # Post-Processing
+# ensure that folder for first time step, 0, has the same fields as all other folder
+# usually it does not, so easy way is to just copy fields from next time step into 0 folder
+
+
 # reconstruct the parallel filess for all times, or for only specific times
 reconstructPar
 # reconstructPar -time '2,4'
