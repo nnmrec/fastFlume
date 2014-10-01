@@ -4,6 +4,9 @@ Viterna Extended w/ AR=6.75. Fourth column is the minimum pressure coefficient.
   1           Number of airfoil tables in this file
   0.083        Table ID parameter (Reynolds number in millions).  For efficiency, make very large if only one table.
   14       Stall angle (deg)
+   0.0      No longer used, enter zero
+   0.0      No longer used, enter zero
+   0.0      No longer used, enter zero
   -3.5           Zero lift angle of attack (deg)
   0           Cn slope for zero lift (dimensionless)
   0           Cn at stall value for positive angle of attack
