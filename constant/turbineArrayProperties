@@ -29,7 +29,7 @@ turbine0
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
     epsilon             0.02;
-    tipRootLossCorrType "Glauert";
+    tipRootLossCorrType "none";
     rotationDir         "cw";
     Azimuth             0;
     TorqueGen		                                         9999.9;

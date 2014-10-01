@@ -1,25 +1,25 @@
 --------------------------------------------------------------------------------
 ------- FAST INPUT FILE --------------------------------------------------------
-NREL 5.0 MW Baseline Wind Turbine for Use in Offshore Analysis.
-Properties from Dutch Offshore Wind Energy Converter (DOWEC) 6MW Pre-Design (10046_009.pdf) and REpower 5M 5MW (5m_uk.pdf); Compatible with FAST v6.0.
+DOE Tidal Turbine Reference Model - Nick's first generation modification (lab scale).
+Compatible with FAST v6.0.
 ---------------------- SIMULATION CONTROL --------------------------------------
 False       Echo        - Echo input data to "echo.out" (flag)
    1        ADAMSPrep   - ADAMS preprocessor mode {1: Run FAST, 2: use FAST as a preprocessor to create an ADAMS model, 3: do both} (switch)
    1        AnalMode    - Analysis mode {1: Run a time-marching simulation, 2: create a periodic linearized model} (switch)
-   3        NumBl       - Number of blades (-)
- 3000.0      TMax        - Total run time (s)
-   0.02    DT          - Integration time step (s)
+   2        NumBl       - Number of blades (-)
+ 3000.0     TMax        - Total run time (s)
+  0.001     DT          - Integration time step (s)
 ---------------------- TURBINE CONTROL -----------------------------------------
    0        YCMode      - Yaw control mode {0: none, 1: user-defined from routine UserYawCont, 2: user-defined from Simulink} (switch)
 9999.9      TYCOn       - Time to enable active yaw control (s) [unused when YCMode=0]
    0        PCMode      - Pitch control mode {0: none, 1: user-defined from routine PitchCntrl, 2: user-defined from Simulink} (switch)
    0.0      TPCOn       - Time to enable active pitch control (s) [unused when PCMode=0]
-   1        VSContrl    - Variable-speed control mode {0: none, 1: simple VS, 2: user-defined from routine UserVSCont, 3: user-defined from Simulink} (switch)
+   0        VSContrl    - Variable-speed control mode {0: none, 1: simple VS, 2: user-defined from routine UserVSCont, 3: user-defined from Simulink} (switch)
 1173.7      VS_RtGnSp   - Rated generator speed for simple variable-speed generator control (HSS side) (rpm) [used only when VSContrl=1]
 43093.55    VS_RtTq     - Rated generator torque/constant generator torque in Region 3 for simple variable-speed generator control (HSS side) (N-m) [used only when VSContrl=1]
 0.0255764   VS_Rgn2K    - Generator torque constant in Region 2 for simple variable-speed generator control (HSS side) (N-m/rpm^2) [used only when VSContrl=1]
 10.0        VS_SlPc     - Rated generator slip percentage in Region 2 1/2 for simple variable-speed generator control (%) [used only when VSContrl=1]
-   2        GenModel    - Generator model {1: simple, 2: Thevenin, 3: user-defined from routine UserGen} (switch) [used only when VSContrl=0]
+   1        GenModel    - Generator model {1: simple, 2: Thevenin, 3: user-defined from routine UserGen} (switch) [used only when VSContrl=0]
 True        GenTiStr    - Method to start the generator {T: timed using TimGenOn, F: generator speed using SpdGenOn} (flag)
 True        GenTiStp    - Method to stop the generator {T: timed using TimGenOf, F: when generator power = 0} (flag)
 9999.9      SpdGenOn    - Generator speed to turn on the generator for a startup (HSS speed) (rpm) [used only when GenTiStr=False]
@@ -52,12 +52,12 @@ True        GenTiStp    - Method to stop the generator {T: timed using TimGenOf,
 ---------------------- ENVIRONMENTAL CONDITIONS --------------------------------
    9.80665      Gravity     - Gravitational acceleration (m/s^2)
 ---------------------- FEATURE FLAGS -------------------------------------------
-True        FlapDOF1    - First flapwise blade mode DOF (flag)
-True        FlapDOF2    - Second flapwise blade mode DOF (flag)
-True        EdgeDOF     - First edgewise blade mode DOF (flag)
+False        FlapDOF1    - First flapwise blade mode DOF (flag)
+False        FlapDOF2    - Second flapwise blade mode DOF (flag)
+False        EdgeDOF     - First edgewise blade mode DOF (flag)
 False       TeetDOF     - Rotor-teeter DOF (flag) [unused for 3 blades]
 False       DrTrDOF     - Drivetrain rotational-flexibility DOF (flag)
-True        GenDOF      - Generator DOF (flag)
+False        GenDOF      - Generator DOF (flag)
 False       YawDOF      - Yaw DOF (flag)
 False       TwFADOF1    - First fore-aft tower bending-mode DOF (flag)
 False       TwFADOF2    - Second fore-aft tower bending-mode DOF (flag)
@@ -70,22 +70,22 @@ False       CompNoise   - Compute aerodynamic noise (flag)
    0.0      IPDefl      - Initial in-plane blade-tip deflection (meters)
    0.0      TeetDefl    - Initial or fixed teeter angle (degrees) [unused for 3 blades]
    0.0      Azimuth     - Initial azimuth angle for blade 1 (degrees)
-   9.2      RotSpeed    - Initial or fixed rotor speed (rpm)
+   327.0    RotSpeed    - Initial or fixed rotor speed (rpm)
    0.0      NacYaw      - Initial or fixed nacelle-yaw angle (degrees)
    0.0      TTDspFA     - Initial fore-aft tower-top displacement (meters)
    0.0      TTDspSS     - Initial side-to-side tower-top displacement (meters)
 ---------------------- TURBINE CONFIGURATION -----------------------------------
-  63.0      TipRad      - The distance from the rotor apex to the blade tip (meters)
-   1.5      HubRad      - The distance from the rotor apex to the blade root (meters)
+  0.225000  TipRad      - The distance from the rotor apex to the blade tip (meters)
+  0.028575  HubRad      - The distance from the rotor apex to the blade root (meters)
    1        PSpnElN     - Number of the innermost blade element which is still part of the pitchable portion of the blade for partial-span pitch control [1 to BldNodes] [CURRENTLY IGNORED] (-)
    0.0      UndSling    - Undersling length [distance from teeter pin to the rotor apex] (meters) [unused for 3 blades]
    0.0      HubCM       - Distance from rotor apex to hub mass [positive downwind] (meters)
-  -5.01910  OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)
-   1.9      NacCMxn     - Downwind distance from the tower-top to the nacelle CM (meters)
+  -0.508    OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)
+   0.0      NacCMxn     - Downwind distance from the tower-top to the nacelle CM (meters)
    0.0      NacCMyn     - Lateral  distance from the tower-top to the nacelle CM (meters)
-   1.75     NacCMzn     - Vertical distance from the tower-top to the nacelle CM (meters)
- 88.03744   TowerHt     - Height of tower above ground level [onshore] or MSL [offshore] (meters)
-   1.96256  Twr2Shft    - Vertical distance from the tower-top to the rotor shaft (meters)
+   0.0508   NacCMzn     - Vertical distance from the tower-top to the nacelle CM (meters)
+0.3429      TowerHt     - Height of tower above ground level [onshore] or MSL [offshore] (meters)
+ 0.0508     Twr2Shft    - Vertical distance from the tower-top to the rotor shaft (meters)
    0.0      TwrRBHt     - Tower rigid base height (meters)
    0.0      ShftTilt    - Rotor shaft tilt angle (degrees)
    0.0      Delta3      - Delta-3 angle for teetering rotors (degrees) [unused for 3 blades]
@@ -105,8 +105,8 @@ False       CompNoise   - Compute aerodynamic noise (flag)
  115.926E3  HubIner     - Hub inertia about rotor axis [3 blades] or teeter axis [2 blades] (kg m^2)
 ---------------------- DRIVETRAIN ----------------------------------------------
  100.0      GBoxEff     - Gearbox efficiency (%)
-  94.4      GenEff      - Generator efficiency [ignored by the Thevenin and user-defined generator models] (%)
-  97.0      GBRatio     - Gearbox ratio (-)
+ 100.0      GenEff      - Generator efficiency [ignored by the Thevenin and user-defined generator models] (%)
+  1.0      GBRatio     - Gearbox ratio (-)
 False       GBRevers    - Gearbox reversal {T: if rotor and generator rotate in opposite directions} (flag)
   28.1162E3 HSSBrTqF    - Fully deployed HSS-brake torque (N-m)
    0.6      HSSBrDT     - Time for HSS-brake to reach full deployment once initiated (sec) [used only when HSSBrMode=1]
@@ -132,7 +132,7 @@ False       GBRevers    - Gearbox reversal {T: if rotor and generator rotate in 
             PtfmFile    - Name of file containing platform properties (quoted string) [unused when PtfmModel=0]
 ---------------------- TOWER ---------------------------------------------------
   20        TwrNodes    - Number of tower nodes used for analysis (-)
-"NRELOffshrBsline5MW_Tower_Onshore.dat"          TwrFile     - Name of file containing tower properties (quoted string)
+"DOE-Tidal-Ref-Model_LabScale_Tower.dat"          TwrFile     - Name of file containing tower properties (quoted string)
 ---------------------- NACELLE-YAW ---------------------------------------------
 9028.32E6   YawSpr      - Nacelle-yaw spring constant (N-m/rad)
   19.16E6   YawDamp     - Nacelle-yaw damping constant (N-m/(rad/s))
@@ -154,17 +154,17 @@ False       Furling     - Read in additional model properties for furling turbin
    0.0      TBDrConD    - Tip-brake drag constant during fully-deployed operation, Cd*Area (m^2)
    0.0      TpBrDT      - Time for tip-brake to reach full deployment once released (sec)
 ---------------------- BLADE ---------------------------------------------------
-"NRELOffshrBsline5MW_Blade.dat"                  BldFile(1)  - Name of file containing properties for blade 1 (quoted string)
-"NRELOffshrBsline5MW_Blade.dat"                  BldFile(2)  - Name of file containing properties for blade 2 (quoted string)
-"NRELOffshrBsline5MW_Blade.dat"                  BldFile(3)  - Name of file containing properties for blade 3 (quoted string) [unused for 2 blades]
+"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(1)  - Name of file containing properties for blade 1 (quoted string)
+"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(2)  - Name of file containing properties for blade 2 (quoted string)
+"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(3)  - Name of file containing properties for blade 3 (quoted string) [unused for 2 blades]
 ---------------------- AERODYN -------------------------------------------------
-"NRELOffshrBsline5MW_AeroDyn.ipt"                ADFile      - Name of file containing AeroDyn input parameters (quoted string)
+"DOE-Tidal-Ref-Model_LabScale_AeroDyn.ipt"                ADFile      - Name of file containing AeroDyn input parameters (quoted string)
 ---------------------- NOISE ---------------------------------------------------
             NoiseFile   - Name of file containing aerodynamic noise input parameters (quoted string) [used only when CompNoise=True]
 ---------------------- ADAMS ---------------------------------------------------
-"NRELOffshrBsline5MW_ADAMSSpecific.dat"          ADAMSFile   - Name of file containing ADAMS-specific input parameters (quoted string) [unused when ADAMSPrep=1]
+"unused.dat"          ADAMSFile   - Name of file containing ADAMS-specific input parameters (quoted string) [unused when ADAMSPrep=1]
 ---------------------- LINEARIZATION CONTROL -----------------------------------
-"NRELOffshrBsline5MW_Linear.dat"                 LinFile     - Name of file containing FAST linearization parameters (quoted string) [unused when AnalMode=1]
+"unused.dat"                 LinFile     - Name of file containing FAST linearization parameters (quoted string) [unused when AnalMode=1]
 ---------------------- OUTPUT --------------------------------------------------
 True        SumPrint    - Print summary data to "<RootName>.fsm" (flag)
 True        TabDelim    - Generate a tab-delimited tabular output file. (flag)

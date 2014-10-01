@@ -1,6 +1,5 @@
 AeroDyn airfoil file.  Compatible with AeroDyn v13.0.
-NACA 4415, Re=.083 Million, Smooth roughness, raw wind tunnel data smoothed by hand. 
-Viterna Extended w/ AR=6.75. Fourth column is the minimum pressure coefficient.
+NACA 4415, Re=.083 Million, Smooth roughness, raw wind tunnel data smoothed by hand. Viterna Extended w/ AR=6.75. Fourth column is the minimum pressure coefficient.
   1           Number of airfoil tables in this file
   0.083        Table ID parameter (Reynolds number in millions).  For efficiency, make very large if only one table.
   14       Stall angle (deg)

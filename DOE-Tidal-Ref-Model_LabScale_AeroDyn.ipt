@@ -1,4 +1,4 @@
-1DOE Tidal Turbine Reference Model - Nick's first generation modification (lab scale).  Compatible with AeroDyn v12.58.
+DOE Tidal Turbine Reference Model - Nick's first generation modification (lab scale).  Compatible with AeroDyn v12.58.
 SI          SysUnits    - System of units for used for input and output [must be SI for FAST] (unquoted string)
 BEDDOES     StallMod    - Dynamic stall included [BEDDOES or STEADY] (unquoted string)
 NO_CM       UseCm       - Use aerodynamic pitching moment model? [USE_CM or NO_CM] (unquoted string)
@@ -41,7 +41,7 @@ RNodes   AeroTwst  DRNodes  Chord    NFoil  PrnElm
 0.1563	2.94	0.00650	0.0194	1	NOPRINT
 0.1628	2.724	0.00650	0.0187	1	NOPRINT
 0.1693	2.511	0.00660	0.018	1	NOPRINT
-0.1759	2.3	    0.00650	0.0173	1	NOPRINT
+0.1759	2.3	0.00650	0.0173	1	NOPRINT
 0.1824	2.088	0.00660	0.0166	1	NOPRINT
 0.189	1.873	0.00650	0.0159	1	NOPRINT
 0.1955	1.654	0.00660	0.0152	1	NOPRINT
