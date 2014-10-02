@@ -9,12 +9,13 @@ cores=4
 blockMesh 2>&1 | tee log.blockMesh
 
 # Decompose the mesh and solution files (serial)
-decomposePar 2>&1 | tee log.decomposePar
+# decomposePar 2>&1 | tee log.decomposePar
 
 # Run the solver (parallel)
 # mpirun -np $(($nodes*$cores)) fastPisoSolver -parallel 2>&1 | tee log.fastPisoSolver
-mpirun -np $(($nodes*$cores)) pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+# mpirun -np $(($nodes*$cores)) pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
 # mpirun -np 4 pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+pisoFoamTurbine 2>&1 | tee log.pisoFoamTurbine
 
 
 # Post-Processing
@@ -23,7 +24,7 @@ mpirun -np $(($nodes*$cores)) pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamT
 
 
 # reconstruct the parallel filess for all times, or for only specific times
-reconstructPar
+# reconstructPar
 # reconstructPar -time '2,4'
 
 # convert OpenFOAM format to VTK files
