@@ -19,18 +19,27 @@ FoamFile
 
 convertToMeters 1;
 
+// original mesh from fastDuct
+Nx  250;      // Number of elements in x direction
+Ny  100;      // Number of elements in y direction
+Nz  100;      // Number of elements in z direction
+xi   0.0;      // Minimum x coordinate  
+xf  1000.0;      // Maximum x coordinate
+yi   -100.0;      // Minimum y coordinate
+yf   100.0;      // Maximum y coordinate
+zi   0.0;      // Minimum z coordinate
+zf   200.0;      // Maximum z coordinate
+
+// modified mesh for lab scale
 // Nx  615;      // Number of elements in x direction
 // Ny  100;      // Number of elements in y direction
 // Nz   80;      // Number of elements in z direction
-Nx  100;      // Number of elements in x direction
-Ny   50;      // Number of elements in y direction
-Nz   50;      // Number of elements in z direction
-xi   0.0;      // Minimum x coordinate  
-xf  12.3;      // Maximum x coordinate
-yi   0.0;      // Minimum y coordinate
-yf   1.0;      // Maximum y coordinate
-zi   0.0;      // Minimum z coordinate
-zf   0.8;      // Maximum z coordinate
+// xi   0.0;      // Minimum x coordinate  
+// xf  12.3;      // Maximum x coordinate
+// yi   0.0;      // Minimum y coordinate
+// yf   1.0;      // Maximum y coordinate
+// zi   0.0;      // Minimum z coordinate
+// zf   0.8;      // Maximum z coordinate
 
 
 vertices
