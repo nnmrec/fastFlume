@@ -14,11 +14,29 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-
 turbine0
 {
-  refx  4.0;
+  // refx  4.0;
+  refx  4.5;    // account for OverHang
+  refy  0.275;
+  refz  0.0;
+  hubz  0.4;
+}
+
+turbine1
+{
+  // refx  6.25;
+  refx  6.75;    // account for OverHang
   refy  0.5;
+  refz  0.0;
+  hubz  0.4;
+}
+
+turbine2
+{
+  // refx  8.5;
+  refx  9.0;    // account for OverHang
+  refy  0.725;
   refz  0.0;
   hubz  0.4;
 }
@@ -29,9 +47,9 @@ general
   numberofBld             2;
   numberofBldPts          30;           
   rotorDiameter           0.45;
-  epsilon                 0.02;
-  smearRadius             0.2;
-  effectiveRadiusFactor   1.0;
+  epsilon                 0.041667;
+  smearRadius             0.109583;
+  effectiveRadiusFactor   1.487037;
   pointInterpType         1;
 }
 

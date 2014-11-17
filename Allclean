@@ -14,7 +14,7 @@ cd ${0%/*} || exit 1    # run from this directory
 
 
 
-# cleanCase performs (under the hood):
+# cleanCase performs (under the hood in OpenFOAM):
 # rm -rf processor* > /dev/null 2>&1
 # rm -rf postProcessing > /dev/null 2>&1
 # rm -rf probes* > /dev/null 2>&1
@@ -30,6 +30,22 @@ cleanCase
 rm -rf log*
 rm -rf *.out
 rm -rf turbineOutput/*
-cp constant/polyMesh/blockMeshDict ./
-rm -rf constant/polyMesh/*
-mv ./blockMeshDict constant/polyMesh/blockMeshDict
+# cp constant/polyMesh/blockMeshDict ./
+# rm -rf constant/polyMesh/*
+# mv ./blockMeshDict constant/polyMesh/blockMeshDict
+
+rm -rf 0
+
+# # Delete all integer time directories
+# ls | grep -P "^[0-9]$" | xargs -d"\n" rm -rf
+
+# # Delete all decimal time directories
+# ls | grep -P "^[0-9].*[0-9]$" | xargs -d"\n" rm -rf
+
+# rm -rf processor*
+# rm -rf postProcessing
+# rm -rf oldLogs
+# rm -f log.pimpleDyMFoam
+# rm -f log.vorticity
+# rm -f log.decomposePar
+# rm -f log.reconstructPar

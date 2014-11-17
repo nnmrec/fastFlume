@@ -1,31 +1,10 @@
-#!/bin/bash
+#!/bin/sh
+cd ${0%/*} || exit 1 # run from this directory
 
-# Number of nodes and cores to use
-nodes=1
-cores=4
-# cores=8
-
-# Make the mesh using blockMesh (serial)
-blockMesh 2>&1 | tee log.blockMesh
-
-# Decompose the mesh and solution files (serial)
-# decomposePar 2>&1 | tee log.decomposePar
-
-# Run the solver (parallel)
-# mpirun -np $(($nodes*$cores)) fastPisoSolver -parallel 2>&1 | tee log.fastPisoSolver
-# mpirun -np $(($nodes*$cores)) pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
-# mpirun -np 4 pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
-pisoFoamTurbine 2>&1 | tee log.pisoFoamTurbine
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 
-# Post-Processing
-# ensure that folder for first time step, 0, has the same fields as all other folder
-# usually it does not, so easy way is to just copy fields from next time step into 0 folder
+./Allrun.pre-mesh
+./Allrun.post-mesh
 
-
-# reconstruct the parallel filess for all times, or for only specific times
-# reconstructPar
-# reconstructPar -time '2,4'
-
-# convert OpenFOAM format to VTK files
-foamToVTK

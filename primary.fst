@@ -8,7 +8,7 @@ False       Echo        - Echo input data to "echo.out" (flag)
    1        AnalMode    - Analysis mode {1: Run a time-marching simulation, 2: create a periodic linearized model} (switch)
    2        NumBl       - Number of blades (-)
  3000.0     TMax        - Total run time (s)
-  0.001     DT          - Integration time step (s)
+9999.9     DT          - Integration time step (s)    // DCS: It seems like this variable is unused for OpenFOAM-FAST coupled version.  Aero forces are calculated accoring to OF timestep, I think.
 ---------------------- TURBINE CONTROL -----------------------------------------
    0        YCMode      - Yaw control mode {0: none, 1: user-defined from routine UserYawCont, 2: user-defined from Simulink} (switch)
 9999.9      TYCOn       - Time to enable active yaw control (s) [unused when YCMode=0]
@@ -80,7 +80,7 @@ False       CompNoise   - Compute aerodynamic noise (flag)
    1        PSpnElN     - Number of the innermost blade element which is still part of the pitchable portion of the blade for partial-span pitch control [1 to BldNodes] [CURRENTLY IGNORED] (-)
    0.0      UndSling    - Undersling length [distance from teeter pin to the rotor apex] (meters) [unused for 3 blades]
    0.0      HubCM       - Distance from rotor apex to hub mass [positive downwind] (meters)
-  -0.508    OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)
+  -0.5      OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)
    0.0      NacCMxn     - Downwind distance from the tower-top to the nacelle CM (meters)
    0.0      NacCMyn     - Lateral  distance from the tower-top to the nacelle CM (meters)
    0.0508   NacCMzn     - Vertical distance from the tower-top to the nacelle CM (meters)
@@ -164,7 +164,7 @@ False       Furling     - Read in additional model properties for furling turbin
 ---------------------- ADAMS ---------------------------------------------------
 "unused.dat"          ADAMSFile   - Name of file containing ADAMS-specific input parameters (quoted string) [unused when ADAMSPrep=1]
 ---------------------- LINEARIZATION CONTROL -----------------------------------
-"unused.dat"                 LinFile     - Name of file containing FAST linearization parameters (quoted string) [unused when AnalMode=1]
+"unused.dat"          LinFile     - Name of file containing FAST linearization parameters (quoted string) [unused when AnalMode=1]
 ---------------------- OUTPUT --------------------------------------------------
 True        SumPrint    - Print summary data to "<RootName>.fsm" (flag)
 True        TabDelim    - Generate a tab-delimited tabular output file. (flag)

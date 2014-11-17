@@ -1,0 +1,18 @@
+#!/bin/sh
+cd ${0%/*} || exit 1 # run from this directory
+
+# Source tutorial clean functions
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+
+# Delete the decomposed fields
+rm -rf processor*
+
+## Delete the reconstructed fields
+# Delete all integer time directories
+ls | grep -P "^[0-9]$" | xargs -d"\n" rm -rf
+# Delete all decimal time directories
+ls | grep -P "^[0-9].*[0-9]$" | xargs -d"\n" rm -rf
+
+rm -rf postProcessing
+rm -rf 0

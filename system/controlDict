@@ -19,9 +19,11 @@ application       fastfoam;
 
 libs              ("libuserfiniteVolume.so");
 
-startFrom         startTime;
+// startFrom         startTime;
+ startFrom         latestTime;
 
-startTime         0.0;
+// startTime         0.0;
+startTime         10.0;
 
 startTimeMean     1.0;
 
@@ -29,13 +31,13 @@ startTimeCorr     2.0;
 
 stopAt            endTime;
 
-endTime           1.0;
+endTime           20.0;
 
-deltaT            0.01;
+deltaT            0.002;
 
 writeControl      adjustableRunTime;
 
-writeInterval     0.1; 
+writeInterval     0.02; 
 
 purgeWrite        0;
 
@@ -54,8 +56,9 @@ timePrecision     12;
 runTimeModifiable yes;
 
 adjustTimeStep    no;
+// adjustTimeStep    yes;
 
-maxCo             0.75;
+maxCo             0.25;
 
 maxDeltaT         25.0;
 

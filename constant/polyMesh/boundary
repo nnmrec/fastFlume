@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    bottom
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          28320;
+        startFace       3175916;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  top;
+    }
+    top
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          28320;
+        startFace       3204236;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  bottom;
+    }
+    west
+    {
+        type            inflow;
+        nFaces          1824;
+        startFace       3232556;
+        faces           ( ( 0 4 7 3 ) );
+    }
+    east
+    {
+        type            outflow;
+        nFaces          1824;
+        startFace       3234380;
+        faces           ( ( 1 2 6 5 ) );
+    }
+    north
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          22420;
+        startFace       3236204;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  south;
+    }
+    south
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          22420;
+        startFace       3258624;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  north;
+    }
+)
+
+// ************************************************************************* //

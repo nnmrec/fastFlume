@@ -14,7 +14,7 @@ NONE        HLModel     - Hub-loss model (EQUIL only) [PRANdtl or NONE] (unquote
 9999.9      T_Shad_Refpt- Tower-shadow reference point (m)
    1000.0   AirDens     - Air density (kg/m^3)
    0.000001 KinVisc     - Kinematic air viscosity [CURRENTLY IGNORED] (m^2/sec)
-   0.001    DTAero      - Time interval for aerodynamic calculations (sec)
+9999.9      DTAero      - Time interval for aerodynamic calculations (sec) 		// DCS: It seems like this variable is unused for OpenFOAM-FAST coupled version.  Aero forces are calculated accoring to OF timestep, I think.
    29       NumFoil     - Number of airfoil files (-)
 "AeroData/NACA4415.dat"                         FoilNm      - Names of the airfoil files [NumFoil lines] (quoted strings)
 "AeroData/NACA4415.dat"
