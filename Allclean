@@ -35,6 +35,7 @@ rm -rf turbineOutput/*
 # mv ./blockMeshDict constant/polyMesh/blockMeshDict
 
 rm -rf 0
+rm -rf 0.unused
 
 # # Delete all integer time directories
 # ls | grep -P "^[0-9]$" | xargs -d"\n" rm -rf

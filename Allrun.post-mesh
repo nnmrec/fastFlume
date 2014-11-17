@@ -26,6 +26,10 @@ mpirun -np $(($nodes*$cores)) pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamT
 reconstructPar
 # reconstructPar -time '2,4'
 
+# ignore the 0 directory, it does not contain all the same fields
+# as later times, so it easiest to post-process by ignoring it
+mv 0 0.unused
+
 ## compute additional fields, like vorticity
 vorticity
 Lambda2
