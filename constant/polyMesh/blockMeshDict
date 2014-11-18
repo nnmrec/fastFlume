@@ -31,7 +31,8 @@ convertToMeters 1;
 // zf   200.0;      // Maximum z coordinate
 
 // modified mesh for lab scale
-xi   0.0;      // Minimum x coordinate  
+// xi   0.0;      // Minimum x coordinate
+xi   3.0;      // Minimum x coordinate  
 xf  12.3;      // Maximum x coordinate
 yi   0.0;      // Minimum y coordinate
 yf   1.0;      // Maximum y coordinate
@@ -73,6 +74,8 @@ boundary
    bottom
    {
      type cyclic;
+     // type slip;           // gives error
+     // type zeroGradient;   // gives error
      neighbourPatch top;
      faces
      (
@@ -83,6 +86,8 @@ boundary
    top
    {
      type cyclic;
+     // type slip;           // gives error
+     // type zeroGradient;   // gives error     
      neighbourPatch bottom;
      faces
      (
@@ -111,6 +116,8 @@ boundary
    north
    {
      type cyclic;
+     // type slip;           // gives error
+     // type zeroGradient;   // gives error
      neighbourPatch south;
      faces
      (
@@ -121,6 +128,8 @@ boundary
    south
    {
      type cyclic;
+     // type slip;           // gives error
+     // type zeroGradient;   // gives error     
      neighbourPatch north;
      faces
      (

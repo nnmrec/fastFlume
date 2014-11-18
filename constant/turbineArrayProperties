@@ -29,7 +29,8 @@ turbine1
 {
     turbineType         "DOE-Tidal-Ref-Model_LabScale";
     // baseLocation        (4.0 -0.225 0.0);
-    baseLocation        (4.5 0.275 0.0);   // account for OverHang distance
+    // baseLocation        (4.5 0.275 0.0);   // account for OverHang distance 
+    baseLocation        (4.5 0.44375 0.0);   // account for OverHang distance
     numBladePoints      30;
     pointDistType       "uniform";
     pointInterpType     "linear";
@@ -69,7 +70,7 @@ turbine3
 {
     turbineType         "DOE-Tidal-Ref-Model_LabScale";
     // baseLocation        (8.5 0.225 0.0);
-    baseLocation        (9.0 0.725 0.0);    // account for overHang distance
+    baseLocation        (9.0 0.55625 0.0);    // account for overHang distance
     numBladePoints      30;
     pointDistType       "uniform";
     pointInterpType     "linear";
