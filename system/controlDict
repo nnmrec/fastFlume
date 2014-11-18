@@ -22,12 +22,11 @@ libs              ("libuserfiniteVolume.so");
 // startFrom         startTime;
  startFrom         latestTime;
 
-// startTime         0.0;
-startTime         10.0;
+startTime         0.0;
 
-startTimeMean     1.0;
+startTimeMean     0.0;
 
-startTimeCorr     2.0;
+startTimeCorr     0.0;
 
 stopAt            endTime;
 
