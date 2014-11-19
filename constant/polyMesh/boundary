@@ -19,57 +19,41 @@ FoamFile
 (
     bottom
     {
-        type            cyclic;
-        inGroups        1(cyclic);
-        nFaces          28320;
-        startFace       3175916;
-        matchTolerance  0.0001;
-        transform       unknown;
-        neighbourPatch  top;
+        type            wall;
+        nFaces          23250;
+        startFace       2746150;
     }
     top
     {
-        type            cyclic;
-        inGroups        1(cyclic);
-        nFaces          28320;
-        startFace       3204236;
-        matchTolerance  0.0001;
-        transform       unknown;
-        neighbourPatch  bottom;
+        type            wall;
+        nFaces          23250;
+        startFace       2769400;
     }
     west
     {
         type            inflow;
-        nFaces          1824;
-        startFace       3232556;
+        nFaces          2000;
+        startFace       2792650;
         faces           ( ( 0 4 7 3 ) );
     }
     east
     {
         type            outflow;
-        nFaces          1824;
-        startFace       3234380;
+        nFaces          2000;
+        startFace       2794650;
         faces           ( ( 1 2 6 5 ) );
     }
     north
     {
-        type            cyclic;
-        inGroups        1(cyclic);
-        nFaces          22420;
-        startFace       3236204;
-        matchTolerance  0.0001;
-        transform       unknown;
-        neighbourPatch  south;
+        type            wall;
+        nFaces          18600;
+        startFace       2796650;
     }
     south
     {
-        type            cyclic;
-        inGroups        1(cyclic);
-        nFaces          22420;
-        startFace       3258624;
-        matchTolerance  0.0001;
-        transform       unknown;
-        neighbourPatch  north;
+        type            wall;
+        nFaces          18600;
+        startFace       2815250;
     }
 )
 
