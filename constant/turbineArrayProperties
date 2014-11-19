@@ -35,7 +35,7 @@ turbine1
     pointDistType       "uniform";
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
-    epsilon             0.026648
+    epsilon             0.026648;
     tipRootLossCorrType "none";
     rotationDir         "cw";
     Azimuth             0;

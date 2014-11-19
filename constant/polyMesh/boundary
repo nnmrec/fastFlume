@@ -20,40 +20,40 @@ FoamFile
     bottom
     {
         type            wall;
-        nFaces          23250;
-        startFace       2746150;
+        nFaces          52350;
+        startFace       9324270;
     }
     top
     {
         type            wall;
-        nFaces          23250;
-        startFace       2769400;
+        nFaces          52350;
+        startFace       9376620;
     }
     west
     {
         type            inflow;
-        nFaces          2000;
-        startFace       2792650;
+        nFaces          4500;
+        startFace       9428970;
         faces           ( ( 0 4 7 3 ) );
     }
     east
     {
         type            outflow;
-        nFaces          2000;
-        startFace       2794650;
+        nFaces          4500;
+        startFace       9433470;
         faces           ( ( 1 2 6 5 ) );
     }
     north
     {
         type            wall;
-        nFaces          18600;
-        startFace       2796650;
+        nFaces          41880;
+        startFace       9437970;
     }
     south
     {
         type            wall;
-        nFaces          18600;
-        startFace       2815250;
+        nFaces          41880;
+        startFace       9479850;
     }
 )
 
