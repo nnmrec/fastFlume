@@ -50,9 +50,6 @@ general
   epsilon                 0.04;
   smearRadius             0.1052;
   effectiveRadiusFactor   1.467556;  
-  epsilon                 0.04;
-  smearRadius             0.1052;
-  effectiveRadiusFactor   1.467556;  
   pointInterpType         1;
 }
 
