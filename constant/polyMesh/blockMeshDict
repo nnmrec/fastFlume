@@ -41,9 +41,9 @@ zf   0.8;      // Maximum z coordinate
 // Nx   384;      // Number of elements in x direction
 // Ny   64;      // Number of elements in y direction
 // Nz    48;      // Number of elements in z direction
-Nx   590;      // Number of elements in x direction
-Ny    48;      // Number of elements in y direction
-Nz    38;      // Number of elements in z direction
+Nx   465;      // Number of elements in x direction
+Ny    50;      // Number of elements in y direction
+Nz    40;      // Number of elements in z direction
 
 
 vertices
