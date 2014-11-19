@@ -35,14 +35,22 @@ turbine1
     pointDistType       "uniform";
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
+<<<<<<< HEAD
     // epsilon             0.041667;
     epsilon             0.015763;
+=======
+    epsilon             0.04;
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
     tipRootLossCorrType "none";
     rotationDir         "cw";
     Azimuth             0;
     TorqueGen                                                9999.9;
     // RotSpeed            373.7;
+<<<<<<< HEAD
     RotSpeed            289.450034;
+=======
+    RotSpeed            289.45;
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
     Pitch               0;
     NacYaw              -90;
     fluidDensity        1000.0;
@@ -57,14 +65,22 @@ turbine2
     pointDistType       "uniform";
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
+<<<<<<< HEAD
     // epsilon             0.041667;
     epsilon             0.015763;    
+=======
+    epsilon             0.04;    
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
     tipRootLossCorrType "none";
     rotationDir         "cw";
     Azimuth             45;
     TorqueGen                                                9999.9;
     // RotSpeed            373.7;
+<<<<<<< HEAD
     RotSpeed            289.450034;    
+=======
+    RotSpeed            289.45;    
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
     Pitch               0;
     NacYaw              -90;
     fluidDensity        1000.0;
@@ -79,14 +95,22 @@ turbine3
     pointDistType       "uniform";
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
+<<<<<<< HEAD
     // epsilon             0.041667;
     epsilon             0.015763;    
+=======
+    epsilon             0.04;
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
     tipRootLossCorrType "none";
     rotationDir         "cw";
     Azimuth             90;
     TorqueGen                                                9999.9;
     // RotSpeed            373.7;
+<<<<<<< HEAD
     RotSpeed            289.450034;    
+=======
+    RotSpeed            289.45;    
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
     Pitch               0;
     NacYaw              -90;
     fluidDensity        1000.0;

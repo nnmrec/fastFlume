@@ -23,20 +23,26 @@ boundaryField
 {
     bottom
     {
-      type cyclic;
+      // type cyclic;
+      type slip;
+      // type zeroGradient
     }
  
     top
     {
-      type cyclic;
+      // type cyclic;
+      type slip;     
+      // type zeroGradient       
     }
 
+    // inlet
     west
     {
       type            fixedValue;
       value           uniform ( 1.1 0 0 );
     }
 
+    // outlet
     east
     {
       type            zeroGradient;
@@ -44,12 +50,16 @@ boundaryField
 
     north
     {
-      type cyclic;
+      // type cyclic;
+      type slip;  
+      // type zeroGradient          
     }
 
     south
     {
-      type cyclic;
+      // type cyclic;
+      type slip; 
+      // type zeroGradient           
     }
 }
 

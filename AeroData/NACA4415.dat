@@ -1,17 +1,17 @@
 AeroDyn airfoil file.  Compatible with AeroDyn v13.0.
 NACA 4415, Re=.083 Million, Smooth roughness, raw wind tunnel data smoothed by hand. Viterna Extended w/ AR=6.75. Fourth column is the minimum pressure coefficient.
-  1           Number of airfoil tables in this file
-  0.083        Table ID parameter (Reynolds number in millions).  For efficiency, make very large if only one table.
-  14       Stall angle (deg)
-   0.0      No longer used, enter zero
-   0.0      No longer used, enter zero
-   0.0      No longer used, enter zero
-  -3.5           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  2.5          Angle of attack for minimum CD (deg)
-  0.0239          Minimum CD value
+  1         Number of airfoil tables in this file
+  0.083     Table ID parameter (Reynolds number in millions).  For efficiency, make very large if only one table.
+  13        Stall angle (deg)
+   0.0       No longer used, enter zero
+   0.0       No longer used, enter zero
+   0.0       No longer used, enter zero
+  -3.278    Zero lift angle of attack (deg)
+  5.492     Cn slope for zero lift (dimensionless)
+  1.618     Cn at stall value for positive angle of attack
+  -0.3278   Cn at stall value for negative angle of attack
+  0.0       Angle of attack for minimum CD (deg)
+  0.0053    Minimum CD value
 -180.00	0	1	-1.0000
 -170.00	0	1	-1.0000
 -160.00	0	1	-1.0000

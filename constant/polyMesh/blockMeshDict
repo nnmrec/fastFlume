@@ -41,12 +41,19 @@ zf   0.8;      // Maximum z coordinate
 // Nx   384;      // Number of elements in x direction
 // Ny   64;      // Number of elements in y direction
 // Nz    48;      // Number of elements in z direction
+<<<<<<< HEAD
 // Nx   590;      // Number of elements in x direction
 // Ny    48;      // Number of elements in y direction
 // Nz    38;      // Number of elements in z direction
 Nx  1180;      // Number of elements in x direction
 Ny    96;      // Number of elements in y direction
 Nz    76;      // Number of elements in z direction
+=======
+// Mesh=coarse
+Nx   465;      // Number of elements in x direction
+Ny    50;      // Number of elements in y direction
+Nz    40;      // Number of elements in z direction
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
 
 
 vertices
@@ -76,9 +83,11 @@ boundary
 
    bottom
    {
-     type cyclic;
+     // type cyclic;
+     type wall;
      // type slip;           // gives error
      // type zeroGradient;   // gives error
+      // type patch     // gives error
      neighbourPatch top;
      faces
      (
@@ -88,9 +97,11 @@ boundary
 
    top
    {
-     type cyclic;
+     // type cyclic;
+     type wall;    
      // type slip;           // gives error
-     // type zeroGradient;   // gives error     
+     // type zeroGradient;   // gives error
+      // type patch     
      neighbourPatch bottom;
      faces
      (
@@ -118,9 +129,11 @@ boundary
 
    north
    {
-     type cyclic;
+     // type cyclic;
+     type wall;    
      // type slip;           // gives error
      // type zeroGradient;   // gives error
+      // type patch    
      neighbourPatch south;
      faces
      (
@@ -130,9 +143,11 @@ boundary
   
    south
    {
-     type cyclic;
+     // type cyclic;
+     type wall;    
      // type slip;           // gives error
      // type zeroGradient;   // gives error     
+      // type patch
      neighbourPatch north;
      faces
      (

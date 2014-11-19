@@ -30,9 +30,14 @@ startTimeCorr     0.0;
 
 stopAt            endTime;
 
-endTime           20.0;
+endTime           0.1;
+// endTime           20.0;
 
+<<<<<<< HEAD
 deltaT            0.001;
+=======
+deltaT            0.0025;
+>>>>>>> origin/Mesh=coarse_Turbines=3_TSR=6.2_Layour=5D-axial-offset
 
 writeControl      adjustableRunTime;
 
