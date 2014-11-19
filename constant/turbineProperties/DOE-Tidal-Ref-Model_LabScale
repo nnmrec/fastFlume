@@ -34,7 +34,7 @@ GenTorqueControllerType            "none";
 GenTorqueRateLimiter                false;
 NacYawControllerType               "none";
 BladePitchControllerType           "none";
-RatedRotSpeed                       373.7;
+RatedRotSpeed                       9999.9;   // I think only relevant when using generator control
 RotSpeedLimiter                      true;
 NacYawRateLimiter                    true;
 BladePitchRateLimiter                true;

@@ -30,9 +30,10 @@ startTimeCorr     0.0;
 
 stopAt            endTime;
 
-endTime           20.0;
+endTime           0.1;
+// endTime           20.0;
 
-deltaT            0.002;
+deltaT            0.0025;
 
 writeControl      adjustableRunTime;
 
