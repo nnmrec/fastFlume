@@ -32,8 +32,8 @@ convertToMeters 1;
 
 // modified mesh for lab scale
 // xi   0.0;      // Minimum x coordinate
-xi   3.0;      // Minimum x coordinate  
-xf  12.3;      // Maximum x coordinate
+xi   0.0;      // Minimum x coordinate  
+xf   3.6;      // Maximum x coordinate
 yi   0.0;      // Minimum y coordinate
 yf   1.0;      // Maximum y coordinate
 zi   0.0;      // Minimum z coordinate
@@ -43,9 +43,9 @@ zf   0.8;      // Maximum z coordinate
 // Nz    48;      // Number of elements in z direction
 
 // Mesh=medium
-Nx   698;      // Number of elements in x direction
-Ny    75;      // Number of elements in y direction
-Nz    60;      // Number of elements in z direction
+Nx   540;      // Number of elements in x direction
+Ny    150;      // Number of elements in y direction
+Nz    120;      // Number of elements in z direction
 
 vertices
 (
