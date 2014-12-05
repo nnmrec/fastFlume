@@ -11,3 +11,5 @@ offset_trans = 0.25R
 
 best luck.
 
+activated: tip loss models
+

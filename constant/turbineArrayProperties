@@ -36,8 +36,8 @@ turbine1
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
     // epsilon             0.041667;
-    epsilon             0.015763;
-    tipRootLossCorrType "none";
+    epsilon             0.04;
+    tipRootLossCorrType "Glauert";
     rotationDir         "cw";
     Azimuth             0;
     TorqueGen                                                9999.9;
@@ -57,8 +57,8 @@ turbine2
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
     // epsilon             0.041667;
-    epsilon             0.015763;    
-    tipRootLossCorrType "none";
+    epsilon             0.04;    
+    tipRootLossCorrType "Glauert";
     rotationDir         "cw";
     Azimuth             45;
     TorqueGen                                                9999.9;
@@ -78,8 +78,8 @@ turbine3
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
     // epsilon             0.041667;
-    epsilon             0.015763;    
-    tipRootLossCorrType "none";
+    epsilon             0.04;    
+    tipRootLossCorrType "Glauert";
     rotationDir         "cw";
     Azimuth             90;
     TorqueGen                                                9999.9;
