@@ -19,34 +19,34 @@ FoamFile
 
 convertToMeters 1;
 
-// original mesh from fastDuct
-// Nx  250;      // Number of elements in x direction
-// Ny  100;      // Number of elements in y direction
-// Nz  100;      // Number of elements in z direction
-// xi   0.0;      // Minimum x coordinate  
-// xf  1000.0;      // Maximum x coordinate
-// yi   -100.0;      // Minimum y coordinate
-// yf   100.0;      // Maximum y coordinate
-// zi   0.0;      // Minimum z coordinate
-// zf   200.0;      // Maximum z coordinate
-
-// modified mesh for lab scale
-// xi   0.0;      // Minimum x coordinate
-xi   0.0;      // Minimum x coordinate  
-xf   3.6;      // Maximum x coordinate
+// dimensions of the Bamfield flume
+// xi   0.0;      // Minimum x coordinate (inlet of flume)
+xi   3.0;      // Minimum x coordinate (can ignore the upstream section of flume)
+xf  12.3;      // Maximum x coordinate (outlet of flume)
 yi   0.0;      // Minimum y coordinate
-yf   1.0;      // Maximum y coordinate
+yf   1.0;      // Maximum y coordinate (width of flume)
 zi   0.0;      // Minimum z coordinate
-zf   0.8;      // Maximum z coordinate
-// Nx   384;      // Number of elements in x direction
-// Ny   64;      // Number of elements in y direction
-// Nz    48;      // Number of elements in z direction
+zf   0.8;      // Maximum z coordinate (free surface of flume)
 
-// Mesh=medium
-Nx   540;      // Number of elements in x direction
-Ny    150;      // Number of elements in y direction
-Nz    120;      // Number of elements in z direction
+// adjust mesh size (number of cells in x, y, z)
+// note that size of epsilon (body force spreading) and time step 
+// are effected by mesh size ... see the included spreadsheet file
+// 'Parameters-ActuatorMethod.ods' to help estimate reasonable values.
 
+// mesh=coarse
+Nx 465;
+Ny 50;
+Nz 40;
+// mesh=medium
+// Nx 698;
+// Ny 75;
+// Nz 60;
+// mesh=fine
+// Nx 1047;
+// Ny 113;
+// Nz 90;
+
+// define the bounding box
 vertices
 (
     ($xi $yi $zi) //0
@@ -76,9 +76,6 @@ boundary
    {
      // type cyclic;
      type wall;
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error
-      // type patch     // gives error
      neighbourPatch top;
      faces
      (
@@ -89,10 +86,7 @@ boundary
    top
    {
      // type cyclic;
-     type wall;    
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error
-      // type patch     
+     type wall;       
      neighbourPatch bottom;
      faces
      (
@@ -121,10 +115,7 @@ boundary
    north
    {
      // type cyclic;
-     type wall;    
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error
-      // type patch    
+     type wall;      
      neighbourPatch south;
      faces
      (
@@ -136,9 +127,6 @@ boundary
    {
      // type cyclic;
      type wall;    
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error     
-      // type patch
      neighbourPatch north;
      faces
      (
