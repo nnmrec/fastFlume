@@ -5,6 +5,12 @@
 %%
 %%  Last Modified: January 9, 2009
 %%
+%%
+%%
+%% notes: 
+%% This document compiles very easily using the
+%% LaTeX Tools package of Sublime Text.
+%%
 
 \documentclass[xcolor=x11names,compress]{beamer}
 
@@ -93,10 +99,10 @@ xrightmargin=0.5em
 \title{Study of Hydrokinetic Turbine Arrays with Large Eddy Simulation}
 \subtitle{\small "fastFlume" tutorial for SOWFA}
 
-% \author{Danny Clay Sale\\
-% 		Nick Stelzenmuller\\
-% 		Teymour Javaherchi\\
-% 		Alberto Aliseda}
+\author{Danny Clay Sale (dsale@uw.edu)\\
+		Nick Stelzenmuller\\
+		Teymour Javaherchi\\
+		Alberto Aliseda}
 
 \institute{\small University of Washington, Seattle, WA, USA\\
            Dept. Mechanical Engineering\\
@@ -214,7 +220,7 @@ xrightmargin=0.5em
 
 	\end{frame}
 
-		\begin{frame}{Visualization of Tip Vortex}
+	\begin{frame}{Visualization of Tip Vortex}
 
 		\begin{figure}[p]
 		    \item bubbles are released from the nacelle to visualize tip vortex (movie)
@@ -417,27 +423,86 @@ then body forces are projected back onto flow field. \footnotemark
 	\begin{frame}{Future Work}
 
 		\begin{itemize}
-			\item Code and Computers
+			\item \small Code and Computers
 				\begin{itemize}
-					\item prototype simulations for running on more powerful hardware
+					\item \small prototype simulations for running on more powerful hardware
 					\item shared memory, distributed memory, co-processors
 					\item want to understand resolution required to resolve wakes and turbine performance accurately
 					\item based upon free and opensource software					
 				\end{itemize}
 
-			\item Ambient Turbulence
+			\item \small Ambient Turbulence
 				\begin{itemize}
-					\item turbulent structures within ambient flow can cause loading events with significance comparable to when turbines operate in upstream wakes
+					\item \small turbulent structures within ambient flow can cause loading events with significance comparable to when turbines operate in upstream wakes
 					\item boundary data on inlet planes generated from either precursor LES or synthetic turbulence methods (e.g. pyTurbSim)
 				\end{itemize}
 
-			\item Control Strategies
+			\item \small Control Strategies
 				\begin{itemize}
-					\item dynamical model of rotor drivertrain to allow variable TSR as response to fluctuations in rotor torque
+					\item \small dynamical model of rotor drivertrain to allow variable TSR as response to fluctuations in rotor torque
 					\item rotor speed and pitch control for "in-water" dynamometer testing
 				\end{itemize}
 		\end{itemize}
 	
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape Validation}
+
+\subsection{RANS-experiment-setup}
+	
+	\begin{frame}{}
+
+		\scriptsize Simulations were performed with Reynolds Averaged Navier-Stokes (RANS) methods 
+		to resolve geometry of blades and nacelle. Turbine wakes measured using
+		particle image velocimetry (PIV) and acoustic Doppler velocimetry (ADV), and efficiency derived from
+		torque and rotational speed measurements. \footnotemark
+
+		\footnotetext{\footnotesize T. Javaherchi, N. Stelzenmuller, A. Aliseda (2013, 2014) }
+
+		\vspace{-10pt}
+
+		\begin{figure}[p]
+		    \centering
+		    \includegraphics[width=0.9\textwidth]{figures/validation-RANS-experiment-setup.png}
+		    % \caption{\footnotesize turbines in flume}
+		    \label{fig:RANS-and-experiment-setup}
+		\end{figure}
+
+	\end{frame}
+
+
+\subsection{Single Turbine}
+	
+	\begin{frame}{}
+
+		\begin{figure}[p]
+		    \centering
+		    \includegraphics[width=0.75\textwidth]{figures/validation-RANS-experiment_single-turbine_performance-and-wake-1.png}
+		    \label{fig:single-turbine}
+		\end{figure}
+
+	\end{frame}
+
+\subsection{Turbine Array}
+	
+	\begin{frame}{}
+
+		\begin{figure}[p]
+		    \centering
+		    \includegraphics[width=0.65\textwidth]{figures/validation-RANS-experiment_turbine-array_performance-and-wake-1.png}
+		    \label{fig:turbine-array}
+		\end{figure}
+
 	\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
