@@ -1,8 +1,10 @@
 # auxillary LaTeX files #
 ###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so 
+docs/figures/*.aux
+docs/figures/*.fdb_latexmk
+docs/figures/*.log
+docs/figures/*.nav
+docs/figures/*.out
+docs/figures/*.snm
+docs/figures/*.synctex.gz
+docs/figures/*.toc

@@ -99,20 +99,12 @@ xrightmargin=0.5em
 \title{Study of Hydrokinetic Turbine Arrays with Large Eddy Simulation}
 \subtitle{\small "fastFlume" tutorial for SOWFA}
 
-\author{Danny Clay Sale (dsale@uw.edu)\\
-		Nick Stelzenmuller\\
-		Teymour Javaherchi\\
-		Alberto Aliseda}
+\author{Danny Clay Sale (dsale@uw.edu)}
 
 \institute{\small University of Washington, Seattle, WA, USA\\
            Dept. Mechanical Engineering\\
            Northwest National Marine Renewable Energy Center}
            
-
-% \date{\scriptsize 67th Annual Meeting of the APS Division of Fluid Dynamics\\
-%       Sunday November 23, 2014\\
-%       San Francisco, California, USA}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Main body of document
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -256,9 +248,9 @@ xrightmargin=0.5em
 \small The turbine model uses the 
 velocity field from the LES to compute the 
 hydrodynamic forces imparted on the turbine blades, and
-then body forces are projected back onto flow field. \footnotemark
-% \footnotetext{\tiny NWTC Information Portal (SOWFA).  https://nwtc.nrel.gov/SOWFA. Last modified 30-Sept.-2014 ; Accessed 22-Nov.-2014}
-\footnotetext{\footnotesize NWTC Information Portal (SOWFA). https://nwtc.nrel.gov/SOWFA}
+then body forces are projected back onto flow field. 
+\footnote{\tiny NWTC Information Portal (SOWFA). https://nwtc.nrel.gov/SOWFA}
+% \footnote{\tiny NWTC Information Portal (SOWFA).  https://nwtc.nrel.gov/SOWFA. Last modified 30-Sept.-2014 ; Accessed 22-Nov.-2014}
 
 \vspace{-5pt}
 
@@ -423,23 +415,23 @@ then body forces are projected back onto flow field. \footnotemark
 	\begin{frame}{Future Work}
 
 		\begin{itemize}
-			\item \small Code and Computers
+			\item \footnotesize Code and Computers
 				\begin{itemize}
-					\item \small prototype simulations for running on more powerful hardware
+					\item \footnotesize prototype simulations for running on more powerful hardware
 					\item shared memory, distributed memory, co-processors
 					\item want to understand resolution required to resolve wakes and turbine performance accurately
 					\item based upon free and opensource software					
 				\end{itemize}
 
-			\item \small Ambient Turbulence
+			\item \footnotesize Ambient Turbulence
 				\begin{itemize}
-					\item \small turbulent structures within ambient flow can cause loading events with significance comparable to when turbines operate in upstream wakes
+					\item \footnotesize turbulent structures within ambient flow can cause loading events with significance comparable to when turbines operate in upstream wakes
 					\item boundary data on inlet planes generated from either precursor LES or synthetic turbulence methods (e.g. pyTurbSim)
 				\end{itemize}
 
-			\item \small Control Strategies
+			\item \footnotesize Control Strategies
 				\begin{itemize}
-					\item \small dynamical model of rotor drivertrain to allow variable TSR as response to fluctuations in rotor torque
+					\item \footnotesize dynamical model of rotor drivertrain to allow variable TSR as response to fluctuations in rotor torque
 					\item rotor speed and pitch control for "in-water" dynamometer testing
 				\end{itemize}
 		\end{itemize}
@@ -465,15 +457,19 @@ then body forces are projected back onto flow field. \footnotemark
 		\scriptsize Simulations were performed with Reynolds Averaged Navier-Stokes (RANS) methods 
 		to resolve geometry of blades and nacelle. Turbine wakes measured using
 		particle image velocimetry (PIV) and acoustic Doppler velocimetry (ADV), and efficiency derived from
-		torque and rotational speed measurements. \footnotemark
+		torque and rotational speed measurements. 
+		\footnote{\tiny T. Javaherchi, N. Stelzenmuller and A. Aliseda (2013) EXPERIMENTAL AND NUMERICAL ANALYSIS OF THE DOE REFERENCE MODEL 1 HORIZONTAL AXIS HYDROKINETIC TURBINE, GMREC, Washington D.C. }
+			% http://depts.washington.edu/nnmrec/docs/Javaherchi_1stMETS_DOERM1_final.pdf
+		\footnote{\tiny T. Javaherchi (2014) Numerical investigation of Marine Hydrokinetic Turbines: methodology development for single turbine and small array simulation, and application to flume and full-scale reference models. PhD thesis, University of Washington }
+			% http://depts.washington.edu/nnmrec/docs/20140822_JavaherchiT_thesis_TurbineModeling.pdf
+		\footnote{\tiny N. Stelzenmuller (2013) Marine Hydrokinetic Turbine Array Performance and Wake Characteristics. MS thesis, University of Washington }
+			% http://depts.washington.edu/nnmrec/docs/20131209_StelzenmullerN_thesis_ArrayOptimization.pdf
 
-		\footnotetext{\footnotesize T. Javaherchi, N. Stelzenmuller, A. Aliseda (2013, 2014) }
-
-		\vspace{-10pt}
+		\vspace{-5pt}
 
 		\begin{figure}[p]
 		    \centering
-		    \includegraphics[width=0.9\textwidth]{figures/validation-RANS-experiment-setup.png}
+		    \includegraphics[width=0.75\textwidth]{figures/validation-RANS-experiment-setup.png}
 		    % \caption{\footnotesize turbines in flume}
 		    \label{fig:RANS-and-experiment-setup}
 		\end{figure}
@@ -505,6 +501,14 @@ then body forces are projected back onto flow field. \footnotemark
 
 	\end{frame}
 
+\subsection{to-do}
+	
+	\begin{frame}{}
+
+		To-do: tabulate output from LES to compare with RANS and experiments.
+
+	\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -521,14 +525,5 @@ then body forces are projected back onto flow field. \footnotemark
 % 	\begin{frame}{Questions??? Suggestions???}
 
 % 	\end{frame}
-
-
-
-
-
-
-
-
-
 
 \end{document}
