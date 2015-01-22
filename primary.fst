@@ -8,7 +8,7 @@ False       Echo        - Echo input data to "echo.out" (flag)
    1        AnalMode    - Analysis mode {1: Run a time-marching simulation, 2: create a periodic linearized model} (switch)
    2        NumBl       - Number of blades (-)
  3000.0     TMax        - Total run time (s)
-9999.9     DT          - Integration time step (s)    // DCS: It seems like this variable is unused for OpenFOAM-FAST coupled version.  Aero forces are calculated accoring to OF timestep, I think.
+9999.9      DT          - Integration time step (s)    // DCS: It seems like this variable is unused for OpenFOAM-FAST coupled version.  Aero forces are calculated accoring to OF timestep, I think.
 ---------------------- TURBINE CONTROL -----------------------------------------
    0        YCMode      - Yaw control mode {0: none, 1: user-defined from routine UserYawCont, 2: user-defined from Simulink} (switch)
 9999.9      TYCOn       - Time to enable active yaw control (s) [unused when YCMode=0]
@@ -52,12 +52,12 @@ True        GenTiStp    - Method to stop the generator {T: timed using TimGenOf,
 ---------------------- ENVIRONMENTAL CONDITIONS --------------------------------
    9.80665      Gravity     - Gravitational acceleration (m/s^2)
 ---------------------- FEATURE FLAGS -------------------------------------------
-False        FlapDOF1    - First flapwise blade mode DOF (flag)
-False        FlapDOF2    - Second flapwise blade mode DOF (flag)
-False        EdgeDOF     - First edgewise blade mode DOF (flag)
+False       FlapDOF1    - First flapwise blade mode DOF (flag)
+False       FlapDOF2    - Second flapwise blade mode DOF (flag)
+False       EdgeDOF     - First edgewise blade mode DOF (flag)
 False       TeetDOF     - Rotor-teeter DOF (flag) [unused for 3 blades]
 False       DrTrDOF     - Drivetrain rotational-flexibility DOF (flag)
-False        GenDOF      - Generator DOF (flag)
+False       GenDOF      - Generator DOF (flag)
 False       YawDOF      - Yaw DOF (flag)
 False       TwFADOF1    - First fore-aft tower bending-mode DOF (flag)
 False       TwFADOF2    - Second fore-aft tower bending-mode DOF (flag)
@@ -106,7 +106,7 @@ False       CompNoise   - Compute aerodynamic noise (flag)
 ---------------------- DRIVETRAIN ----------------------------------------------
  100.0      GBoxEff     - Gearbox efficiency (%)
  100.0      GenEff      - Generator efficiency [ignored by the Thevenin and user-defined generator models] (%)
-  1.0      GBRatio     - Gearbox ratio (-)
+  1.0       GBRatio     - Gearbox ratio (-)
 False       GBRevers    - Gearbox reversal {T: if rotor and generator rotate in opposite directions} (flag)
   28.1162E3 HSSBrTqF    - Fully deployed HSS-brake torque (N-m)
    0.6      HSSBrDT     - Time for HSS-brake to reach full deployment once initiated (sec) [used only when HSSBrMode=1]
@@ -203,4 +203,3 @@ True        TabDelim    - Generate a tab-delimited tabular output file. (flag)
 
 END of FAST input file (the word "END" must appear in the first 3 columns of this last line).
 --------------------------------------------------------------------------------
-

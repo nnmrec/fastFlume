@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
 ---------------------- FAST INDIVIDUAL BLADE FILE ------------------------------
-case5.
+This file should be ignored because degrees-of-freedom for blade is disabled (rigid blades)
 ---------------------- BLADE PARAMETERS ----------------------------------------
-   30        NBlInpSt    - Number of blade input stations (-)
+   30       NBlInpSt    - Number of blade input stations (-)
 False       CalcBMode   - Calculate blade mode shapes internally {T: ignore mode shapes from below, F: use mode shapes from below} [CURRENTLY IGNORED] (flag)
    1.0      BldFlDmp(1) - Blade flap mode #1 structural damping in percent of critical (%)
    1.0      BldFlDmp(2) - Blade flap mode #2 structural damping in percent of critical (%)

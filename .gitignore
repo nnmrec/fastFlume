@@ -1,0 +1,8 @@
+# auxillary LaTeX files #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so 
