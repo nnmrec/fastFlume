@@ -9,7 +9,7 @@
 %%
 %% notes: 
 %% This document compiles very easily using the
-%% LaTeX Tools package of Sublime Text.
+%% LaTeX Tools or LaTeXing packages of Sublime Text.
 %%
 
 \documentclass[xcolor=x11names,compress]{beamer}
@@ -20,36 +20,34 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{decorations.fractals}
-% \usepackage{movie9}
-% \usepackage{movie15}
-
-% \usepackage{multicol}
-
-% \usepackage{tabularx,ragged2e}
-% \usepackage{booktabs}
-
 \usepackage{color}
-
 \usepackage{listings}
 \lstset{ %
-language=[LaTeX]TeX,
-basicstyle=\normalsize\ttfamily,
-keywordstyle=,
-numbers=left,
-numberstyle=\tiny\ttfamily,
-stepnumber=1,
-showspaces=false,
-showstringspaces=false,
-showtabs=false,
-breaklines=true,
-frame=tb,
-framerule=0.5pt,
-tabsize=4,
-framexleftmargin=0.5em,
-framexrightmargin=0.5em,
-xleftmargin=0.5em,
-xrightmargin=0.5em
-}
+		language=[LaTeX]TeX,
+		basicstyle=\normalsize\ttfamily,
+		keywordstyle=,
+		numbers=left,
+		numberstyle=\tiny\ttfamily,
+		stepnumber=1,
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		breaklines=true,
+		frame=tb,
+		framerule=0.5pt,
+		tabsize=4,
+		framexleftmargin=0.5em,
+		framexrightmargin=0.5em,
+		xleftmargin=0.5em,
+		xrightmargin=0.5em
+		}
+
+% \usepackage{multicol}
+% \renewcommand{\(}{\begin{columns}}
+% \renewcommand{\)}{\end{columns}}
+% \newcommand{\<}[1]{\begin{column}{#1}}
+% \renewcommand{\>}{\end{column}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Beamer Layout 
@@ -57,33 +55,50 @@ xrightmargin=0.5em
 \useoutertheme[subsection=false,shadow]{miniframes}
 
 
-
 %% A simple footer only with page-number
 \setbeamertemplate{footline}[page number]
-
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
-
 \useinnertheme{default}
 \usefonttheme{serif}
 \usepackage{palatino}
-
 \setbeamerfont{title like}{shape=\scshape}
 \setbeamerfont{frametitle}{shape=\scshape}
-
 \setbeamercolor*{lower separation line head}{bg=DeepSkyBlue4} 
 \setbeamercolor*{normal text}{fg=black,bg=white} 
 \setbeamercolor*{alerted text}{fg=red} 
 \setbeamercolor*{example text}{fg=black} 
 \setbeamercolor*{structure}{fg=black} 
- 
 \setbeamercolor*{palette tertiary}{fg=black,bg=black!10} 
 \setbeamercolor*{palette quaternary}{fg=black,bg=black!10} 
 
-\renewcommand{\(}{\begin{columns}}
-\renewcommand{\)}{\end{columns}}
-\newcommand{\<}[1]{\begin{column}{#1}}
-\renewcommand{\>}{\end{column}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Citations and Bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=bibtex,
+			style=ieee,
+			natbib=true,
+			firstinits=true,
+			maxnames=99,
+			volume=false,
+			number=false,
+			pages=false,
+			doi=false,
+			url=false,
+			issn=false]
+			{biblatex}
+
+\addbibresource{fastFlume.bib}
+\renewcommand*{\bibfont}{\footnotesize}
+% \\renewcommand*{\bibfont}{\footnotesize}
+% {\footnotesize\bibliography{fastFlume.bib}}
+
+\setbeamertemplate{bibliography item}[text]
+
+\newcommand{\customcite}[1]{\citeauthor{#1}, \citetitle{#1}, \citeyear{#1}}
+\newcommand{\customfootcite}[1]{\footnote{\citeauthor{#1}, \citetitle{#1}, \citeyear{#1}}}
+
+\setbeamerfont{footnote}{size=\tiny}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,7 +117,7 @@ xrightmargin=0.5em
 \author{Danny Clay Sale (dsale@uw.edu)}
 
 \institute{\small University of Washington, Seattle, WA, USA\\
-           Dept. Mechanical Engineering\\
+           Department of Mechanical Engineering\\
            Northwest National Marine Renewable Energy Center}
            
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,8 +190,6 @@ xrightmargin=0.5em
 		        \begin{figure}[p]
 				    \centering
 				    \includegraphics[width=1.1\textwidth]{figures/Nicks_turbines_redesign.png}
-				    % \caption{\footnotesize lab scale turbines and flume}
-				    \label{fig:Nicks turbines}
 				\end{figure}
 
 		    \end{column}
@@ -205,8 +218,6 @@ xrightmargin=0.5em
 		\begin{figure}[p]
 		    \centering
 		    \includegraphics[width=1.0\textwidth]{figures/flume_and_description_v2.png}
-		    % \caption{\footnotesize turbines in flume}
-		    \label{fig:turbines in flume}
 		\end{figure}
 
 
@@ -218,8 +229,6 @@ xrightmargin=0.5em
 		    \item bubbles are released from the nacelle to visualize tip vortex (movie)
 		    \centering
 		    \includegraphics[width=1.0\textwidth]{figures/turbine_tip_vortex_and_bubbles.png}
-		    % \caption{\footnotesize turbines in flume}
-		    \label{fig:tip-vortex-and-bubbles}
 		\end{figure}
 
 
@@ -235,24 +244,18 @@ xrightmargin=0.5em
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\scshape Numerical Methods}
-
-\subsection{LES and ALM}
-
+\section{\scshape Numerical Model}
 
 \subsection{LES and ALM}
 \begin{frame}{}
 
-% \vspace{-5pt}
-
 \small The turbine model uses the 
 velocity field from the LES to compute the 
 hydrodynamic forces imparted on the turbine blades, and
-then body forces are projected back onto flow field. 
-\footnote{\tiny NWTC Information Portal (SOWFA). https://nwtc.nrel.gov/SOWFA}
-% \footnote{\tiny NWTC Information Portal (SOWFA).  https://nwtc.nrel.gov/SOWFA. Last modified 30-Sept.-2014 ; Accessed 22-Nov.-2014}
+then body forces are projected back onto flow field.
+\footfullcite{SOWFA_a}
 
-\vspace{-5pt}
+\vspace{-10pt}
 
 \begin{columns}
 		    
@@ -264,8 +267,6 @@ then body forces are projected back onto flow field.
         \begin{figure}[p]
 		    \centering
 		    \includegraphics[width=1.1\textwidth]{figures/LES_and_cartoon_actuator_line.png}
-		    % \caption{\footnotesize lab scale turbines and flume}
-		    \label{fig:cartoon_actuator_line}
 		\end{figure}
 
     \end{column}
@@ -318,17 +319,6 @@ then body forces are projected back onto flow field.
 
 \subsection{3 turbines}
 
-	% \begin{frame}{Turbines=3  TSR=6.2  Mesh=(coarse, medium)}
-
-	% 	\begin{itemize}
-	% 		\item \LARGE movie time ;-)
-	% 			\begin{itemize}
-	% 	            \item \tiny fastFlume  Turbines=3 TSR=6.2 Layout=offset Mesh=coarse BC=slip.gif
-	% 	            \item \tiny fastFlume  Turbines=3 TSR=6.2 Layout=offset Mesh=medium BC=slip.gif
-	%             \end{itemize}
- %        \end{itemize}
-	% \end{frame}
-
 	\begin{frame}{Turbines=3  TSR=6.2  Mesh=(coarse, medium)}
 		
 		\begin{columns}
@@ -336,10 +326,8 @@ then body forces are projected back onto flow field.
 		    \begin{column}{0.6\textwidth}
 		        \begin{figure}[p]
 				    \centering
-				    \includegraphics[width=0.8\textwidth]{figures/fastFlume-v5__Turbines=3_TSR=6p2_Layout=offset_Mesh=coarse_maxTime=10__0741.png}
-				    % \caption{\footnotesize coarse mesh (465x50x40), \Delta x = 0.020 m, TSR = 6.2}
+				    \includegraphics[width=0.8\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=coarse.png}
 				    \caption{\scriptsize{coarse mesh 465x50x40, dx = 0.020 m}}
-				    % \label{coarse mesh (465x50x40), slip-BC, TSR 6.2}
 				\end{figure}
 
 		    \end{column}
@@ -347,11 +335,8 @@ then body forces are projected back onto flow field.
 		    \begin{column}{0.6\textwidth}
 		        \begin{figure}[p]
 				    \centering
-				    % \includegraphics[width=0.8\textwidth]{figures/fastFlume-v6__Turbines=3_TSR=6p2_Layout=offset_Mesh=medium_maxTime=3p72__0183.png}
-				    \includegraphics[width=0.8\textwidth]{figures/fastFlume-v6__Turbines=3_TSR=6p2_Layout=offset_Mesh=medium_maxTime=10.png}
-				    % \caption{\footnotesize medium mesh (698x75x60), \Delta x = 0.013 m, TSR = 6.2}
+				    \includegraphics[width=0.8\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=medium.png}
 				    \caption{\scriptsize{medium mesh 698x75x60, dx = 0.013 m}}
-				    % \label{coarse mesh (465x50x40), periodic-BC, TSR 7}
 				\end{figure}
 
 		    \end{column}
@@ -360,14 +345,16 @@ then body forces are projected back onto flow field.
 
 	\end{frame}
 
-	% \begin{frame}{at higher resolution}
-	% 	\begin{figure}[p]
-	% 	    \centering
-	% 	    \includegraphics[width=0.65\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=medium_maxTime=15_BC=slip.png}
-	% 	    \caption{\footnotesize medium mesh (698x75x60), slip-BC, TSR 7}
-	% 	    \label{fig:medium mesh (698x75x60), slip-BC, TSR 7}
-	% 	\end{figure}
-	% \end{frame}
+
+	\begin{frame}{at higher resolution}
+
+		\begin{figure}[p]
+		    \centering
+    		\includegraphics[width=1.05\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=fine.png}
+		    \caption{\scriptsize{fine mesh 1047x113x90, dx = 0.00885 m}}
+		\end{figure}
+
+	\end{frame}
 
 \subsection{analysis}
 	
@@ -377,24 +364,8 @@ then body forces are projected back onto flow field.
 
 		\begin{figure}[p]
 		    \centering
-		    \includegraphics[width=1.090\textwidth]{figures/Analysis_Slide.png}
-		    % \caption{\footnotesize medium mesh (698x75x60), slip-BC, TSR 7}
-		    % \label{fig:medium mesh (698x75x60), slip-BC, TSR 7}
+		    \includegraphics[width=1.08\textwidth]{figures/Analysis_Slide.png}
 		\end{figure}
-
-		  %   \begin{column}{0.6\textwidth}
-		  %       % \rule{\textwidth}{0.75\textwidth}
-
-				% \begin{itemize}
-				% 	\item \small can observe moments when wakes impact rotors
-				% 	\item passage of rotor blades apparent in FFT, higher freqs. due to turbulence
-				% 	\item LES still too coarse for quantitative comparison yet
-				% 	\item care is needed to compute efficiency of individual turbines in farms
-				% \end{itemize}
-
-		  %   \end{column}
-		    
-
 
 	\end{frame}
 
@@ -458,20 +429,18 @@ then body forces are projected back onto flow field.
 		to resolve geometry of blades and nacelle. Turbine wakes measured using
 		particle image velocimetry (PIV) and acoustic Doppler velocimetry (ADV), and efficiency derived from
 		torque and rotational speed measurements. 
-		\footnote{\tiny T. Javaherchi, N. Stelzenmuller and A. Aliseda (2013) EXPERIMENTAL AND NUMERICAL ANALYSIS OF THE DOE REFERENCE MODEL 1 HORIZONTAL AXIS HYDROKINETIC TURBINE, GMREC, Washington D.C. }
-			% http://depts.washington.edu/nnmrec/docs/Javaherchi_1stMETS_DOERM1_final.pdf
-		\footnote{\tiny T. Javaherchi (2014) Numerical investigation of Marine Hydrokinetic Turbines: methodology development for single turbine and small array simulation, and application to flume and full-scale reference models. PhD thesis, University of Washington }
-			% http://depts.washington.edu/nnmrec/docs/20140822_JavaherchiT_thesis_TurbineModeling.pdf
-		\footnote{\tiny N. Stelzenmuller (2013) Marine Hydrokinetic Turbine Array Performance and Wake Characteristics. MS thesis, University of Washington }
-			% http://depts.washington.edu/nnmrec/docs/20131209_StelzenmullerN_thesis_ArrayOptimization.pdf
+		% \customfootcite{Javaherchi_a}
+		% \customfootcite{Stelzenmuller_a}
+		% \customfootcite{Javaherchi_b}
+		\footfullcite{Javaherchi_a}
+		\footfullcite{Stelzenmuller_a}
+		\footfullcite{Javaherchi_b}
 
 		\vspace{-5pt}
 
 		\begin{figure}[p]
 		    \centering
 		    \includegraphics[width=0.75\textwidth]{figures/validation-RANS-experiment-setup.png}
-		    % \caption{\footnotesize turbines in flume}
-		    \label{fig:RANS-and-experiment-setup}
 		\end{figure}
 
 	\end{frame}
@@ -484,7 +453,6 @@ then body forces are projected back onto flow field.
 		\begin{figure}[p]
 		    \centering
 		    \includegraphics[width=0.75\textwidth]{figures/validation-RANS-experiment_single-turbine_performance-and-wake-1.png}
-		    \label{fig:single-turbine}
 		\end{figure}
 
 	\end{frame}
@@ -496,7 +464,6 @@ then body forces are projected back onto flow field.
 		\begin{figure}[p]
 		    \centering
 		    \includegraphics[width=0.65\textwidth]{figures/validation-RANS-experiment_turbine-array_performance-and-wake-1.png}
-		    \label{fig:turbine-array}
 		\end{figure}
 
 	\end{frame}
@@ -505,7 +472,7 @@ then body forces are projected back onto flow field.
 	
 	\begin{frame}{}
 
-		To-do: tabulate output from LES to compare with RANS and experiments.
+		ongoing work: tabulate output from LES to overlay with RANS and experiments
 
 	\end{frame}
 
@@ -519,11 +486,25 @@ then body forces are projected back onto flow field.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{\scshape Outro}
+\section{\scshape Outro}
 
-% \subsection{THANKS}
-% 	\begin{frame}{Questions??? Suggestions???}
+\subsection{}
+	\begin{frame}{}
+		Thanks to SOWFA developers! Thanks to everybody involved with 
+		modeling and validation of DOE Reference Model turbines!
 
-% 	\end{frame}
+		\printbibliography[heading=none]
 
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
