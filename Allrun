@@ -6,3 +6,4 @@ cd ${0%/*} || exit 1 # run from this directory
 
 ./Allrun.pre-mesh
 ./Allrun.post-mesh
+./Allrun.post-process
