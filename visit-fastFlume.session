@@ -16456,7 +16456,7 @@
         </Object>
         <Object name="ViewerSubject">
             <Object name="SourceMap">
-                <Field name="SOURCE00" type="string">"localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale/VTK/fastFlume-RC3_FullScale_*.vtk database"</Field>
+                <Field name="SOURCE00" type="string">"localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScaleSingle/VTK/fastFlume-RC3_FullScaleSingle_*.vtk database"</Field>
             </Object>
             <Object name="SourcePlugins">
                 <Field name="localhost:/home/danny/vtk/fastFlume_v3_*.vtk database" type="string">VTK_1.0</Field>
@@ -16467,6 +16467,7 @@
                 <Field name="localhost:/mnt/data-RAID-10/danny/fastFlume-RC2_mesh=coarse/VTK/fastFlume-RC2_mesh=coarse_*.vtk database" type="string">VTK_1.0</Field>
                 <Field name="localhost:/mnt/data-RAID-10/danny/fastFlume-RC2_mesh=coarse/VTK/fastFlume-RC2_mesh=coarse_800.vtk" type="string">VTK_1.0</Field>
                 <Field name="localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale/VTK/fastFlume-RC3_FullScale_*.vtk database" type="string">VTK_1.0</Field>
+                <Field name="localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScaleSingle/VTK/fastFlume-RC3_FullScaleSingle_*.vtk database" type="string">VTK_1.0</Field>
                 <Field name="localhost:/mnt/data-RAID-10/danny/fastFlume-alpha_mesh=fine/VTK/fastFlume-alpha_mesh=fine_1667.vtk" type="string">VTK_1.0</Field>
                 <Field name="localhost:/mnt/data-RAID-10/danny/fastFlume-alpha_mesh=fine/VTK/fastFlume-alpha_mesh=fine_467.vtk" type="string">VTK_1.0</Field>
                 <Field name="localhost:/mnt/data-RAID-10/danny/fastFlume__v4/VTK/fastFlume__v4_*.vtk database" type="string">VTK_1.0</Field>
@@ -16492,7 +16493,7 @@
                     <Object name="ViewerWindow">
                         <Field name="windowSize" type="intArray" length="2">1327 1362 </Field>
                         <Field name="windowImageSize" type="intArray" length="2">1327 1294 </Field>
-                        <Field name="windowLocation" type="intArray" length="2">1755 1150 </Field>
+                        <Field name="windowLocation" type="intArray" length="2">1470 1150 </Field>
                         <Field name="cameraView" type="bool">true</Field>
                         <Field name="maintainView" type="bool">false</Field>
                         <Field name="viewExtentsType" type="string">AVT_ORIGINAL_EXTENTS</Field>
@@ -17412,7 +17413,7 @@
                                 <Field name="objectName" type="string">Plot0018</Field>
                                 <Field name="objectType" type="string">LegendAttributes</Field>
                                 <Field name="visible" type="bool">true</Field>
-                                <Field name="active" type="bool">true</Field>
+                                <Field name="active" type="bool">false</Field>
                                 <Field name="position" type="doubleArray" length="3">0 0.49 0 </Field>
                                 <Field name="position2" type="doubleArray" length="3">0.75 0.6 1 </Field>
                                 <Object name="textColor">
@@ -17442,7 +17443,7 @@
                                 <Field name="intAttribute3" type="int">1</Field>
                                 <Field name="doubleVector1" type="doubleVector">0.00416145 0.0832289 </Field>
                                 <Field name="stringVector1" type="stringVector">"" "" </Field>
-                                <Field name="stringVector2" type="stringVector">"0.00416145" "0.0832289" </Field>
+                                <Field name="stringVector2" type="stringVector">"0.00399498" "0.0798995" </Field>
                             </Object>
                             <Object name="AnnotationObject">
                                 <Field name="objectName" type="string">time</Field>
@@ -17472,7 +17473,7 @@
                                 <Field name="fontBold" type="bool">false</Field>
                                 <Field name="fontItalic" type="bool">false</Field>
                                 <Field name="fontShadow" type="bool">false</Field>
-                                <Field name="doubleAttribute1" type="double">1</Field>
+                                <Field name="doubleAttribute1" type="double">0.326633</Field>
                                 <Field name="intAttribute1" type="int">3</Field>
                                 <Field name="intAttribute2" type="int">0</Field>
                                 <Field name="intAttribute3" type="int">0</Field>
@@ -17592,7 +17593,7 @@
                                 <Field name="objectName" type="string">Plot0024</Field>
                                 <Field name="objectType" type="string">LegendAttributes</Field>
                                 <Field name="visible" type="bool">true</Field>
-                                <Field name="active" type="bool">false</Field>
+                                <Field name="active" type="bool">true</Field>
                                 <Field name="position" type="doubleArray" length="3">0 0.31 0 </Field>
                                 <Field name="position2" type="doubleArray" length="3">0.75 0.6 1 </Field>
                                 <Object name="textColor">
