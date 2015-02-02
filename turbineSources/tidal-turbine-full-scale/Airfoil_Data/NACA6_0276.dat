@@ -3,14 +3,14 @@ This file was generated automatically by HARP_Opt.
 This data represents a 27.6 percent thick airfoil, and was interpolated between the airfoil data in the files NACA6_1000.dat and NACA6_0240.dat.
   7           Number of airfoil tables in this file
  2.000         Table ID parameter Reynolds number in millions
- 0.0 Control Setting 
-23.816         Stall angle (deg)
-  0           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  0           Angle of attack for minimum CD (deg)
-  0           Minimum CD value
+0      Control Setting (integer)
+25.0000  Stall angle (deg)
+-2.7132  Zero Cn angle of attack (deg)
+6.3608   Cn slope for zero lift (dimensionless)
+3.0766   Cn extrapolated to value at positive stall angle of attack
+-0.5690  Cn at stall value for negative angle of attack
+-1.0000  Angle of attack for minimum CD (deg)
+0.0212   Minimum CD value
 -180.000    0.0000    0.0237    -1.0947
 -170.000    0.2972    0.0237    -1.0947
 -160.000    0.5944    0.0815    -1.0947
@@ -85,14 +85,14 @@ This data represents a 27.6 percent thick airfoil, and was interpolated between 
 180.000    0.0000    0.0237    -1.0947
 EOT 1
  4.000         Table ID parameter Reynolds number in millions
- 0.0 Control Setting 
-24.768         Stall angle (deg)
-  0           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  0           Angle of attack for minimum CD (deg)
-  0           Minimum CD value
+0      Control Setting (integer)
+26.0000  Stall angle (deg)
+-2.6091  Zero Cn angle of attack (deg)
+6.6979   Cn slope for zero lift (dimensionless)
+3.3444   Cn extrapolated to value at positive stall angle of attack
+-0.6148  Cn at stall value for negative angle of attack
+0.0000   Angle of attack for minimum CD (deg)
+0.0378   Minimum CD value
 -180.000    0.0000    0.0413    -1.0947
 -170.000    0.3115    0.0413    -1.0947
 -160.000    0.6231    0.0877    -1.0947
@@ -164,14 +164,14 @@ EOT 1
 180.000    0.0000    0.0413    -1.0947
 EOT 2
  6.000         Table ID parameter Reynolds number in millions
- 0.0 Control Setting 
-23.816         Stall angle (deg)
-  0           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  0           Angle of attack for minimum CD (deg)
-  0           Minimum CD value
+0      Control Setting (integer)
+25.0000  Stall angle (deg)
+-2.8983  Zero Cn angle of attack (deg)
+6.3174   Cn slope for zero lift (dimensionless)
+3.0761   Cn extrapolated to value at positive stall angle of attack
+-0.6397  Cn at stall value for negative angle of attack
+-1.0000  Angle of attack for minimum CD (deg)
+0.0390   Minimum CD value
 -180.000    0.0000    0.0427    -1.0947
 -170.000    0.3231    0.0427    -1.0947
 -160.000    0.6463    0.0804    -1.0947
@@ -245,14 +245,14 @@ EOT 2
 180.000    0.0000    0.0427    -1.0947
 EOT 3
  8.000         Table ID parameter Reynolds number in millions
- 0.0 Control Setting 
-23.816         Stall angle (deg)
-  0           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  0           Angle of attack for minimum CD (deg)
-  0           Minimum CD value
+0      Control Setting (integer)
+25.0000  Stall angle (deg)
+-2.9291  Zero Cn angle of attack (deg)
+6.3006   Cn slope for zero lift (dimensionless)
+3.0713   Cn extrapolated to value at positive stall angle of attack
+-0.6492  Cn at stall value for negative angle of attack
+0.0000   Angle of attack for minimum CD (deg)
+0.0388   Minimum CD value
 -180.000    0.0000    0.0427    -1.0947
 -170.000    0.3872    0.0427    -1.0947
 -160.000    0.7745    0.0957    -1.0947
@@ -317,14 +317,14 @@ EOT 3
 180.000    0.0000    0.0427    -1.0947
 EOT 4
 10.000         Table ID parameter Reynolds number in millions
- 0.0 Control Setting 
-24.768         Stall angle (deg)
-  0           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  0           Angle of attack for minimum CD (deg)
-  0           Minimum CD value
+0      Control Setting (integer)
+26.0000  Stall angle (deg)
+-2.9825  Zero Cn angle of attack (deg)
+6.2214   Cn slope for zero lift (dimensionless)
+3.1470   Cn extrapolated to value at positive stall angle of attack
+-0.6469  Cn at stall value for negative angle of attack
+0.0000   Angle of attack for minimum CD (deg)
+0.0387   Minimum CD value
 -180.000    0.0000    0.0427    -1.0947
 -170.000    0.3342    0.0427    -1.0947
 -160.000    0.6685    0.0713    -1.0947
@@ -394,14 +394,14 @@ EOT 4
 180.000    0.0000    0.0427    -1.0947
 EOT 5
 12.000         Table ID parameter Reynolds number in millions
- 0.0 Control Setting 
-23.816         Stall angle (deg)
-  0           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  0           Angle of attack for minimum CD (deg)
-  0           Minimum CD value
+0      Control Setting (integer)
+25.0000  Stall angle (deg)
+-2.9794  Zero Cn angle of attack (deg)
+6.2440   Cn slope for zero lift (dimensionless)
+3.0492   Cn extrapolated to value at positive stall angle of attack
+-0.6593  Cn at stall value for negative angle of attack
+-1.0000  Angle of attack for minimum CD (deg)
+0.0387   Minimum CD value
 -180.000    0.0000    0.0427    -1.0947
 -170.000    0.3520    0.0427    -1.0947
 -160.000    0.7039    0.0744    -1.0947
@@ -472,14 +472,14 @@ EOT 5
 180.000    0.0000    0.0427    -1.0947
 EOT 6
 14.000         Table ID parameter Reynolds number in millions
- 0.0 Control Setting 
-23.816         Stall angle (deg)
-  0           Zero lift angle of attack (deg)
-  0           Cn slope for zero lift (dimensionless)
-  0           Cn at stall value for positive angle of attack
-  0           Cn at stall value for negative angle of attack
-  0           Angle of attack for minimum CD (deg)
-  0           Minimum CD value
+0      Control Setting (integer)
+25.0000  Stall angle (deg)
+-2.8538  Zero Cn angle of attack (deg)
+6.4074   Cn slope for zero lift (dimensionless)
+3.1149   Cn extrapolated to value at positive stall angle of attack
+-0.6719  Cn at stall value for negative angle of attack
+0.0000   Angle of attack for minimum CD (deg)
+0.0386   Minimum CD value
 -180.000    0.0000    0.0427    -1.0947
 -170.000    0.3392    0.0427    -1.0947
 -160.000    0.6784    0.0675    -1.0947

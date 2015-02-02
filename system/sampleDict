@@ -76,7 +76,7 @@ fields
 // //      curve, cloud: list of coordinates
 sets
 (
-    
+    // (lab-scale)
     // diameters relative 
     // to upstream turbine      location x
     // =======================================
@@ -106,8 +106,8 @@ sets
     {
         type        uniform;
         axis        distance;
-        start       (3.6 0.0 0.4);
-        end         (3.6 1.0 0.4);
+        start       (60.0 114.0 25.0);
+        end         (60.0 114.0 25.0);
         nPoints     16;
     }
 
@@ -116,18 +116,18 @@ sets
     {
         type        uniform;
         axis        distance;    
-        start       (5.85 0.0 0.4);
-        end         (5.85 1.0 0.4);
+        start       (160.0 114.0 25.0);
+        end         (160.0 114.0 25.0);
         nPoints     16;
     }
 
-    // relative to upstream turbine, horizontal line probe Diameters = 8
+    // relative to upstream turbine, horizontal line probe Diameters = 6
     lineX3
     {
         type        uniform;
         axis        distance;
-        start       (8.1 0.0 0.4);
-        end         (8.1 1.0 0.4);
+        start       (220.0 114.0 25.0);
+        end         (220.0 114.0 25.0);
         nPoints     16;
     } 
 
@@ -146,7 +146,7 @@ surfaces
     constantPlane1
     {
         type            plane;    // always triangulated
-        basePoint       (3.6 0.5 0.4);
+        start           (60.0 114.0 25.0);
         normalVector    (1 0 0);
     }
 
@@ -154,15 +154,15 @@ surfaces
     constantPlane2
     {
         type            plane;    // always triangulated
-        basePoint       (5.85 0.5 0.4);
+        start           (160.0 114.0 25.0);
         normalVector    (1 0 0);
     }
 
-    // relative to upstream turbine, transverse plane Diameters = 8
+    // relative to upstream turbine, transverse plane Diameters = 6
     constantPlane3
     {
         type            plane;    // always triangulated
-        basePoint       (8.1 0.5 0.4);
+        start           (220.0 114.0 25.0);
         normalVector    (1 0 0);
     }
 

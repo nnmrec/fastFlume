@@ -70,22 +70,22 @@ False       CompNoise   - Compute aerodynamic noise (flag)
    0.0      IPDefl      - Initial in-plane blade-tip deflection (meters)
    0.0      TeetDefl    - Initial or fixed teeter angle (degrees) [unused for 3 blades]
    0.0      Azimuth     - Initial azimuth angle for blade 1 (degrees)
-   327.0    RotSpeed    - Initial or fixed rotor speed (rpm)
+   11.5     RotSpeed    - Initial or fixed rotor speed (rpm)
    0.0      NacYaw      - Initial or fixed nacelle-yaw angle (degrees)
    0.0      TTDspFA     - Initial fore-aft tower-top displacement (meters)
    0.0      TTDspSS     - Initial side-to-side tower-top displacement (meters)
 ---------------------- TURBINE CONFIGURATION -----------------------------------
-  0.225000  TipRad      - The distance from the rotor apex to the blade tip (meters)
-  0.028575  HubRad      - The distance from the rotor apex to the blade root (meters)
+ 10.0       TipRad      - The distance from the rotor apex to the blade tip (meters)
+  1.0       HubRad      - The distance from the rotor apex to the blade root (meters)
    1        PSpnElN     - Number of the innermost blade element which is still part of the pitchable portion of the blade for partial-span pitch control [1 to BldNodes] [CURRENTLY IGNORED] (-)
    0.0      UndSling    - Undersling length [distance from teeter pin to the rotor apex] (meters) [unused for 3 blades]
    0.0      HubCM       - Distance from rotor apex to hub mass [positive downwind] (meters)
-  -0.5      OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)
+  -0.001    OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)
    0.0      NacCMxn     - Downwind distance from the tower-top to the nacelle CM (meters)
    0.0      NacCMyn     - Lateral  distance from the tower-top to the nacelle CM (meters)
-   0.0508   NacCMzn     - Vertical distance from the tower-top to the nacelle CM (meters)
-0.3429      TowerHt     - Height of tower above ground level [onshore] or MSL [offshore] (meters)
- 0.0508     Twr2Shft    - Vertical distance from the tower-top to the rotor shaft (meters)
+   0.001    NacCMzn     - Vertical distance from the tower-top to the nacelle CM (meters)
+  30.0      TowerHt     - Height of tower above ground level [onshore] or MSL [offshore] (meters)
+ 0.001      Twr2Shft    - Vertical distance from the tower-top to the rotor shaft (meters)
    0.0      TwrRBHt     - Tower rigid base height (meters)
    0.0      ShftTilt    - Rotor shaft tilt angle (degrees)
    0.0      Delta3      - Delta-3 angle for teetering rotors (degrees) [unused for 3 blades]
@@ -132,7 +132,7 @@ False       GBRevers    - Gearbox reversal {T: if rotor and generator rotate in 
             PtfmFile    - Name of file containing platform properties (quoted string) [unused when PtfmModel=0]
 ---------------------- TOWER ---------------------------------------------------
   20        TwrNodes    - Number of tower nodes used for analysis (-)
-"DOE-Tidal-Ref-Model_LabScale_Tower.dat"          TwrFile     - Name of file containing tower properties (quoted string)
+"DOE-Tidal-Ref-Model_FullScale_Tower.dat"          TwrFile     - Name of file containing tower properties (quoted string)
 ---------------------- NACELLE-YAW ---------------------------------------------
 9028.32E6   YawSpr      - Nacelle-yaw spring constant (N-m/rad)
   19.16E6   YawDamp     - Nacelle-yaw damping constant (N-m/(rad/s))
@@ -154,11 +154,11 @@ False       Furling     - Read in additional model properties for furling turbin
    0.0      TBDrConD    - Tip-brake drag constant during fully-deployed operation, Cd*Area (m^2)
    0.0      TpBrDT      - Time for tip-brake to reach full deployment once released (sec)
 ---------------------- BLADE ---------------------------------------------------
-"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(1)  - Name of file containing properties for blade 1 (quoted string)
-"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(2)  - Name of file containing properties for blade 2 (quoted string)
-"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(3)  - Name of file containing properties for blade 3 (quoted string) [unused for 2 blades]
+"DOE-Tidal-Ref-Model_FullScale_Blade.dat"                  BldFile(1)  - Name of file containing properties for blade 1 (quoted string)
+"DOE-Tidal-Ref-Model_FullScale_Blade.dat"                  BldFile(2)  - Name of file containing properties for blade 2 (quoted string)
+"DOE-Tidal-Ref-Model_FullScale_Blade.dat"                  BldFile(3)  - Name of file containing properties for blade 3 (quoted string) [unused for 2 blades]
 ---------------------- AERODYN -------------------------------------------------
-"DOE-Tidal-Ref-Model_LabScale_AeroDyn.ipt"                ADFile      - Name of file containing AeroDyn input parameters (quoted string)
+"DOE-Tidal-Ref-Model_FullScale_AeroDyn.ipt"                ADFile      - Name of file containing AeroDyn input parameters (quoted string)
 ---------------------- NOISE ---------------------------------------------------
             NoiseFile   - Name of file containing aerodynamic noise input parameters (quoted string) [used only when CompNoise=True]
 ---------------------- ADAMS ---------------------------------------------------
