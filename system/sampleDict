@@ -146,7 +146,7 @@ surfaces
     constantPlane1
     {
         type            plane;    // always triangulated
-        start           (60.0 114.0 30.0);
+        basePoint       (60.0 114.0 30.0);
         normalVector    (1 0 0);
     }
 
@@ -154,7 +154,7 @@ surfaces
     constantPlane2
     {
         type            plane;    // always triangulated
-        start           (160.0 114.0 30.0);
+        basePoint       (160.0 114.0 30.0);
         normalVector    (1 0 0);
     }
 
@@ -162,7 +162,7 @@ surfaces
     constantPlane3
     {
         type            plane;    // always triangulated
-        start           (220.0 114.0 30.0);
+        basePoint       (220.0 114.0 30.0);
         normalVector    (1 0 0);
     }
 
