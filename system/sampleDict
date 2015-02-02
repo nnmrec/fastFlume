@@ -106,8 +106,8 @@ sets
     {
         type        uniform;
         axis        distance;
-        start       (60.0 114.0 25.0);
-        end         (60.0 114.0 25.0);
+        start       (60.0   0.0 30.0);
+        end         (60.0 248.0 30.0);
         nPoints     16;
     }
 
@@ -116,8 +116,8 @@ sets
     {
         type        uniform;
         axis        distance;    
-        start       (160.0 114.0 25.0);
-        end         (160.0 114.0 25.0);
+        start       (160.0   0.0 30.0);
+        end         (160.0 248.0 30.0);
         nPoints     16;
     }
 
@@ -126,8 +126,8 @@ sets
     {
         type        uniform;
         axis        distance;
-        start       (220.0 114.0 25.0);
-        end         (220.0 114.0 25.0);
+        start       (220.0   0.0 30.0);
+        end         (220.0 248.0 30.0);
         nPoints     16;
     } 
 
@@ -146,7 +146,7 @@ surfaces
     constantPlane1
     {
         type            plane;    // always triangulated
-        start           (60.0 114.0 25.0);
+        start           (60.0 114.0 30.0);
         normalVector    (1 0 0);
     }
 
@@ -154,7 +154,7 @@ surfaces
     constantPlane2
     {
         type            plane;    // always triangulated
-        start           (160.0 114.0 25.0);
+        start           (160.0 114.0 30.0);
         normalVector    (1 0 0);
     }
 
@@ -162,7 +162,7 @@ surfaces
     constantPlane3
     {
         type            plane;    // always triangulated
-        start           (220.0 114.0 25.0);
+        start           (220.0 114.0 30.0);
         normalVector    (1 0 0);
     }
 

@@ -34,12 +34,12 @@ mv 0 0.unused
 # vorticity -latestTime
 # Lambda2 -latestTime
 # pPrime2 -latestTime
-# vorticity
+Lambda2
+pPrime2
+vorticity
 foamCalc components U
 foamCalc components UMean
 foamCalc components vorticity
-Lambda2
-pPrime2
 
 ## convert OpenFOAM format to VTK files
 # foamToVTK -noZero -fields '(U p bodyForce vorticity Lambda2)'
