@@ -32,7 +32,7 @@ turbine1
     pointDistType       "uniform";
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
-    epsilon             4.0;
+    epsilon             2.0;
     tipRootLossCorrType "Glauert";
     rotationDir         "ccw";
     Azimuth             0;
@@ -51,7 +51,7 @@ turbine2
     pointDistType       "uniform";
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
-    epsilon             4.0;    
+    epsilon             2.0;    
     tipRootLossCorrType "Glauert";
     rotationDir         "cw";
     Azimuth             90;
