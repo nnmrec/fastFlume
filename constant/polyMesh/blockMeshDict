@@ -23,7 +23,7 @@ convertToMeters 1;
 xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
 xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
 yi   0.0;      // Minimum y coordinate
-yf 248.0;      // Maximum y coordinate (width of flume)
+yf 220.0;      // Maximum y coordinate (width of flume)
 zi   0.0;      // Minimum z coordinate
 zf  50.0;      // Maximum z coordinate (free surface of flume)
 
@@ -34,7 +34,7 @@ zf  50.0;      // Maximum z coordinate (free surface of flume)
 
 // mesh=coarse
 Nx 250;
-Ny 124;
+Ny 110;
 Nz 25;
 // mesh=medium
 // Nx 375;

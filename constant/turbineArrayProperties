@@ -43,21 +43,3 @@ turbine1
     fluidDensity        1025.0;
 }
 
-turbine2
-{
-    turbineType         "DOE-Tidal-Ref-Model_FullScale";
-    baseLocation        (100.0 138.0 0.0);   // no account for OverHang distance
-    numBladePoints      30;
-    pointDistType       "uniform";
-    pointInterpType     "linear";
-    bladeUpdateType     "oldPosition";
-    epsilon             4.0;    
-    tipRootLossCorrType "Glauert";
-    rotationDir         "cw";
-    Azimuth             90;
-    TorqueGen                                                9999.9;
-    RotSpeed            11.5;    
-    Pitch               0;
-    NacYaw              -90;
-    fluidDensity        1025.0;
-}

@@ -22,14 +22,6 @@ turbine0
   hubz   30.0;
 }
 
-turbine1
-{
-  refx  100.0;    // no account for OverHang
-  refy  138.0;
-  refz    0.0;
-  hubz   30.0;
-}
-
 general
 {
   yawAngle                0.0;
