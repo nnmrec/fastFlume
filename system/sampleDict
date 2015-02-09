@@ -20,7 +20,8 @@ FoamFile
 // //      jplot
 // //      gnuplot
 // //      raw
-setFormat raw;
+// setFormat raw;
+setFormat gnuplot;
 
 // // Surface output format. Choice of
 // //      null        : suppress output

@@ -17,7 +17,7 @@ FoamFile
 turbine0
 {
   refx  100.0;    // no account for OverHang
-  refy  110.0;
+  refy   50.0;
   refz    0.0;
   hubz   30.0;
 }
@@ -25,7 +25,7 @@ turbine0
 turbine1
 {
   refx  100.0;    // no account for OverHang
-  refy  138.0;
+  refy   78.0;
   refz    0.0;
   hubz   30.0;
 }
@@ -36,9 +36,9 @@ general
   numberofBld             2;
   numberofBldPts          30;           
   rotorDiameter           20.0;
-  epsilon                 2.0;
-  smearRadius             5.26;
-  effectiveRadiusFactor   1.526;  
+  epsilon                 1.0;
+  smearRadius             2.63;
+  effectiveRadiusFactor   1.263;  
   pointInterpType         1;
 }
 

@@ -26,30 +26,36 @@ mv 0 0.unused
 # for some reason the -fields options gives error such that no fields are created!
 # ./parReconstructPar_v3 -n $cores
 # ./parReconstructPar_v3 -n $nProc
-./parReconstructPar_v3 -n 2
+# ./parReconstructPar_v3 -n 2
 
 
 
 ## compute additional fields, like vorticity
-# vorticity -latestTime
-# Lambda2 -latestTime
-# pPrime2 -latestTime
-Lambda2
-pPrime2
-vorticity
-foamCalc components U
-foamCalc components UMean
-foamCalc components vorticity
+# Lambda2
+# pPrime2
+# vorticity
+# foamCalc components U
+# foamCalc components UMean
+# foamCalc components vorticity
+## latest time only
+Lambda2 -latestTime
+pPrime2 -latestTime
+vorticity -latestTime
+foamCalc components U -latestTime
+foamCalc components UMean -latestTime
+foamCalc components vorticity -latestTime
 
 ## convert OpenFOAM format to VTK files
 # foamToVTK -noZero -fields '(U p bodyForce vorticity Lambda2)'
-# foamToVTK -latestTime
-foamToVTK
+# foamToVTK
+foamToVTK -latestTime
+
 
 
 ## sample the fields
-# sample -latestTime
-sample
+# sample
+sample -latestTime
+
 
 ## interpolate time stepstemporalInterpolate
 	

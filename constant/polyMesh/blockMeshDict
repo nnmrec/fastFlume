@@ -21,9 +21,9 @@ convertToMeters 1;
 
 // dimensions of the Bamfield flume
 xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
+xf 200.0;      // Maximum x coordinate (outlet of "infinite" domain)
 yi   0.0;      // Minimum y coordinate
-yf 248.0;      // Maximum y coordinate (width of flume)
+yf 128.0;      // Maximum y coordinate (width of flume)
 zi   0.0;      // Minimum z coordinate
 zf  50.0;      // Maximum z coordinate (free surface of flume)
 
@@ -37,8 +37,8 @@ zf  50.0;      // Maximum z coordinate (free surface of flume)
 // Ny 124;
 // Nz 25;
 // mesh=medium
-Nx 500;
-Ny 248;
+Nx 200;
+Ny 128;
 Nz 50;
 // mesh=fine
 // Nx 563;
