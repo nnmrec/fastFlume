@@ -10,7 +10,7 @@ cd ${0%/*} || exit 1 # run from this directory
 mv 0 0.unused
 
 # reconstruct the parallel filess for all times, or for only specific times
-# reconstructPar
+reconstructPar -latestTime
 # reconstructPar -fields '(U p nuSgs bodyForce)'
 # reconstructPar -noZero
 # reconstructPar -time '2,4'
@@ -44,12 +44,14 @@ vorticity -latestTime
 foamCalc components U -latestTime
 foamCalc components UMean -latestTime
 foamCalc components vorticity -latestTime
+foamCalc components bodyForce -latestTime
 
 ## convert OpenFOAM format to VTK files
 # foamToVTK -noZero -fields '(U p bodyForce vorticity Lambda2)'
 # foamToVTK
 foamToVTK -latestTime
-
+# for some reason bodyForce components are always skipped, but don't want to auto delete old VTK folder
+# foamToVTK -fields '(bodyForcex bodyForcey bodyForcez)'
 
 
 ## sample the fields

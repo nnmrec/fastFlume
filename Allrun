@@ -4,6 +4,6 @@ cd ${0%/*} || exit 1 # run from this directory
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
-./Allrun.pre-mesh
-./Allrun.post-mesh
-./Allrun.post-process
+./Allrun.pre-mesh 2>&1 | tee log.Allrun.pre-mesh
+./Allrun.post-mesh 2>&1 | tee log.Allrun.post-mesh
+./Allrun.post-process 2>&1 | tee log.Allrun.post-process

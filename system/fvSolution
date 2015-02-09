@@ -39,7 +39,7 @@ solvers
     {
         solver          PBiCG;
         preconditioner  DILU;
-        tolerance       1e-15;
+        tolerance       1e-6;
         relTol          0;
         maxIter         10000;
     }
