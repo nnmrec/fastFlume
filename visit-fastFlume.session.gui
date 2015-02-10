@@ -3,14 +3,14 @@
     <Field name="Version" type="string">2.8.2</Field>
     <Object name="GUI">
         <Object name="FileServerList">
-            <Field name="path" type="string">/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/30</Field>
+            <Field name="path" type="string">/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/VTK</Field>
             <Field name="filter" type="string">*</Field>
             <Field name="useCurrentDir" type="bool">true</Field>
             <Field name="automaticFileGrouping" type="bool">true</Field>
             <Field name="smartFileGrouping" type="bool">true</Field>
             <Field name="showDotFiles" type="bool">false</Field>
             <Object name="recentpaths">
-                <Field name="localhost" type="stringVector">"/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium" "/home/danny/workspace/VisIt/distribution/visit2_8_2.linux-x86_64/bin" "/mnt/data-RAID-10/danny/fastFlume-alpha_mesh=fine" "/mnt/data-RAID-10/danny/fastFlume-alpha_mesh=fine/VTK" "/mnt/data-RAID-10/danny/fastFlume__v6/VTK" "/mnt/data-RAID-10/danny/fastFlume__v6" "/mnt/data-RAID-10/danny" "/mnt/data-RAID-10/danny/fastFlume-RC1" "/mnt/data-RAID-10/danny/fastFlume-RC1/VTK" "/home/danny/workspace/VisIt/visit2_8_1.linux-x86_64/bin" "/mnt/data-RAID-10/danny/fastFlume" "/mnt/data-RAID-10/danny/fastDuct" "/mnt/data-RAID-10/danny/fastDuct/VTK" "/mnt/data-RAID-10/danny/SOWFA/tutorials/fastDuct" "/mnt/data-RAID-10/danny/SOWFA/tutorials" "/mnt/data-RAID-10/danny/SOWFA/tutorials/fastDuct/VTK" "/mnt/data-RAID-10/danny/fastFlume/VTK" "/mnt/data-RAID-1/Dropboxes/danny/Dropbox/uw/research/conferences/APS%322014/data" "/mnt/data-RAID-10" "/mnt/data-RAID-10/danny/fastFlume__v5/VTK" "/mnt/data-RAID-10/danny/fastFlume__v5" "/home/danny/vtk" "/home/danny" "/home/danny/vtk/t=5" "/mnt/data-RAID-10/danny/fastFlume_v3" "/mnt/data-RAID-10/danny/fastFlume_v3/VTK" "/home/danny/vtk/Parts%32for%32Teymour" "/mnt/data-RAID-10/danny/fastFlume__v4" "/mnt/data-RAID-10/danny/fastFlume__v4/VTK" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale" "/mnt/data-RAID-10/danny/fastFlume-RC2_mesh=coarse" "/mnt/data-RAID-10/danny/fastFlume-RC2_mesh=coarse/VTK" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale/VTK" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/turbineSources" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/turbineSources/tidal-turbine-full-scale" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/30" </Field>
+                <Field name="localhost" type="stringVector">"/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium" "/home/danny/workspace/VisIt/distribution/visit2_8_2.linux-x86_64/bin" "/mnt/data-RAID-10/danny/fastFlume-alpha_mesh=fine" "/mnt/data-RAID-10/danny/fastFlume-alpha_mesh=fine/VTK" "/mnt/data-RAID-10/danny/fastFlume__v6/VTK" "/mnt/data-RAID-10/danny/fastFlume__v6" "/mnt/data-RAID-10/danny" "/mnt/data-RAID-10/danny/fastFlume-RC1" "/mnt/data-RAID-10/danny/fastFlume-RC1/VTK" "/home/danny/workspace/VisIt/visit2_8_1.linux-x86_64/bin" "/mnt/data-RAID-10/danny/fastFlume" "/mnt/data-RAID-10/danny/fastDuct" "/mnt/data-RAID-10/danny/fastDuct/VTK" "/mnt/data-RAID-10/danny/SOWFA/tutorials/fastDuct" "/mnt/data-RAID-10/danny/SOWFA/tutorials" "/mnt/data-RAID-10/danny/SOWFA/tutorials/fastDuct/VTK" "/mnt/data-RAID-10/danny/fastFlume/VTK" "/mnt/data-RAID-1/Dropboxes/danny/Dropbox/uw/research/conferences/APS%322014/data" "/mnt/data-RAID-10" "/mnt/data-RAID-10/danny/fastFlume__v5/VTK" "/mnt/data-RAID-10/danny/fastFlume__v5" "/home/danny/vtk" "/home/danny" "/home/danny/vtk/t=5" "/mnt/data-RAID-10/danny/fastFlume_v3" "/mnt/data-RAID-10/danny/fastFlume_v3/VTK" "/home/danny/vtk/Parts%32for%32Teymour" "/mnt/data-RAID-10/danny/fastFlume__v4" "/mnt/data-RAID-10/danny/fastFlume__v4/VTK" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale" "/mnt/data-RAID-10/danny/fastFlume-RC2_mesh=coarse" "/mnt/data-RAID-10/danny/fastFlume-RC2_mesh=coarse/VTK" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale/VTK" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/turbineSources" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/turbineSources/tidal-turbine-full-scale" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/30" "/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/VTK" </Field>
             </Object>
         </Object>
         <Object name="AppearanceAttributes">
@@ -35,24 +35,25 @@
             <Field name="posted" type="bool">true</Field>
         </Object>
         <Field name="postWhenShown" type="bool">false</Field>
+        <Object name="Annotation">
+            <Field name="x" type="int">-2</Field>
+            <Field name="y" type="int">337</Field>
+            <Field name="width" type="int">522</Field>
+            <Field name="height" type="int">720</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+            <Field name="activeTab" type="int">5</Field>
+        </Object>
         <Object name="Appearance">
-            <Field name="x" type="int">18</Field>
-            <Field name="y" type="int">223</Field>
+            <Field name="x" type="int">20</Field>
+            <Field name="y" type="int">246</Field>
             <Field name="width" type="int">276</Field>
             <Field name="height" type="int">259</Field>
             <Field name="visible" type="bool">false</Field>
             <Field name="posted" type="bool">false</Field>
         </Object>
-        <Object name="Database correlation list">
-            <Field name="x" type="int">162</Field>
-            <Field name="y" type="int">481</Field>
-            <Field name="width" type="int">410</Field>
-            <Field name="height" type="int">442</Field>
-            <Field name="visible" type="bool">false</Field>
-            <Field name="posted" type="bool">false</Field>
-        </Object>
         <Object name="File open">
-            <Field name="x" type="int">473</Field>
+            <Field name="x" type="int">489</Field>
             <Field name="y" type="int">302</Field>
             <Field name="width" type="int">787</Field>
             <Field name="height" type="int">470</Field>
@@ -67,23 +68,23 @@
             <Field name="activeTab" type="int">0</Field>
         </Object>
         <Object name="Information">
-            <Field name="x" type="int">1975</Field>
-            <Field name="y" type="int">308</Field>
+            <Field name="x" type="int">1973</Field>
+            <Field name="y" type="int">285</Field>
             <Field name="width" type="int">581</Field>
             <Field name="height" type="int">307</Field>
             <Field name="visible" type="bool">false</Field>
         </Object>
         <Object name="Output">
-            <Field name="x" type="int">1946</Field>
-            <Field name="y" type="int">259</Field>
+            <Field name="x" type="int">1948</Field>
+            <Field name="y" type="int">282</Field>
             <Field name="width" type="int">320</Field>
             <Field name="height" type="int">750</Field>
             <Field name="visible" type="bool">false</Field>
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Plugin Manager">
-            <Field name="x" type="int">22</Field>
-            <Field name="y" type="int">269</Field>
+            <Field name="x" type="int">24</Field>
+            <Field name="y" type="int">292</Field>
             <Field name="width" type="int">637</Field>
             <Field name="height" type="int">546</Field>
             <Field name="visible" type="bool">false</Field>
@@ -91,7 +92,7 @@
             <Field name="activeTab" type="int">0</Field>
         </Object>
         <Object name="Preferences">
-            <Field name="x" type="int">1982</Field>
+            <Field name="x" type="int">1984</Field>
             <Field name="y" type="int">246</Field>
             <Field name="width" type="int">407</Field>
             <Field name="height" type="int">834</Field>
@@ -99,18 +100,18 @@
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="View">
-            <Field name="x" type="int">2550</Field>
-            <Field name="y" type="int">96</Field>
+            <Field name="x" type="int">2548</Field>
+            <Field name="y" type="int">73</Field>
             <Field name="width" type="int">372</Field>
             <Field name="height" type="int">614</Field>
             <Field name="visible" type="bool">false</Field>
-            <Field name="posted" type="bool">true</Field>
+            <Field name="posted" type="bool">false</Field>
             <Field name="activeTab" type="int">2</Field>
         </Object>
         <Object name="MainWin">
-            <Field name="x" type="int">505</Field>
+            <Field name="x" type="int">297</Field>
             <Field name="y" type="int">56</Field>
-            <Field name="width" type="int">723</Field>
+            <Field name="width" type="int">931</Field>
             <Field name="height" type="int">962</Field>
             <Field name="SPLITTER_VALUES_V2" type="floatVector">0 0.84976 0.143029 </Field>
         </Object>
@@ -131,7 +132,7 @@
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Pseudocolor plot attributes">
-            <Field name="x" type="int">745</Field>
+            <Field name="x" type="int">747</Field>
             <Field name="y" type="int">588</Field>
             <Field name="width" type="int">467</Field>
             <Field name="height" type="int">492</Field>
@@ -139,7 +140,7 @@
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Box operator attributes">
-            <Field name="x" type="int">2224</Field>
+            <Field name="x" type="int">2226</Field>
             <Field name="y" type="int">752</Field>
             <Field name="width" type="int">370</Field>
             <Field name="height" type="int">328</Field>
@@ -147,15 +148,15 @@
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Isosurface operator attributes">
-            <Field name="x" type="int">1926</Field>
-            <Field name="y" type="int">783</Field>
+            <Field name="x" type="int">1928</Field>
+            <Field name="y" type="int">806</Field>
             <Field name="width" type="int">514</Field>
             <Field name="height" type="int">228</Field>
             <Field name="visible" type="bool">false</Field>
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Resample operator attributes">
-            <Field name="x" type="int">2093</Field>
+            <Field name="x" type="int">2095</Field>
             <Field name="y" type="int">497</Field>
             <Field name="width" type="int">499</Field>
             <Field name="height" type="int">583</Field>
@@ -163,15 +164,15 @@
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Slice operator attributes">
-            <Field name="x" type="int">2184</Field>
-            <Field name="y" type="int">445</Field>
+            <Field name="x" type="int">2186</Field>
+            <Field name="y" type="int">468</Field>
             <Field name="width" type="int">406</Field>
             <Field name="height" type="int">453</Field>
             <Field name="visible" type="bool">false</Field>
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Smooth operator attributes">
-            <Field name="x" type="int">2197</Field>
+            <Field name="x" type="int">2199</Field>
             <Field name="y" type="int">774</Field>
             <Field name="width" type="int">376</Field>
             <Field name="height" type="int">306</Field>
@@ -180,21 +181,21 @@
         </Object>
         <Object name="ThreeSlice operator attributes">
             <Field name="x" type="int">856</Field>
-            <Field name="y" type="int">866</Field>
+            <Field name="y" type="int">839</Field>
             <Field name="width" type="int">376</Field>
             <Field name="height" type="int">214</Field>
             <Field name="visible" type="bool">false</Field>
             <Field name="posted" type="bool">false</Field>
         </Object>
         <Object name="Transform operator attributes">
-            <Field name="x" type="int">110</Field>
-            <Field name="y" type="int">432</Field>
+            <Field name="x" type="int">2362</Field>
+            <Field name="y" type="int">293</Field>
             <Field name="width" type="int">514</Field>
             <Field name="height" type="int">446</Field>
             <Field name="visible" type="bool">false</Field>
             <Field name="posted" type="bool">false</Field>
         </Object>
-        <Field name="plotDatabases" type="stringVector">"localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale/VTK/fastFlume-RC3_FullScale_*.vtk database" "localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/turbineSources/tidal-turbine-full-scale/DOE RM1 full size.STL" </Field>
+        <Field name="plotDatabases" type="stringVector">"localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/turbineSources/tidal-turbine-full-scale/DOE RM1 full size.STL" "localhost:/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/VTK/fastFlume-RC3_FullScale_mesh=Medium_148.vtk" </Field>
         <Object name="TimeFormat">
             <Field name="displayMode" type="string">CyclesAndTimes</Field>
             <Field name="precision" type="int">5</Field>
