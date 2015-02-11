@@ -52,6 +52,7 @@ foamCalc components bodyForce -latestTime
 foamToVTK -latestTime
 # for some reason bodyForce components are always skipped, but don't want to auto delete old VTK folder
 # foamToVTK -fields '(bodyForcex bodyForcey bodyForcez)'
+# foamToVTK -fields '(Lambda2 pPrime2 bodyForcex bodyForcey bodyForcez  vorticity)'
 
 
 ## sample the fields
