@@ -315,7 +315,8 @@ then body forces are projected back onto flow field.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\scshape Simulation 3 Turbines}
+
+\section{\scshape Simulation Lab Scale}
 
 \subsection{3 turbines}
 
@@ -351,10 +352,24 @@ then body forces are projected back onto flow field.
 		\begin{figure}[p]
 		    \centering
     		\includegraphics[width=1.05\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=fine.png}
-		    \caption{\scriptsize{fine mesh 1047x113x90, dx = 0.00885 m}}
+		    \caption{\scriptsize{finer mesh 1047x113x90, dx = 0.00885 m}}
 		\end{figure}
 
 	\end{frame}
+
+% 	\begin{frame}{again, at higher resolution}
+
+% This time improved balance between mesh spacing with actuator discretization and body force spreading
+
+% \tiny (but simulation time did not run as long yet)
+
+% 		\begin{figure}[p]
+% 		    \centering
+%     		\includegraphics[width=0.8\textwidth]{figures/fastFlume__lab-scale-mesh=TunedFine.png}
+% 		    \caption{\scriptsize{finer mesh 930x100x80, dx = 0.01 m}}
+% 		\end{figure}
+
+% 	\end{frame}
 
 \subsection{analysis}
 	
@@ -379,6 +394,70 @@ then body forces are projected back onto flow field.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\scshape Simulation Full Scale}
+
+\subsection{dual rotor}
+
+	\begin{frame}{DOE Reference Model 1 Tidal Turbine}
+		
+		\begin{columns}
+		    
+		    \begin{column}{0.6\textwidth}
+		        \begin{figure}[p]
+				    \centering
+				    \includegraphics[width=0.8\textwidth]{figures/DOE-Reference-Model-1-Full-Scale-dual-rotor.PNG}
+				    \caption{\scriptsize{Reference Model 1 Tidal Turbine}}
+				\end{figure}
+
+		    \end{column}
+		    
+		    \begin{column}{0.6\textwidth}
+		        \begin{figure}[p]
+				    \centering
+				    \includegraphics[width=0.8\textwidth]{figures/fastFlume__dual-rotor-mesh=TunedMedium.png}
+				    \caption{\scriptsize{mesh 350x200x125, dx = 0.4 m}}
+				\end{figure}
+
+		    \end{column}
+
+		\end{columns}
+
+	\end{frame}
+
+	\begin{frame}{}
+
+		\begin{figure}[p]
+		    \centering
+    		\includegraphics[width=0.8\textwidth]{figures/fastFlume__dual-rotor-mesh=medium-3vars.png}
+		    \caption{\scriptsize{mesh 350x200x125, dx = 0.4 m}}
+		\end{figure}
+
+	\end{frame}
+
+\subsection{analysis}
+	
+	\begin{frame}{}
+		
+		\vspace{-20pt}
+
+		\begin{figure}[p]
+		    \centering
+		    \includegraphics[width=1.08\textwidth]{figures/fastFlume__dual-rotor-mesh=TunedMedium-Analysis.png}
+		\end{figure}
+
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{\scshape Future Work}
 
 \subsection{Future Work}
