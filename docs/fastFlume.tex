@@ -351,8 +351,15 @@ then body forces are projected back onto flow field.
 
 		\begin{figure}[p]
 		    \centering
-    		\includegraphics[width=1.05\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=fine.png}
-		    \caption{\scriptsize{finer mesh 1047x113x90, dx = 0.00885 m}}
+    		% \includegraphics[width=1.05\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=fine_v0000.png}
+			% \caption{\scriptsize{finer mesh 1047x113x90, dx = 0.00885 m}}
+    		
+    		\small care is needed to balance the body force spreading (epsilon parameter) with the 
+    		radial spacing of actuator line points (same as blade discretization used for FAST)
+    		and the LES mesh spacing
+
+    		\includegraphics[width=1.05\textwidth]{figures/fastFlume__Turbines=3_TSR=6p2_Layout=offset_Mesh=fine_v0001.png}
+		    \caption{\scriptsize{finer mesh 930x100x80 (~7.4 Million), dx = 0.01 m, dt = 0.00125 s}}
 		\end{figure}
 
 	\end{frame}
