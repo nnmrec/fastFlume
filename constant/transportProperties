@@ -25,8 +25,22 @@ FoamFile
 transportModel Newtonian;
 
 // Molecular viscosity
-// nu              nu [0 2 -1 0 0 0 0] 1e-02;		// what fluid does this correspond to?
-// nu              nu [0 2 -1 0 0 0 0] 1.464e-5;	// air 
-nu              nu [0 2 -1 0 0 0 0] 1.0e-6; 		// water
+
+transportModel Newtonian;
+// Molecular viscosity
+nu              nu [0 2 -1 0 0 0 0] 0.0;
+// nu              nu [0 2 -1 0 0 0 0] 1.464e-5;	// air?
+// nu              nu [0 2 -1 0 0 0 0] 1.0e-6; 		// water?
+
+// LES SGS model (options are "standardSmagorinsky")
+LESModel "standardSmagorinsky";
+
+// Smagorinsky Constant
+Cs 0.125
+// Cs 0.135;
+// Cs 0.168;
+
+// LES filter width scalar
+deltaLESCoeff 1.0;
 
 // ************************************************************************* //

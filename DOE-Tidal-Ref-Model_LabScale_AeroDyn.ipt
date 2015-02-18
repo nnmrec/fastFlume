@@ -15,65 +15,66 @@ PRAND        HLModel     - Hub-loss model (EQUIL only) [PRAND or NONE] (unquoted
    1000.0   AirDens     - Air density (kg/m^3)
    0.000001 KinVisc     - Kinematic air viscosity [CURRENTLY IGNORED] (m^2/sec)
 9999.9      DTAero      - Time interval for aerodynamic calculations (sec) 		// DCS: It seems like this variable is unused for OpenFOAM-FAST coupled version.  Aero forces are calculated accoring to OF timestep, I think.
-   29       NumFoil     - Number of airfoil files (-)
-"AeroData/NACA4415.dat"                         FoilNm      - Names of the airfoil files [NumFoil lines] (quoted strings)
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-"AeroData/NACA4415.dat"
-  30       BldNodes    - Number of blade nodes used for analysis (-)
-RNodes   AeroTwst  DRNodes  Chord    NFoil  PrnElm
-0.0318	 20.07	0.00325	0.0504	1	NOPRINT
-0.0384	 16.38	0.00650	0.0448	2	NOPRINT
-0.0449	 13.86	0.00660	0.0409	3	NOPRINT
-0.0515	 11.976	0.00650	0.0378	4	NOPRINT
-0.058	 10.505	0.00660	0.0354	5	NOPRINT
-0.0646	 9.326	0.00650	0.0333	6	NOPRINT
-0.0711	 8.348	0.00660	0.0316	7	NOPRINT
-0.0777	 7.527	0.00650	0.03	8	NOPRINT
-0.0842	 6.832	0.00660	0.0287	9	NOPRINT
-0.0908	 6.237	0.00650	0.0275	10	NOPRINT
-0.0973	 5.723	0.00660	0.0264	11	NOPRINT
-0.1039	 5.273	0.00650	0.0254	12	NOPRINT
-0.1104	 4.875	0.00660	0.0245	13	NOPRINT
-0.117	 4.52	0.00650	0.0237	14	NOPRINT
-0.1235	 4.199	0.00660	0.0229	15	NOPRINT
-0.1301	 3.911	0.00650	0.0221	16	NOPRINT
-0.1366	 3.647	0.00660	0.0214	17	NOPRINT
-0.1432	 3.399	0.00650	0.0207	18	NOPRINT
-0.1497	 3.164	0.00660	0.02	19	NOPRINT
-0.1563	 2.94	0.00650	0.0194	20	NOPRINT
-0.1628	 2.724	0.00650	0.0187	21	NOPRINT
-0.1693	 2.511	0.00660	0.018	22	NOPRINT
-0.1759	 2.3	0.00650	0.0173	23	NOPRINT
-0.1824	 2.088	0.00660	0.0166	24	NOPRINT
-0.189	 1.873	0.00650	0.0159	25	NOPRINT
-0.1955	 1.654	0.00660	0.0152	26	NOPRINT
-0.2021	 1.426	0.00650	0.0144	27	NOPRINT
-0.2086	 1.191	0.00660	0.0136	28	NOPRINT
-0.2152	 0.948	0.00650	0.0128	29	NOPRINT
-0.2217	 0.689	0.00325	0.012	29	NOPRINT
+ 30         NumFoil     - Number of airfoil files (-)
+"AeroData/NACA_4415_lowReynolds.dat" FoilNm - Names of the airfoil files [NumFoil lines] (quoted strings)
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+"AeroData/NACA_4415_lowReynolds.dat"
+30 BldNodes - Number of blade nodes used for analysis (-)
+RNodes      AeroTwst     DRNodes      Chord   NFoil   PrnElm
+0.031849    20.070254   0.0065475    0.050444   1     NOPRINT
+0.038396    16.379868   0.0065475    0.044850   2     NOPRINT
+0.044944    13.859551   0.0065475    0.040888   3     NOPRINT
+0.051491    11.975563   0.0065475    0.037827   4     NOPRINT
+0.058039    10.505297   0.0065475    0.035357   5     NOPRINT
+0.064586    9.326087    0.0065475    0.033308   6     NOPRINT
+0.071134    8.347700    0.0065475    0.031551   7     NOPRINT
+0.077681    7.527315    0.0065475    0.030026   8     NOPRINT
+0.084229    6.832259    0.0065475    0.028685   9     NOPRINT
+0.090776    6.237268    0.0065475    0.027491   10    NOPRINT
+0.097324    5.722592    0.0065475    0.026416   11    NOPRINT
+0.103871    5.272650    0.0065475    0.025436   12    NOPRINT
+0.110419    4.875064    0.0065475    0.024532   13    NOPRINT
+0.116966    4.519952    0.0065475    0.023689   14    NOPRINT
+0.123514    4.199397    0.0065475    0.022895   15    NOPRINT
+0.130061    3.911213    0.0065475    0.022145   16    NOPRINT
+0.136609    3.646985    0.0065475    0.021426   17    NOPRINT
+0.143156    3.398958    0.0065475    0.020726   18    NOPRINT
+0.149704    3.163755    0.0065475    0.020040   19    NOPRINT
+0.156251    2.939738    0.0065475    0.019363   20    NOPRINT
+0.162799    2.723885    0.0065475    0.018689   21    NOPRINT
+0.169346    2.510965    0.0065475    0.018012   22    NOPRINT
+0.175894    2.299911    0.0065475    0.017330   23    NOPRINT
+0.182441    2.087942    0.0065475    0.016632   24    NOPRINT
+0.188989    1.872547    0.0065475    0.015918   25    NOPRINT
+0.195536    1.653753    0.0065475    0.015190   26    NOPRINT
+0.202084    1.426453    0.0065475    0.014432   27    NOPRINT
+0.208631    1.190646    0.0065475    0.013647   28    NOPRINT
+0.215179    0.948268    0.0065475    0.012841   29    NOPRINT
+0.221726    0.689477    0.0065475    0.011987   30    NOPRINT

@@ -33,9 +33,12 @@ rm -rf turbineOutput/*
 # cp constant/polyMesh/blockMeshDict ./
 # rm -rf constant/polyMesh/*
 # mv ./blockMeshDict constant/polyMesh/blockMeshDict
+rm -rf surfaces
 
 rm -rf 0
 rm -rf 0.unused
+
+rm -rf temp.parReconstructPar
 
 # # Delete all integer time directories
 # ls | grep -P "^[0-9]$" | xargs -d"\n" rm -rf

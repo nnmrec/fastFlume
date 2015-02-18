@@ -19,18 +19,7 @@ FoamFile
 
 convertToMeters 1;
 
-// original mesh from fastDuct
-// Nx  250;      // Number of elements in x direction
-// Ny  100;      // Number of elements in y direction
-// Nz  100;      // Number of elements in z direction
-// xi   0.0;      // Minimum x coordinate  
-// xf  1000.0;      // Maximum x coordinate
-// yi   -100.0;      // Minimum y coordinate
-// yf   100.0;      // Maximum y coordinate
-// zi   0.0;      // Minimum z coordinate
-// zf   200.0;      // Maximum z coordinate
-
-// modified mesh for lab scale
+// dimensions of the Bamfield flume
 // xi   0.0;      // Minimum x coordinate
 xi   3.0;      // Minimum x coordinate  
 xf  12.3;      // Maximum x coordinate
@@ -38,14 +27,11 @@ yi   0.0;      // Minimum y coordinate
 yf   1.0;      // Maximum y coordinate
 zi   0.0;      // Minimum z coordinate
 zf   0.8;      // Maximum z coordinate
-// Nx   384;      // Number of elements in x direction
-// Ny   64;      // Number of elements in y direction
-// Nz    48;      // Number of elements in z direction
 
 // Mesh=medium
-Nx   698;      // Number of elements in x direction
-Ny    75;      // Number of elements in y direction
-Nz    60;      // Number of elements in z direction
+Nx   930;      // Number of elements in x direction
+Ny   100;      // Number of elements in y direction
+Nz    80;      // Number of elements in z direction
 
 vertices
 (
@@ -76,9 +62,6 @@ boundary
    {
      // type cyclic;
      type wall;
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error
-      // type patch     // gives error
      neighbourPatch top;
      faces
      (
@@ -89,10 +72,7 @@ boundary
    top
    {
      // type cyclic;
-     type wall;    
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error
-      // type patch     
+     type wall;     
      neighbourPatch bottom;
      faces
      (
@@ -122,9 +102,6 @@ boundary
    {
      // type cyclic;
      type wall;    
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error
-      // type patch    
      neighbourPatch south;
      faces
      (
@@ -136,9 +113,6 @@ boundary
    {
      // type cyclic;
      type wall;    
-     // type slip;           // gives error
-     // type zeroGradient;   // gives error     
-      // type patch
      neighbourPatch north;
      faces
      (
