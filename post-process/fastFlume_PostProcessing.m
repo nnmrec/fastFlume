@@ -1,136 +1,96 @@
-%%
+%% preamble
 clear all;
 close all;
 clc;
 
-%%
-% should add a system call to extract the TAR files before reading
+%% USER INPUTS
 
-%%
-% data_directory  = 'C:\Users\danny-laptop\Downloads\APS_2014_temp\fastFlume_turbineOutput\turbineOutput-v4\turbineOutput';
-% data_directory  = '/mnt/data-RAID-10/danny/fastFlume__v4/turbineOutput';
-% restart_folders = {'0', '9.58', '10'};
+% directory where FAST ouput is stored
+dir_TurbineOutput = '/mnt/data-RAID-10/danny/fastFlume-RC4_LabScale_mesh=medium/turbineOutput';
 
-% data_directory  = 'C:\Users\danny-laptop\Downloads\APS_2014_temp\fastFlume_turbineOutput\turbineOutput-v5\turbineOutput';
-% % data_directory  = '/mnt/data-RAID-10/danny/fastFlume__v5/turbineOutput';
-% restart_folders = {'0'};
-
-% data_directory  = 'C:\Users\danny-laptop\Downloads\APS_2014_temp\fastFlume_turbineOutput\turbineOutput-v6\turbineOutput';
-% data_directory  = '/mnt/data-RAID-10/danny/fastFlume__v7/turbineOutput';
-% restart_folders = {'0'};
-
-% data_directory  = 'C:\Users\danny-laptop\Downloads\APS_2014_temp\fastFlume_turbineOutput\turbineOutput-v7\turbineOutput';
-% % data_directory  = '/mnt/data-RAID-10/danny/fastFlume__v7/turbineOutput';
-% restart_folders = {'0'};
-
-% data_directory  = '/mnt/data-RAID-10/danny/fastFlume-RC3_FullScale_mesh=Medium/turbineOutput';
-% restart_folders = {'0' '3.7'};
-
-data_directory  = '/mnt/data-RAID-10/danny/fastFlume-RC4_LabScale_mesh=medium/turbineOutput';
-restart_folders = {'0','0.9','3.1','4.14'};
-
-% NREL 5MW wind turbine
-% U_inf    = 8;         % free stream velocity
-% density  = 1.225;     % fluid density
-% RotorRad = 63;   
-% Pavail   = 5296610;   % rated mechanical power for the NREL 5MW turbine
-
-% Nick's lab scale hydrokinetic turbine
-U_inf    = 1.1;         % free stream velocity
-density  = 1000;        % fluid density
-RotorRad = 0.225;   
-Pavail   = 0.5*density*pi*RotorRad^2*U_inf^3;   % rated mechanical power for the NREL 5MW turbine
-
-% DOE RM1 full scale hydrokinetic turbine dual rotor
-% U_inf    = 1.9;         % free stream velocity
-% density  = 1025;        % fluid density
-% RotorRad = 10.0;   
-% Pavail   = 0.5*density*pi*RotorRad^2*U_inf^3;   % rated mechanical power
-
-
-numTurbines = 3;
-id_turbine = [0 1 2];
-
-% numTurbines = 2;
-% id_turbine = [0 1];
-
-% subset of data
-perStart = 0;   % end point - percent of time series
-perEnd   = 1;   % end point - percent of time series
-
-
-%%
-data_filename   = 'powerRotor';
-numCols         = 4;
-nHeaders        = 1;
-
-
-turbine_id = [];
-t          = [];
-dt         = [];
-RotorPower = [];
-% data = cell(1, numel(restart_folders));
-for n = 1:numel(restart_folders)
-    
-    datafile = [data_directory filesep restart_folders{n} filesep data_filename];
-    
-    fid = fopen(datafile, 'r');
-    if fid == -1
-        error(['ERROR: Could not locate and open file ' datafile]);
-    end
-
-    % skip the header lines
-    for j = 1:nHeaders
-        fgetl(fid);
-    end
-
-    % read the table of data
-%     data(n) = { textscan(fid, repmat('%f ', 1, numCols), 'CollectOutput', 1) };
-
-    tmp  = {textscan(fid, repmat('%f ', 1, numCols), 'CollectOutput', 0)};
-    data = cell2mat(tmp{:});
-    
-    turbine_id = [turbine_id; data(:,1)];
-    t          = [t; data(:,2)];
-    dt         = [dt; data(:,3)];
-    RotorPower = [RotorPower; data(:,4)];
-
-    % close the data file
-    fclose(fid);
+% select the turbine type (and modify corresponding flow conditions if needed)
+% an improvement would be to read these variables directory from the OpenFOAM case files
+% current options: 'NREL-5MW'
+%                  'DOE-RM1-DualRotor'
+%                  'DOE-RM1-SingleRotor'
+%                  'UW-LabScale-Array'
+%                  'UW-LabScale-Single'
+turbineType = 'UW-LabScale-Array';
+switch turbineType       
+    case{'DOE-RM1'}
+        % DOE RM1 full scale hydrokinetic turbine dual rotor
+        U_inf    = 1.9;                                 % free stream velocity
+        density  = 1025;                                % fluid density
+        RotorRad = 10.0;   
+        Pavail   = 0.5*density*pi*RotorRad^2*U_inf^3;   % available KE of uniform flow
+        nTurbines = 2;                                  % number of turbines
+        idTurbine = [0 1];                              % IDs given in SOWFA case files
+        
+    case{'UW-LabScale-Array'}
+        % UW lab scale (rev 1) of DOE RM1 Tidal Turbine
+        U_inf     = 1.1;                                % free stream velocity of flume
+        density   = 1000;                               % fluid density
+        RotorRad  = 0.225;                              % 45:1 scaling of geometry
+        Pavail    = 0.5*density*pi*RotorRad^2*U_inf^3;  % available KE of uniform flow
+        nTurbines = 3;                                  % number of turbines
+        idTurbine = [0 1 2];                            % IDs given in SOWFA case files
+        
+    case{'NREL-5MW'}
+        % NREL 5MW wind turbine
+        U_inf    = 8;                                   % free stream velocity
+        density  = 1.225;                               % fluid density
+        RotorRad = 63;   
+        Pavail   = 5296610;                             % rated mechanical power for the NREL 5MW turbine
+        % Pavail   = 0.5*density*pi*RotorRad^2*U_inf^3;   % available KE of uniform flow
+        nTurbines = 3;                                  % number of turbines
+        idTurbine = [0 1 2];                            % IDs given in SOWFA case files
+        
+    otherwise
+        error('unrecognized input for turbine type (nickname)')       
 end
 
+% subset of data (allows to focus on specific part of times series, e.g. to ignore transients)
+perStart = 0;   % end point - fraction of time series (between 0 and 1)
+perEnd   = 1;   % end point - fraction of time series (between 0 and 1)
 
-% for n = 1:numel(restart_folders)
-%    % reconstruct into single time-series
-%    
-% end
+%% END USER INPUTS
+%  everything below should not need to be modified, usually
 
-%% separate the data series by turbine identification
+% look for all the subfolders in the directory (corresponding to when 
+%  SOWFA was stopped and then restarted), and then join the data
+%  from each subfolder into a single time series
+DIR         = dir(dir_TurbineOutput);               % structure of directory info
+isub        = [DIR(:).isdir];                       % returns logical vector
+nameFolders = {DIR(isub).name}';                    % names of subfolders
+nameFolders(ismember(nameFolders,{'.','..'})) = []; % remove the . and .. directories
 
-% Protor = zeros(numel(unique(t)), numTurbines);
-for n = 1:numel(id_turbine)
-%     n
-    index       = turbine_id == id_turbine(n);
-%     size(index)
-    Protor(:,n) = RotorPower(index);
-%     Protor = RotorPower(index);
+restart_folders = nameFolders;
 
-    % filter the power, low pass filter
-%     Protor_filter(:,n) = 
-end
+%% load the data
+data_filename  = 'powerRotor';
+numCols        = 4;
+nHeaders       = 1;
+[time, Protor] = load_FAST_scalars(dir_TurbineOutput, ...
+                                   data_filename, ...
+                                   numCols, ...
+                                   nHeaders, ...
+                                   restart_folders, ...
+                                   idTurbine, ...
+                                   perStart, ...
+                                   perEnd);
 
-time = t(:,1);
-time = time(turbine_id == id_turbine(1));
-
-%% only take subset of data
-
-Nsamples = numel(time);
-Nstart   = max(floor(Nsamples*perStart), 1);
-Nend     = max(ceil(Nsamples*perStart), Nsamples);
-
-time  =  time(Nstart:Nend, 1);
-Protor = Protor(Nstart:Nend, :);
-
+% data_filename  = 'thrust';
+% numCols        = 4;
+% nHeaders       = 1;
+% [time, thrust] = load_FAST_scalars(dir_TurbineOutput, ...
+%                                    data_filename, ...
+%                                    numCols, ...
+%                                    nHeaders, ...
+%                                    restart_folders, ...
+%                                    idTurbine, ...
+%                                    perStart, ...
+%                                    perEnd);
+                               
 %% Plot the power
 figure('Name', 'Rotor Power', ...
        'Color', 'white');
@@ -178,7 +138,7 @@ grid on
 figure('Name', 'Relative Rotor Power', ...
        'Color', 'white');
   
-relative_power = Protor ./ repmat(Protor(:,1), 1, numTurbines);
+relative_power = Protor ./ repmat(Protor(:,1), 1, nTurbines);
 % plot(time, relative_power, 'LineWidth', 2)
 hold on;
 plot(time, relative_power(:,1), '-b', 'LineWidth', 3)
@@ -284,6 +244,7 @@ grid on
 
 
 %% calculate the FFT
+Nsamples = numel(time);
 % Fs   = 50;                   % sampling frequency
 Fs = floor( 1 / (max(time)/Nsamples) );
 
@@ -388,52 +349,52 @@ grid on
 % ylabel('Power/Frequency (dB/Hz)')
 
 %% plot the filtered power
+% 
+% load bostemp
+% days = (1:31*24)/24;
+% plot(days, tempC), axis tight;
+% ylabel('Temp (\circC)');
+% xlabel('Time elapsed from Jan 1, 2011 (days)');
+% title('Logan Airport Dry Bulb Temperature (source: NOAA)');
+% 
+% % In its simplest form, a moving average filter of length N takes the 
+% % average of every N consecutive samples of the waveform.
+% % To apply a moving average filter to each data point, we construct our 
+% % coefficients of our filter so that each point is equally weighted and 
+% % contributes 1/24 to the total average. This gives us the average 
+% % temperature over each 24 hour period.
+% hoursPerDay = 24;
+% coeff24hMA = ones(1, hoursPerDay)/hoursPerDay;
+% 
+% avg24hTempC = filter(coeff24hMA, 1, tempC);
+% plot(days, [tempC avg24hTempC]);
+% legend('Hourly Temp','24 Hour Average (delayed)','location','best');
+% ylabel('Temp (\circC)');
+% xlabel('Time elapsed from Jan 1, 2011 (days)');
+% title('Logan Airport Dry Bulb Temperature (source: NOAA)');
+% 
+% 
+% %%
+% figure
+% 
+% k = 3
+% samplesPerSecond = ceil( Nsamples * 100);
+% coeff_0p5hz_MA = ones(1, samplesPerSecond)/samplesPerSecond;
+% 
+% Power_filter = filter(coeff24hMA, 1, Protor(:,k));
+% plot(time, [Protor(:,k) Power_filter]);
+% % legend('upstream', ...
+% %        'middle', ...
+% %        'downstream', ...
+% %        'location','best');
+% ylabel('rotor power, P (W)');
+% xlabel('time, t (s)');
+% title('Filtered Rotor Power');
+% 
 
-load bostemp
-days = (1:31*24)/24;
-plot(days, tempC), axis tight;
-ylabel('Temp (\circC)');
-xlabel('Time elapsed from Jan 1, 2011 (days)');
-title('Logan Airport Dry Bulb Temperature (source: NOAA)');
-
-% In its simplest form, a moving average filter of length N takes the 
-% average of every N consecutive samples of the waveform.
-% To apply a moving average filter to each data point, we construct our 
-% coefficients of our filter so that each point is equally weighted and 
-% contributes 1/24 to the total average. This gives us the average 
-% temperature over each 24 hour period.
-hoursPerDay = 24;
-coeff24hMA = ones(1, hoursPerDay)/hoursPerDay;
-
-avg24hTempC = filter(coeff24hMA, 1, tempC);
-plot(days, [tempC avg24hTempC]);
-legend('Hourly Temp','24 Hour Average (delayed)','location','best');
-ylabel('Temp (\circC)');
-xlabel('Time elapsed from Jan 1, 2011 (days)');
-title('Logan Airport Dry Bulb Temperature (source: NOAA)');
 
 
-%%
-figure
-
-k = 3
-samplesPerSecond = ceil( Nsamples * 100);
-coeff_0p5hz_MA = ones(1, samplesPerSecond)/samplesPerSecond;
-
-Power_filter = filter(coeff24hMA, 1, Protor(:,k));
-plot(time, [Protor(:,k) Power_filter]);
-% legend('upstream', ...
-%        'middle', ...
-%        'downstream', ...
-%        'location','best');
-ylabel('rotor power, P (W)');
-xlabel('time, t (s)');
-title('Filtered Rotor Power');
-
-
-
-
-%% estimate time for fastFlume to complete
+%% estimate time that fastFlume needed to complete
 % dw          = 0.02;     % write interval
 % T           = 20;       % total simulation time in seconds
 % timePerIter = mean([46 39 36 41 42 43 49 54 60 53].*60);    % minutes converted to seconds
