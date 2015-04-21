@@ -14,6 +14,10 @@ ls | grep -P "^[0-9]$" | xargs -d"\n" rm -rf
 # Delete all decimal time directories
 ls | grep -P "^[0-9].*[0-9]$" | xargs -d"\n" rm -rf
 
-rm -rf postProcessing
-rm -rf 0
+## actually, keep this folder
+# rm -rf postProcessing
+
+## also keep the initial conditions
+# for debugging
+# rm -rf 0
 rm -rf 0.unused
