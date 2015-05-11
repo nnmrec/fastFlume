@@ -6,7 +6,8 @@ clc;
 %% USER INPUTS
 
 % directory where FAST ouput is stored
-dir_TurbineOutput = '/mnt/data-RAID-10/danny/fastFlume-RC4_LabScale_mesh=medium/turbineOutput';
+% dir_TurbineOutput = '/mnt/data-RAID-10/danny/fastFlume-RC4_LabScale_mesh=medium/turbineOutput';
+dir_TurbineOutput = '/mnt/data-RAID-0/danny/fastFlume-RC5_Turbine=LabScale1_Layout=SingleRotor_TSR=6.2_Mesh=medium/turbineOutput';
 
 % select the turbine type (and modify corresponding flow conditions if needed)
 % an improvement would be to read these variables directory from the OpenFOAM case files
@@ -15,7 +16,7 @@ dir_TurbineOutput = '/mnt/data-RAID-10/danny/fastFlume-RC4_LabScale_mesh=medium/
 %                  'DOE-RM1-SingleRotor'
 %                  'UW-LabScale-Array'
 %                  'UW-LabScale-Single'
-turbineType = 'UW-LabScale-Array';
+turbineType = 'UW-LabScale-Single';
 switch turbineType       
     case{'DOE-RM1'}
         % DOE RM1 full scale hydrokinetic turbine dual rotor
@@ -34,6 +35,15 @@ switch turbineType
         Pavail    = 0.5*density*pi*RotorRad^2*U_inf^3;  % available KE of uniform flow
         nTurbines = 3;                                  % number of turbines
         idTurbine = [0 1 2];                            % IDs given in SOWFA case files
+
+    case{'UW-LabScale-Single'}
+        % UW lab scale (rev 1) of DOE RM1 Tidal Turbine
+        U_inf     = 1.1;                                % free stream velocity of flume
+        density   = 1000;                               % fluid density
+        RotorRad  = 0.225;                              % 45:1 scaling of geometry
+        Pavail    = 0.5*density*pi*RotorRad^2*U_inf^3;  % available KE of uniform flow
+        nTurbines = 1;                                  % number of turbines
+        idTurbine = [0];                                % IDs given in SOWFA case files
         
     case{'NREL-5MW'}
         % NREL 5MW wind turbine
@@ -50,7 +60,8 @@ switch turbineType
 end
 
 % subset of data (allows to focus on specific part of times series, e.g. to ignore transients)
-perStart = 0;   % end point - fraction of time series (between 0 and 1)
+% perStart = 0;   % end point - fraction of time series (between 0 and 1)
+perStart = 0.2;   % end point - fraction of time series (between 0 and 1)
 perEnd   = 1;   % end point - fraction of time series (between 0 and 1)
 
 %% END USER INPUTS

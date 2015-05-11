@@ -20,7 +20,7 @@ tmp_varName = [];
 % data = cell(1, numel(restart_folders));
 for n = 1:numel(restart_folders)
     
-    datafile = [dir_TurbineOutput filesep restart_folders{n} filesep data_filename];
+    datafile = [dir_TurbineOutput filesep restart_folders{n} filesep data_filename]
     
     fid = fopen(datafile, 'r');
     if fid == -1
