@@ -1,4 +1,4 @@
-/*-------------------------------*- C++ -*---------------------------------*\
+ w/*-------------------------------*- C++ -*---------------------------------*\
 |    =========                                                              |
 |    \\      /     OpenFOAM                                                 |
 |     \\    /                                                               |
@@ -18,300 +18,72 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // number of domains should be at least the number of turbines, but usually larger
-numberOfSubdomains  24;
+numberOfSubdomains  16;
 method          simple;
 preservePatches (bottom top north south);
 
 simpleCoeffs
 {
     // n           (1 1 1);
-    n           (24 1 1);
+    n           ($numberOfSubdomains 1 1);
     delta       0.001;
 }
 
-hierarchicalCoeffs
-{
-    n           (1 1 3);
-    delta       0.001;
-    order       xyz;
-}
+// hierarchicalCoeffs
+// {
+//     n           (1 1 3);
+//     delta       0.001;
+//     order       xyz;
+// }
 
 
-metisCoeffs
-{
-    processorWeights
-    (
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-    );
-}
+// number of lines for METIS is same as number subdomains
+// metisCoeffs
+// {
+//     processorWeights
+//     (
+//         1
+//         1
+//         1
+//         1
+//         1
+//         1
+//         1
+//         1        
+//     );
+// }
 
-scotchCoeffs
-{
-    //processorWeights
-    //(
-    //    1
-    //    1
-    //    1
-    //    1
-    //);
-    //writeGraph  true;
-    //strategy "b";
-}
+
+
+// scotchCoeffs
+// {
+//     processorWeights
+//     (
+//             1
+//             1
+//             1
+//             1
+//             1
+//             1
+//             1
+//             1
+//             writeGraph  true;
+//             strategy    "b";
+//     );
+
+// }
+
+
+
+distributed yes;
+
+roots 4
+(
+"/disk1/test/noh1"
+"/disk1/test/noh2"
+"/home/noh3"
+"/home/noh4"
+);
 
 manualCoeffs
 {
@@ -319,14 +91,23 @@ manualCoeffs
 }
 
 
-//// Is the case distributed
-distributed     no;
-//// Per slave (so nProcs-1 entries) the directory above the case.
-//roots           
-//(
-//    "/tmp"
-//    "/tmp"
-//);
+// Is the case distributed
+// distributed     no;
+distributed     yes;
 
+// Per slave (so nProcs-1 entries) the directory above the case.
+// for example, if using 3 nodes (1 master and 2 slaves), each node
+// has 8 cores, so this adds to $numberOfSubdomains, with 
+// 8 cores being used on the master node.
+roots $numberOfSubdomains-1
+(
+   // "/scr/stf/dsale/fastFlume"
+   // "/scr/stf/dsale/fastFlume"
+   "machines"
+);
+// where "machines" is the machine file generated
+// is the current working directory, I think it can be generated
+// by bash command:
+// cat $PBS_NODEFILE > machines
 
 // ************************************************************************* //

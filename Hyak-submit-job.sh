@@ -76,7 +76,17 @@ ulimit -v $MEMPERTASK
 ###                                                       ###
 # EDIT FOR YOUR JOB
 #
-mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastDuct_Allrun
+
+# mpirun --hostfile <machines> -np <nProcs> <foamExec>
+# <root> <case> <otherArgs> -parallel > log
+
+mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
+mpirun –hostfile machines -np 4 ./Allrun -parallel 2>&1 | tee log.Hyak_fastFlume_Allrun
+mpirun --hostfile $PBS_NODEFILE -np 8 ./Allrun -case /scr/stf/dsale/fastFlume/ -parallel 2>&1 | tee log.Hyak_fastFlume_Allrun
+
+## what is the difference between calling MPI directly or using
+## the standard utilities of OpenFOAM, like:
+runParallel `getApplication` $nProc
 
 ### include any post processing here                      ###
 ###                                                       ###

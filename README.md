@@ -25,3 +25,5 @@ elliptical wing or disk/sector method), add background turbulence,
 change wall boundary conditions ...
 
 
+![turbine-photo-stitch](stitched-all-frames-resized.png)
+**Fig. Turbine running in the "Bamfield" water flume.**
