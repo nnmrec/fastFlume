@@ -51,6 +51,7 @@
 ## Load the appropriate environment module.
 # module load <latest module> # gcc_<version>-ompi_<version> 
 # module load gcc_4.4.7-ompi_1.6.5
+source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc
 module load icc_15.0-ompi_1.8.3
 
 ### Debugging information
