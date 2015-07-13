@@ -18,14 +18,14 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // number of domains should be at least the number of turbines, but usually larger
-numberOfSubdomains  24;
+numberOfSubdomains  8;
 method          simple;
 preservePatches (bottom top north south);
 
 simpleCoeffs
 {
     // n           (1 1 1);
-    n           (24 1 1);
+    n           (8 1 1);
     delta       0.001;
 }
 
@@ -49,246 +49,13 @@ metisCoeffs
         1
         1
         1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
-        1
+    );
+}
+
+scotchCoeffs
+{
+    processorWeights
+    (
         1
         1
         1
@@ -298,19 +65,8 @@ metisCoeffs
         1
         1
     );
-}
-
-scotchCoeffs
-{
-    //processorWeights
-    //(
-    //    1
-    //    1
-    //    1
-    //    1
-    //);
-    //writeGraph  true;
-    //strategy "b";
+    writeGraph  true;
+    strategy "b";
 }
 
 manualCoeffs
@@ -319,7 +75,7 @@ manualCoeffs
 }
 
 
-//// Is the case distributed
+//// Is the case distributed (for running OpenFOAM in different hard disks)
 distributed     no;
 //// Per slave (so nProcs-1 entries) the directory above the case.
 //roots           
