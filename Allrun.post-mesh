@@ -8,7 +8,7 @@ cd ${0%/*} || exit 1 # run from this directory
 
 # Number of nodes and cores to use
 nodes=1
-cores=24
+cores=8
 # Get the number of processors to run on from system/decomposeParDict
 # nProc=$(getNumberOfProcessors)
 nProc=$(($nodes*$cores))
