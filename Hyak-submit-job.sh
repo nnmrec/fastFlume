@@ -41,7 +41,7 @@
 ## Specify the working directory for this job
 # PBS -d /gscratch/GROUPNAME/USERNAME/JOB_DIR
 # PBS -d /gscratch/motley/dsale/workspace/OpenFOAM/dsale-2.1.1/SOWFA/tutorials/fastDuct
-#PBS -d /gscratch/mstf/dsale/OpenFOAM/dsale-2.4.x/fastFlume
+#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume
 
 ## Some applications, particularly FORTRAN applications require
 ##  a larger than usual data stack size. Uncomment if your
@@ -52,7 +52,7 @@
 # module load <latest module> # gcc_<version>-ompi_<version> 
 # module load gcc_4.4.7-ompi_1.6.5
 module load icc_15.0-ompi_1.8.3
-source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc
+source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 which blockMesh
 
 
@@ -87,7 +87,12 @@ ulimit -v $MEMPERTASK
 ###                                                       ###
 # EDIT FOR YOUR JOB
 #
-mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
+
+./Allclean
+./Allrun.pre-mesh
+./Allrun.post-mesh
+
+#mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
 
 ### include any post processing here                      ###
 ###                                                       ###
