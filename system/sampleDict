@@ -80,56 +80,158 @@ sets
     // diameters relative 
     // to upstream turbine      location x
     // =======================================
-    // -2  3.6
-    // -1  4.05
-    // 0   4.5
-    // 1   4.95
-    // 2   5.4
-    // 3   5.85
-    // 4   6.3
-    // 5   6.75
-    // 6   7.2
-    // 7   7.65
-    // 8   8.1
-    // 9   8.55
-    // 10  9
-    // 11  9.45
-    // 12  9.9
-    // 13  10.35
-    // 14  10.8
-    // 15  11.25
-    // 16  11.7
-    // 17  12.15
+    // -3  0
+    // -2  0.45
+    // -1  0.9
+    // 0   1.35
+    // 1   1.8
+    // 2   2.25
+    // 3   2.7
+    // 4   3.15
+    // 5   3.6
+    // 6   4.05
+    // 7   4.5
+    // 8   4.95
+    // 9   5.4
+    // 10  5.85
+    // 11  6.3
 
+
+    // relative to upstream turbine, horizontal line probe Diameters = -3
+    line-yx_x=-3D
+    {
+        type        uniform;
+        axis        distance;
+        start       (0.0 0.0 0.4);
+        end         (0.0 1.0 0.4);
+        nPoints     32;
+    }
     // relative to upstream turbine, horizontal line probe Diameters = -2
-    lineX1
+    line-yx_x=-2D
+    {
+        type        uniform;
+        axis        distance;
+        start       (0.45 0.0 0.4);
+        end         (0.45 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = -1
+    line-yx_x=-1D
+    {
+        type        uniform;
+        axis        distance;
+        start       (0.9 0.0 0.4);
+        end         (0.9 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +0
+    line-yx_x=+0D
+    {
+        type        uniform;
+        axis        distance;
+        start       (1.35 0.0 0.4);
+        end         (1.35 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +1
+    line-yx_x=+1D
+    {
+        type        uniform;
+        axis        distance;
+        start       (1.8 0.0 0.4);
+        end         (1.8 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +2
+    line-yx_x=+2D
+    {
+        type        uniform;
+        axis        distance;
+        start       (2.25 0.0 0.4);
+        end         (2.25 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +3
+    line-yx_x=+3D
+    {
+        type        uniform;
+        axis        distance;
+        start       (2.7 0.0 0.4);
+        end         (2.7 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +4
+    line-yx_x=+4D
+    {
+        type        uniform;
+        axis        distance;
+        start       (3.15 0.0 0.4);
+        end         (3.15 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +5
+    line-yx_x=+5D
     {
         type        uniform;
         axis        distance;
         start       (3.6 0.0 0.4);
         end         (3.6 1.0 0.4);
-        nPoints     16;
+        nPoints     32;
     }
-
-    // relative to upstream turbine, horizontal line probe Diameters = 3
-    lineX2
-    {
-        type        uniform;
-        axis        distance;    
-        start       (5.85 0.0 0.4);
-        end         (5.85 1.0 0.4);
-        nPoints     16;
-    }
-
-    // relative to upstream turbine, horizontal line probe Diameters = 8
-    lineX3
+    // relative to upstream turbine, horizontal line probe Diameters = +6
+    line-yx_x=+6D
     {
         type        uniform;
         axis        distance;
-        start       (8.1 0.0 0.4);
-        end         (8.1 1.0 0.4);
-        nPoints     16;
-    } 
+        start       (4.05 0.0 0.4);
+        end         (4.05 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +7
+    line-yx_x=+7D
+    {
+        type        uniform;
+        axis        distance;
+        start       (4.5 0.0 0.4);
+        end         (4.5 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +8
+    line-yx_x=+8D
+    {
+        type        uniform;
+        axis        distance;
+        start       (4.95 0.0 0.4);
+        end         (4.95 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +9
+    line-yx_x=+9D
+    {
+        type        uniform;
+        axis        distance;
+        start       (5.4 0.0 0.4);
+        end         (5.4 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +10
+    line-yx_x=+10D
+    {
+        type        uniform;
+        axis        distance;
+        start       (5.85 0.0 0.4);
+        end         (5.85 1.0 0.4);
+        nPoints     32;
+    }
+    // relative to upstream turbine, horizontal line probe Diameters = +11
+    line-yx_x=+11D
+    {
+        type        uniform;
+        axis        distance;
+        start       (6.3 0.0 0.4);
+        end         (6.3 1.0 0.4);
+        nPoints     32;
+    }
 
 );
 
@@ -142,38 +244,132 @@ sets
 // 3] iso-surfaces are always triangulated
 surfaces
 (
-    // relative to upstream turbine, transverse plane Diameters = -2
-    constantPlane1
+
+    // relative to upstream turbine, yz plane at  Diameters = -3
+    plane-yz_x=-3D
     {
         type            plane;    // always triangulated
-        basePoint       (3.6 0.5 0.4);
+        basePoint       (0.0 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = -2
+    plane-yz_x=-2D
+    {
+        type            plane;    // always triangulated
+        basePoint       (0.45 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = -1
+    plane-yz_x=-1D
+    {
+        type            plane;    // always triangulated
+        basePoint       (0.9 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +0
+    plane-yz_x=+0D
+    {
+        type            plane;    // always triangulated
+        basePoint       (1.35 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +1
+    plane-yz_x=+1D
+    {
+        type            plane;    // always triangulated
+        basePoint       (1.8 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +2
+    plane-yz_x=+2D
+    {
+        type            plane;    // always triangulated
+        basePoint       (2.25 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +3
+    plane-yz_x=+3D
+    {
+        type            plane;    // always triangulated
+        basePoint       (2.7 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +4
+    plane-yz_x=+4D
+    {
+        type            plane;    // always triangulated
+        basePoint       (3.15 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +5
+    plane-yz_x=+5D
+    {
+        type            plane;    // always triangulated
+        basePoint       (3.6 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +6
+    plane-yz_x=+6D
+    {
+        type            plane;    // always triangulated
+        basePoint       (4.05 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +7
+    plane-yz_x=+7D
+    {
+        type            plane;    // always triangulated
+        basePoint       (4.5 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +8
+    plane-yz_x=+8D
+    {
+        type            plane;    // always triangulated
+        basePoint       (4.95 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +9
+    plane-yz_x=+9D
+    {
+        type            plane;    // always triangulated
+        basePoint       (5.4 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +10
+    plane-yz_x=+10D
+    {
+        type            plane;    // always triangulated
+        basePoint       (5.85 0.0 0.4);
+        normalVector    (1 0 0);
+    }
+    // relative to upstream turbine, yz plane at  Diameters = +11
+    plane-yz_x=+11D
+    {
+        type            plane;    // always triangulated
+        basePoint       (6.3 0.0 0.4);
         normalVector    (1 0 0);
     }
 
-    // relative to upstream turbine, transverse plane Diameters = 3
-    constantPlane2
+
+    // relative to upstream turbine, yz plane at  Diameters = +11
+    plane-zx_y=0.5
     {
         type            plane;    // always triangulated
-        basePoint       (5.85 0.5 0.4);
-        normalVector    (1 0 0);
+        basePoint       (0.0 0.5 0.0);
+        normalVector    (0 1 0);
     }
 
-    // relative to upstream turbine, transverse plane Diameters = 8
-    constantPlane3
+
+    // relative to upstream turbine, yz plane at  Diameters = +11
+    plane-yx_z=0.4
     {
         type            plane;    // always triangulated
-        basePoint       (8.1 0.5 0.4);
-        normalVector    (1 0 0);
+        basePoint       (0.0 0.0 0.4);
+        normalVector    (0 0 1);
     }
 
 );
-
-
-
-
-
-
-
 
 
 

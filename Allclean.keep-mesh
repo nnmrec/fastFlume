@@ -11,7 +11,7 @@ ls | grep -P "^[0-9]$" | xargs -d"\n" rm -rf
 ls | grep -P "^[0-9].*[0-9]$" | xargs -d"\n" rm -rf
 
 # rm -rf processor*
-rm -rf postProcessing
+# rm -rf postProcessing
 rm -rf VTK
 # rm -rf oldLogs
 

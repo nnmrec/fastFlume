@@ -20,9 +20,8 @@ FoamFile
 convertToMeters 1;
 
 // dimensions of the Bamfield flume
-// xi   0.0;      // Minimum x coordinate (inlet of flume)
-xi   3.0;      // Minimum x coordinate (can ignore the upstream section of flume)
-xf  12.3;      // Maximum x coordinate (outlet of flume)
+xi   0.0;      // Minimum x coordinate (inlet of flume)
+xf   6.3;      // Maximum x coordinate (outlet of flume)
 yi   0.0;      // Minimum y coordinate
 yf   1.0;      // Maximum y coordinate (width of flume)
 zi   0.0;      // Minimum z coordinate
@@ -34,17 +33,25 @@ zf   0.8;      // Maximum z coordinate (free surface of flume)
 // 'Parameters-ActuatorMethod.ods' to help estimate reasonable values.
 
 // mesh=coarse
-Nx 465;
-Ny 50;
-Nz 40;
-// mesh=medium
-// Nx 698;
-// Ny 75;
-// Nz 60;
+// Nx 315;
+// Ny 50;
+// Nz 40;
+// mesh=medium1
+Nx 504;
+Ny 80;
+Nz 64;
+// mesh=medium2
+// Nx 630;
+// Ny 100;
+// Nz 80;
+// mesh=medium3
+// Nx 840;
+// Ny 133;
+// Nz 107;
 // mesh=fine
-// Nx 1047;
-// Ny 113;
-// Nz 90;
+// Nx 926;
+// Ny 147;
+// Nz 118;
 
 // define the bounding box
 vertices

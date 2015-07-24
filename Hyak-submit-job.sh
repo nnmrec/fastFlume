@@ -8,23 +8,26 @@
 # bash commands can follow afterwards. 
 #
 ## RENAME FOR YOUR JOB
-#PBS -N dsale-SOWFA-fastDuct
+#PBS -N dsale-Hyak_fasfFlume
 
 ## EDIT FOR YOUR JOB
-## Request 8 CPUs (cores) on 2 nodes, 16 total cores
-# PBS -l nodes=2:ppn=8,mem=22gb,feature=8core
-# PBS -l nodes=1:ppn=16,mem=8gb,feature=16core
-#PBS -l nodes=1:ppn=16,mem=8gb,feature=8core
+## choose number of nodes and CPUs per node
+## on nodes in group motley
+# PBS -l nodes=1:ppn=16,mem=8gb,feature=8core
 
+## on nodes in group stf
+#PBS -l nodes=1:ppn=8,mem=8gb,feature=8core
 
 ## WALLTIME DEFAULTS TO ONE HOUR - ALWAYS SPECIFY FOR LONGER JOBS
 ## If the job doesn't finish in 10 minutes, cancel it
-#PBS -l walltime=00:30:00
+#PBS -l walltime=02:00:00
 
 ## EDIT FOR YOUR JOB
 ## Put the output from jobs into the below directory
 # PBS -o /gscratch/GROUPNAME/USERNAME/JOB_DIR
-#PBS -o /gscratch/motley/dsale/job_output
+# PBS -o /gscratch/motley/dsale/job_output
+#PBS -o /gscratch/stf/dsale/job_output
+
 ## Put both the stderr and stdout into a single file
 #PBS -j oe
 ## Send email when the job is aborted, begins, and terminates
@@ -34,7 +37,8 @@
 ## EDIT FOR YOUR JOB
 ## Specify the working directory for this job
 # PBS -d /gscratch/GROUPNAME/USERNAME/JOB_DIR
-#PBS -d /gscratch/motley/dsale/workspace/OpenFOAM/dsale-2.1.1/SOWFA/tutorials/fastDuct
+# PBS -d /gscratch/motley/dsale/workspace/OpenFOAM/dsale-2.1.1/SOWFA/tutorials/fastDuct
+#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume
 
 ## Some applications, particularly FORTRAN applications require
 ##  a larger than usual data stack size. Uncomment if your
@@ -43,7 +47,9 @@
 
 ## Load the appropriate environment module.
 # module load <latest module> # gcc_<version>-ompi_<version> 
-module load gcc_4.4.7-ompi_1.6.5
+# module load gcc_4.4.7-ompi_1.6.5
+module load icc_15.0-ompi_1.8.3
+source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 
 ### Debugging information
 ### Include your job logs which contain output from the below commands
@@ -58,7 +64,7 @@ echo ""
 echo "Node:CPUs Used"
 uniq -c $PBS_NODEFILE | awk '{print $2 ":" $1}'
 echo "SHARED LIBRARY CHECK"
-ldd ./Allrun 2>&1 | tee log.Hyak_fastDuct_Allrun
+ldd ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
 echo "ENVIRONMENT VARIABLES"
 set
 echo "**********************************************"
@@ -77,16 +83,11 @@ ulimit -v $MEMPERTASK
 # EDIT FOR YOUR JOB
 #
 
-# mpirun --hostfile <machines> -np <nProcs> <foamExec>
-# <root> <case> <otherArgs> -parallel > log
+./Allclean
+./Allrun.pre-mesh
+./Allrun.post-mesh
 
-mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
-mpirun –hostfile machines -np 4 ./Allrun -parallel 2>&1 | tee log.Hyak_fastFlume_Allrun
-mpirun --hostfile $PBS_NODEFILE -np 8 ./Allrun -case /scr/stf/dsale/fastFlume/ -parallel 2>&1 | tee log.Hyak_fastFlume_Allrun
-
-## what is the difference between calling MPI directly or using
-## the standard utilities of OpenFOAM, like:
-runParallel `getApplication` $nProc
+#mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
 
 ### include any post processing here                      ###
 ###                                                       ###
