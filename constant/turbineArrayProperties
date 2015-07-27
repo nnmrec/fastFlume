@@ -32,7 +32,8 @@ turbine1
     pointDistType       "uniform";
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
-    epsilon             0.032875;
+    // epsilon             0.032875;     // mesh=medium1
+    epsilon             0.0014662746  // mesh = medium 2
     tipRootLossCorrType "Glauert";
     rotationDir         "ccw";
     Azimuth             0;

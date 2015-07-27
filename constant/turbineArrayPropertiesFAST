@@ -46,9 +46,12 @@ general
   numberofBld             2;
   numberofBldPts          30;           
   rotorDiameter           0.45;
-  epsilon                 0.032875;
-  smearRadius             0.08646125;
-  effectiveRadiusFactor   1.384279357;  
+  // epsilon                 0.032875;     // mesh=medium1
+  // smearRadius             0.08646125;   // mesh=medium1
+  // effectiveRadiusFactor   1.384279357;  // mesh=medium1
+  epsilon                 0.0263;       // mesh=medium2
+  smearRadius             0.069169;     // mesh=medium2
+  effectiveRadiusFactor   1.307425332;  // mesh=medium2
   pointInterpType         1;
 }
 
