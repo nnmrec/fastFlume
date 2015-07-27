@@ -46,10 +46,11 @@ interpolationScheme cellPoint;
 // Fields to sample.
 fields
 (
-    p
     U
-    Umean
-    upMean
+    // uprime
+    // Umean
+    // upMean
+    // p
     // bodyForceFAST
 );
 

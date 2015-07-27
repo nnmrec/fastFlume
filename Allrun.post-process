@@ -40,11 +40,13 @@ reconstructPar -latestTime
 # pPrime2
 
 vorticity -latestTime
+enstrophy -latestTime
 foamCalc components vorticity -latestTime
 foamCalc components U -latestTime
 foamCalc components UMean -latestTime
 Lambda2 -latestTime
 pPrime2 -latestTime
+uprime -latestTime
 
 ## convert OpenFOAM format to VTK files
 # foamToVTK -noZero -fields '(U p bodyForce vorticity Lambda2)'
@@ -53,7 +55,7 @@ foamToVTK -latestTime
 
 ## sample the fields
 # sample
-sample -latestTime
+# sample -latestTime
 
 
 ## interpolate time stepstemporalInterpolate
