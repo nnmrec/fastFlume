@@ -8,3 +8,5 @@ docs/figures/*.out
 docs/figures/*.snm
 docs/figures/*.synctex.gz
 docs/figures/*.toc
+/constant/polyMesh/points
+/constant/polyMesh/boundary

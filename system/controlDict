@@ -35,12 +35,13 @@ endTime           5.0;
 // endTime           10.0;
 
 // deltaT            0.0015; // mesh=medium1
-deltaT            0.0012; // mesh=medium2
+// deltaT            0.0012; // mesh=medium2
+deltaT            0.0008; // mesh=medium3
 
 writeControl      adjustableRunTime;
 
-// writeInterval     0.02;
-writeInterval     0.001;  // testing system calls
+writeInterval     0.02;
+// writeInterval     0.001;  // testing system calls
 
 // purgeWrite        0;
 purgeWrite        3;

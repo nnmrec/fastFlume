@@ -41,13 +41,13 @@ zf   0.8;      // Maximum z coordinate (free surface of flume)
 // Ny 80;
 // Nz 64;
 // mesh=medium2
-Nx 630;
-Ny 100;
-Nz 80;
+// Nx 630;
+// Ny 100;
+// Nz 80;
 // mesh=medium3
-// Nx 840;
-// Ny 133;
-// Nz 107;
+Nx 840;
+Ny 133;
+Nz 107;
 // mesh=fine
 // Nx 926;
 // Ny 147;

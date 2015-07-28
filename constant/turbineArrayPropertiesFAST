@@ -49,9 +49,12 @@ general
   // epsilon                 0.032875;     // mesh=medium1
   // smearRadius             0.08646125;   // mesh=medium1
   // effectiveRadiusFactor   1.384279357;  // mesh=medium1
-  epsilon                 0.0263;       // mesh=medium2
-  smearRadius             0.069169;     // mesh=medium2
-  effectiveRadiusFactor   1.307425332;  // mesh=medium2
+  // epsilon                 0.0263;       // mesh=medium2
+  // smearRadius             0.069169;     // mesh=medium2
+  // effectiveRadiusFactor   1.307425332;  // mesh=medium2
+  epsilon                 0.019725;       // mesh=medium3
+  smearRadius             0.05187675;     // mesh=medium3
+  effectiveRadiusFactor   1.2305713593;  // mesh=medium3
   pointInterpType         1;
 }
 
