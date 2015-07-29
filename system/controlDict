@@ -30,18 +30,19 @@ startTimeCorr     0.0;
 
 stopAt            endTime;
 
-// endTime           2.0;
-endTime           5.0;
+endTime           4.0;  // "steady state" should be acheived about 3 to 5 seconds, for single turbine
 // endTime           10.0;
 
-// deltaT            0.0015; // mesh=medium1
-// deltaT            0.0012; // mesh=medium2
-deltaT            0.0008; // mesh=medium3
+deltaT            0.0025; // mesh = coarse
+// deltaT            0.0015; // mesh = medium1
+// deltaT            0.0012; // mesh = medium2
+// deltaT            0.0008; // mesh = medium3
+// deltaT            0.0006; // mesh = fine
 
 writeControl      adjustableRunTime;
 
-// writeInterval     0.02;
-writeInterval     0.001;  // testing system calls
+writeInterval     0.02;      // write at 50 frames per second (for movies)
+// writeInterval     0.004;  // testing system calls
 
 // purgeWrite        0;
 purgeWrite        3;
@@ -67,290 +68,33 @@ adjustTimeStep    yes;
 maxCo             0.2;
 // maxCo             0.75;
 
-maxDeltaT         25.0;
+maxDeltaT         10.0;
 
 
 functions
   {
       
-      // sysCall
-      // {
-      //     type systemCall;
-      //     functionObjectLibs ( "libsystemCall.so" );
-      //     executeCalls 0();
-      //     endCalls 0();
-      //     writeCalls 0();
-      //     outputControl outputTime;
-      //     outputInterval $writeInterval;
-      // }
-
-      // should include a check which version of MPI (OpenMPI or Intel)
-
       sysCall
       {
           type systemCall;
           functionObjectLibs ( "libsystemCall.so" );
-          
-          // executeCalls 1("echo Execute system call before time iteration is done");
-          // endCalls 1("echo Finishing up with a system call, which is seems to be before the write call...");
-          // writeCalls 2("echo Writing to file call" "ls -l");
-          
+                   
           outputControl outputTime;
           outputInterval 1;
 
-
-
-
-          executeCalls 1("echo executeCalls: Execute system call before time iteration is done");
-          endCalls 1("echo endCalls: Finishing up with a system call, which is seems to be before the write call...");
-          writeCalls 1(
-                // "echo Writing to file call" 
+          // executeCalls 1("echo [sysCall] executeCalls: Execute system call before time iteration is done");
+          
+          // endCalls 1("echo [sysCall] endCalls: Finishing up with a system call, which seems to be before the write call...");
+          
+          writeCalls 2(
+                "echo [sysCall] writeCalls: Writing to file call" 
                  
-                // "figlet HelloWorld"
-                 
-                // "echo $OMPI_COMM_WORLD_RANK"
-
+                // each write interval this script is run, for run time post-processing
                 "./run-master-node-sysCall.sh"
 
-                // "if [ $MPI_PROCESS_CORE = 0 ]; then
-                //   echo Do what the master needs to do
-                // fi"
-
-                // "cp * $PBS_O_WORKDIR"
           );
 
       }
 
-
-
-
-
-
-
-      // sliceData
-      // {
-      //     type                 surfaces;
-      //     functionObjectLibs   ("libsampling.so");
-      //     enabled              true;
-      //     interpolationScheme  cellPointFace;
-      //     outputControl        outputTime;
-      //     outputInterval       $writeInterval;
-      //     surfaceFormat        vtk;
-          
-      //     fields
-      //     (
-      //         U
-      //         // uprime
-      //         // Umean
-      //         // upMean
-      //         // p
-      //         // bodyForceFAST
-      //     );
-          
-      //     // Surface sampling definition: choice of
-      //     //      plane : values on plane defined by point, normal.
-      //     //      patch : values on patch.
-      //     //
-      //     // 1] patches are not triangulated by default
-      //     // 2] planes are always triangulated
-      //     // 3] iso-surfaces are always triangulated
-      //     surfaces
-      //     (
-
-      //         // relative to upstream turbine, yz plane at  Diameters = -3
-      //         plane-yz_x=-3D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (0.0 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = -2
-      //         plane-yz_x=-2D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (0.45 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = -1
-      //         plane-yz_x=-1D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (0.9 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +0
-      //         plane-yz_x=+0D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (1.35 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +1
-      //         plane-yz_x=+1D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (1.8 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +2
-      //         plane-yz_x=+2D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (2.25 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +3
-      //         plane-yz_x=+3D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (2.7 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +4
-      //         plane-yz_x=+4D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (3.15 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +5
-      //         plane-yz_x=+5D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (3.6 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +6
-      //         plane-yz_x=+6D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (4.05 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +7
-      //         plane-yz_x=+7D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (4.5 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +8
-      //         plane-yz_x=+8D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (4.95 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +9
-      //         plane-yz_x=+9D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (5.4 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +10
-      //         plane-yz_x=+10D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (5.85 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-      //         // relative to upstream turbine, yz plane at  Diameters = +11
-      //         plane-yz_x=+11D
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (6.3 0.0 0.4);
-      //             normalVector    (1 0 0);
-      //         }
-
-
-      //         // relative to upstream turbine, yz plane at  Diameters = +11
-      //         plane-zx_y=0.5
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (0.0 0.5 0.0);
-      //             normalVector    (0 1 0);
-      //         }
-
-
-      //         // relative to upstream turbine, yz plane at  Diameters = +11
-      //         plane-yx_z=0.4
-      //         {
-      //             type            plane;    // always triangulated
-      //             basePoint       (0.0 0.0 0.4);
-      //             normalVector    (0 0 1);
-      //         }
-
-      //     );
-      // }
-
   } //end functions
 
-
-// functions
-// {
-
-// 	// I think we only need to send the processor directories back to my 
-// 	// local workstation to do further post-processing.
-// 	// Selectively get the files back into the host/master machine 
-// 	// through the bash command: (I think this runs on each slave node)
-// 	// > scp -r danny@master-node-on-Hyak:/scr/stf/dsale/fasFlume processor*/
-
-// 	// render a visualization using VisIt or ParaView:
-// 	// > "command to run VisIt on most current OpenFOAM time step"
-
-// 	// now send your rendered images, and other important directories back
-// 	// to your local workstation for further analysis
-// 	// >  scp -r  processor*/ danny@local-workstation:/mnt/data-RAID-1/danny/Hyak-runs/fastFlume
-
-
-
-//   //   sysCall
-//   //   {
-//   //       type systemCall;
-//   //       functionObjectLibs ( "libsystemCall.so" );
-        
-//   //       // executeCalls 0();
-//   //       // endCalls 0();
-//   //       // writeCalls 0();
-        
-//   //       executeCalls 1("echo Execute system call before time iteration is done");
-//   //       endCalls 1("echo Finishing up with a system call, which is seems to be before the write call...");
-//   //       writeCalls 4(
-//   //       			"echo Writing to file call" 
-        			 
-//   //       			"ls -l"
-        			 
-//   //       			"if [ $MPI_PROCESS_CORE = 0 ]; then
-//   // 						echo "Do what the master needs to do."
-// 		// 	      	fi"
-
-// 		// 	      	"cp * $PBS_O_WORKDIR"
-// 		// 			);
-
-//   //       // some calls we only want to execute on the MPI master node,
-//   //       // how to tell when on the master node?  ... need to know the 
-//   //       // environmental variables of the specific MPI library (OpenMPI)
-//   //       // The two $ will expand in the shell to the PID number of the running shell
-//   //       // 
-//   //       // you should be able to see the variable that has stored the number 
-//   //       // of the parallel process assigned by the MPI. Based on that number, 
-//   //       // you will know which one is the master process, which is either 0 or 1, 
-//   //       // depending on the number assignment scheme used by the MPI toolbox being used
-//   //       if [ $MPI_PROCESS_CORE = 0 ]; then
-// 		// 	echo "Do what the master needs to do."
-
-// 		// 	// I think commands to visualize (VisIt, ParaView), and
-// 		// 	// transter over network to local workstation
-// 		// 	// should execute here:
-
-// 		// 	reconstructPar
-
-
-// 		// fi
-
-//   //       outputControl outputTime;
-//   //       outputInterval 1;
-//   //   }
-
-// }

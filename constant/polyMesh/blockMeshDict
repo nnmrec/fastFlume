@@ -33,9 +33,9 @@ zf   0.8;      // Maximum z coordinate (free surface of flume)
 // 'Parameters-ActuatorMethod.ods' to help estimate reasonable values.
 
 // mesh=coarse
-// Nx 315;
-// Ny 50;
-// Nz 40;
+Nx 315;
+Ny 50;
+Nz 40;
 // mesh=medium1
 // Nx 504;
 // Ny 80;
@@ -45,9 +45,9 @@ zf   0.8;      // Maximum z coordinate (free surface of flume)
 // Ny 100;
 // Nz 80;
 // mesh=medium3
-Nx 840;
-Ny 133;
-Nz 107;
+// Nx 840;
+// Ny 133;
+// Nz 107;
 // mesh=fine
 // Nx 926;
 // Ny 147;
