@@ -41,7 +41,8 @@ surfaceFormat vtk;
 // // 1] vertex values determined from neighbouring cell-centre values
 // // 2] face values determined using the current face interpolation scheme
 // //    for the field (linear, gamma, etc.)
-interpolationScheme cellPoint;
+// interpolationScheme cellPoint;
+interpolationScheme cell;
 
 // Fields to sample.
 fields
@@ -54,6 +55,10 @@ fields
     // bodyForceFAST
 );
 
+// offset coordinates by small amount to avoid case when
+// sample point is same as faces ... so perturb like ~0.1 % cell size
+offset   0.000001;      // Minimum x coordinate (inlet of flume)
+    
 // // Set sampling definition: choice of
 // //      uniform             evenly distributed points on line
 // //      face                one point per face intersection
@@ -103,8 +108,8 @@ sets
     {
         type        uniform;
         axis        distance;
-        start       (0.0 0.0 0.4);
-        end         (0.0 1.0 0.4);
+        start       (0.0 0.0 0.4) + $offset;
+        end         (0.0 1.0 0.4) + $offset;
         nPoints     32;
     }
     // relative to upstream turbine, horizontal line probe Diameters = -2
@@ -112,8 +117,8 @@ sets
     {
         type        uniform;
         axis        distance;
-        start       (0.45 0.0 0.4);
-        end         (0.45 1.0 0.4);
+        start       (0.45 0.0 0.4) + $offset;
+        end         (0.45 1.0 0.4) + $offset;
         nPoints     32;
     }
     // relative to upstream turbine, horizontal line probe Diameters = -1

@@ -55,7 +55,7 @@ foamToVTK -latestTime
 
 ## sample the fields
 # sample
-# sample -latestTime
+sample -latestTime
 
 
 ## interpolate time stepstemporalInterpolate
