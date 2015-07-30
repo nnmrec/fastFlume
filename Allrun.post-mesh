@@ -5,8 +5,8 @@ cd ${0%/*} || exit 1 # run from this directory
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 # Number of nodes and cores to use
-nodes=1
-cores=16
+nodes=8
+cores=8
 # Get the number of processors to run on from system/decomposeParDict
 # nProc=$(getNumberOfProcessors)
 nProc=$(($nodes*$cores))
