@@ -8,7 +8,7 @@
 # bash commands can follow afterwards. 
 #
 ## RENAME FOR YOUR JOB
-#PBS -N dsale-Hyak_fasfFlume
+#PBS -N dsale-Hyak_fasfFlume_fine
 
 ## EDIT FOR YOUR JOB
 ## choose number of nodes and CPUs per node
@@ -16,7 +16,7 @@
 # PBS -l nodes=1:ppn=16,mem=8gb,feature=8core
 
 ## on nodes in group stf
-#PBS -l nodes=1:ppn=8,mem=8gb,feature=8core
+#PBS -l nodes=8:ppn=8,mem=40gb,feature=8core
 
 ## WALLTIME DEFAULTS TO ONE HOUR - ALWAYS SPECIFY FOR LONGER JOBS
 ## If the job doesn't finish in 10 minutes, cancel it
@@ -38,7 +38,7 @@
 ## Specify the working directory for this job
 # PBS -d /gscratch/GROUPNAME/USERNAME/JOB_DIR
 # PBS -d /gscratch/motley/dsale/workspace/OpenFOAM/dsale-2.1.1/SOWFA/tutorials/fastDuct
-#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume
+#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/fine
 
 ## Some applications, particularly FORTRAN applications require
 ##  a larger than usual data stack size. Uncomment if your
@@ -84,8 +84,11 @@ ulimit -v $MEMPERTASK
 #
 
 ./Allclean
-./Allrun.pre-mesh
-./Allrun.post-mesh
+./Allrun
+
+#./Allclean
+#./Allrun.pre-mesh
+#./Allrun.post-mesh
 
 #mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
 
