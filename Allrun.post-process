@@ -30,6 +30,15 @@ reconstructPar -latestTime
 # ./parReconstructPar_v3 -n 2
 
 
+# ret=$?
+# # -- remove processor-directories if reconstruction was successful
+# if [ $ret -eq 0 ] ; then
+#       for i in processor* ; do rm -rf $i & done
+#       wait 
+# fi
+# exit $ret
+
+
 
 ## compute additional fields, like vorticity
 # vorticity
@@ -45,8 +54,8 @@ foamCalc components vorticity -latestTime
 foamCalc components U -latestTime
 foamCalc components UMean -latestTime
 Lambda2 -latestTime
-pPrime2 -latestTime
-uprime -latestTime
+# pPrime2 -latestTime
+# uprime -latestTime
 
 ## convert OpenFOAM format to VTK files
 # foamToVTK -noZero -fields '(U p bodyForce vorticity Lambda2)'

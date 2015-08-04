@@ -23,9 +23,11 @@ convertToMeters 1;
 xi   0.0;      // Minimum x coordinate (inlet of flume)
 xf   6.3;      // Maximum x coordinate (outlet of flume)
 yi   0.0;      // Minimum y coordinate
-yf   1.0;      // Maximum y coordinate (width of flume)
+// yf   1.0;      // Maximum y coordinate (width of flume)
+yf   0.9975;      // Maximum y coordinate (width of flume)
 zi   0.0;      // Minimum z coordinate
-zf   0.8;      // Maximum z coordinate (free surface of flume)
+// zf   0.8;      // Maximum z coordinate (free surface of flume)
+zf   0.8025;      // Maximum z coordinate (free surface of flume)
 
 // adjust mesh size (number of cells in x, y, z)
 // note that size of epsilon (body force spreading) and time step 

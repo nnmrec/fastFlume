@@ -8,7 +8,7 @@
 # bash commands can follow afterwards. 
 #
 ## RENAME FOR YOUR JOB
-#PBS -N dsale-Hyak_fasfFlume
+#PBS -N dsale-Hyak_fasfFlume_medium3
 
 ## EDIT FOR YOUR JOB
 ## choose number of nodes and CPUs per node
@@ -16,11 +16,11 @@
 # PBS -l nodes=1:ppn=16,mem=8gb,feature=8core
 
 ## on nodes in group stf
-#PBS -l nodes=1:ppn=8,mem=8gb,feature=8core
+#PBS -l nodes=8:ppn=8,mem=32gb,feature=8core
 
 ## WALLTIME DEFAULTS TO ONE HOUR - ALWAYS SPECIFY FOR LONGER JOBS
 ## If the job doesn't finish in 10 minutes, cancel it
-#PBS -l walltime=02:00:00
+#PBS -l walltime=04:00:00
 
 ## EDIT FOR YOUR JOB
 ## Put the output from jobs into the below directory
@@ -38,7 +38,7 @@
 ## Specify the working directory for this job
 # PBS -d /gscratch/GROUPNAME/USERNAME/JOB_DIR
 # PBS -d /gscratch/motley/dsale/workspace/OpenFOAM/dsale-2.1.1/SOWFA/tutorials/fastDuct
-#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume
+#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/medium3
 
 ## Some applications, particularly FORTRAN applications require
 ##  a larger than usual data stack size. Uncomment if your
@@ -48,7 +48,8 @@
 ## Load the appropriate environment module.
 # module load <latest module> # gcc_<version>-ompi_<version> 
 # module load gcc_4.4.7-ompi_1.6.5
-module load icc_15.0-ompi_1.8.3
+module load gcc_4.4.7-ompi_1.8.6 
+# module load icc_15.0-ompi_1.8.3
 source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 
 ### Debugging information
@@ -84,8 +85,11 @@ ulimit -v $MEMPERTASK
 #
 
 ./Allclean
-./Allrun.pre-mesh
-./Allrun.post-mesh
+./Allrun
+
+#./Allclean
+#./Allrun.pre-mesh
+#./Allrun.post-mesh
 
 #mpirun --bind-to-core ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
 
