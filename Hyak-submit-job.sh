@@ -16,11 +16,11 @@
 # PBS -l nodes=1:ppn=16,mem=8gb,feature=8core
 
 ## on nodes in group stf
-#PBS -l nodes=8:ppn=8,mem=8gb,feature=8core
+#PBS -l nodes=8:ppn=8,mem=32gb,feature=intel
 
 ## WALLTIME DEFAULTS TO ONE HOUR - ALWAYS SPECIFY FOR LONGER JOBS
 ## If the job doesn't finish in 10 minutes, cancel it
-#PBS -l walltime=02:00:00
+#PBS -l walltime=04:00:00
 
 ## EDIT FOR YOUR JOB
 ## Put the output from jobs into the below directory
@@ -48,7 +48,9 @@
 ## Load the appropriate environment module.
 # module load <latest module> # gcc_<version>-ompi_<version> 
 # module load gcc_4.4.7-ompi_1.6.5
-module load icc_15.0-ompi_1.8.3
+#module load icc_15.0-ompi_1.8.3
+#module load icc_15.0-impi_5.0.1
+module load icc_14.0.1-impi_4.1.3
 source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 
 ### Debugging information
@@ -64,7 +66,7 @@ echo ""
 echo "Node:CPUs Used"
 uniq -c $PBS_NODEFILE | awk '{print $2 ":" $1}'
 echo "SHARED LIBRARY CHECK"
-ldd ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun
+ldd ./Allrun 2>&1 | tee log.Hyak_fastFlume_Allrun_ldd
 echo "ENVIRONMENT VARIABLES"
 set
 echo "**********************************************"

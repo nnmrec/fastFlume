@@ -12,4 +12,5 @@ cores=8
 nProc=$(($nodes*$cores))
 
 # Run the solver (parallel)
-mpirun -bind-to-core -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+#mpirun -bind-to-core -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+mpirun -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine

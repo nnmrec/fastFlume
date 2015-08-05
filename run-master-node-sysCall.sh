@@ -3,7 +3,8 @@
 # should include a check which version of MPI (OpenMPI or Intel)
 # could do this be looking at "which mpirun"
 
-if [ $OMPI_COMM_WORLD_RANK -eq 0 ]
+#if [ $OMPI_COMM_WORLD_RANK -eq 0 ]
+if [ $PMI_RANK -eq 0 ]
 then
 
 echo '======================================================================='	
