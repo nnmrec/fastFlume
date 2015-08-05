@@ -1,10 +1,19 @@
 #!/bin/sh
 
-# should include a check which version of MPI (OpenMPI or Intel)
-# could do this be looking at "which mpirun"
+# detect if using OpenMPI or Intel MPI
+# list out the modules in use, pipe into text file
+module list 2>&1 | tee log.modules
 
-#if [ $OMPI_COMM_WORLD_RANK -eq 0 ]
-if [ $PMI_RANK -eq 0 ]
+# search for Intel or OpenMPI
+if grep -q impi log.modules; then
+#    echo using Intel MPI
+    MPI_RANK=$PMI_RANK
+else
+#    echo using OpenMPI
+    MPI_RANK=$OMPI_COMM_WORLD_RANK
+fi
+
+if [ $MPI_RANK -eq 0 ]
 then
 
 echo '======================================================================='	

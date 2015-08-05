@@ -1,0 +1,30 @@
+#!/bin/sh
+cd ${0%/*} || exit 1 # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+
+
+echo '*==============================================================================='
+echo '* ███████╗ █████╗ ███████╗████████╗███████╗██╗     ██╗   ██╗███╗   ███╗███████╗ '
+echo '* ██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔════╝██║     ██║   ██║████╗ ████║██╔════╝ '
+echo '* █████╗  ███████║███████╗   ██║   █████╗  ██║     ██║   ██║██╔████╔██║█████╗   '
+echo '* ██╔══╝  ██╔══██║╚════██║   ██║   ██╔══╝  ██║     ██║   ██║██║╚██╔╝██║██╔══╝   '
+echo '* ██║     ██║  ██║███████║   ██║   ██║     ███████╗╚██████╔╝██║ ╚═╝ ██║███████╗ '
+echo '* ╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝     ╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝ '
+echo '*                                                                               '
+echo "* Starting OpenFOAM job at: " $(date)                                           
+echo '*==============================================================================='
+
+
+
+./run.pre-mesh 2>&1 | tee log.run.pre-mesh
+./run.post-mesh 2>&1 | tee log.run.post-mesh
+
+# note: run time post-proccesing is performed in controlDict
+./run.post-process 2>&1 | tee log.run.post-process
+
+
+
+echo "Ending OpenFOAM job at: " $(date)

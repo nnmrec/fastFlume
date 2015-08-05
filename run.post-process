@@ -21,14 +21,6 @@ reconstructPar -latestTime
 #   -t (times) is optional, times given in the form tstart,tstop
 #         -o (output) is optional 
 # "
-# parReconstructPar_v3 $0 -n 16
-# ./parReconstructPar_v3 -n 16 -fields '(U p nuSgs bodyForce)'
-# ./parReconstructPar_v3 -n $cores -fields '(U p nuSgs bodyForce)'
-# for some reason the -fields options gives error such that no fields are created!
-# ./parReconstructPar_v3 -n $cores
-# ./parReconstructPar_v3 -n $nProc
-# ./parReconstructPar_v3 -n 2
-
 
 # ret=$?
 # # -- remove processor-directories if reconstruction was successful

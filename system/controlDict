@@ -86,11 +86,11 @@ functions
           
           // endCalls 1("echo [sysCall] endCalls: Finishing up with a system call, which seems to be before the write call...");
           
-          writeCalls 2(
-                "echo [sysCall] writeCalls: Writing to file call" 
+          writeCalls 1(
+                //"echo [sysCall] writeCalls: Writing to file call" 
                  
                 // each write interval this script is run, for run time post-processing
-                "./run-master-node-sysCall.sh"
+                "./run.master-node-sysCall"
 
           );
 
