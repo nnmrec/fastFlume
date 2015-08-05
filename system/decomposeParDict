@@ -18,7 +18,8 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // number of domains should be at least the number of turbines, but usually larger
-numberOfSubdomains  64;
+numberOfSubdomains  16;
+//numberOfSubdomains  64;
 method          simple;
 preservePatches (bottom top north south);
 

@@ -5,12 +5,23 @@ cd ${0%/*} || exit 1 # run from this directory
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 # Number of nodes and cores to use
-nodes=8
-cores=8
-# Get the number of processors to run on from system/decomposeParDict
-# nProc=$(getNumberOfProcessors)
-nProc=$(($nodes*$cores))
+#nodes=8
+#cores=8
+#nProc=$(($nodes*$cores))
+
+# Or automatically get the number of processors to run on from system/decomposeParDict
+# OpenFOAM's built in function does not work?
+#nProc=$(getNumberOfProcessors)
+
+# revert to standard utilities
+nProc=$(sed -ne 's/^numberOfSubdomains *\(.*\);/\1/p' system/decomposeParDict)
+#echo $nProc
 
 # Run the solver (parallel)
-#mpirun -bind-to-core -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
-mpirun -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+
+# when using OpenMPI
+#mpirun -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+#mpirun --bind-to-core -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+
+# when using IntelMPI
+mpirun -binding core -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
