@@ -10,8 +10,6 @@ function [time, varName] = load_FAST_scalars(dir_TurbineOutput, ...
 % then joins all data into a single time series.  And then can optionally
 % return only a subset of that time series.
 
-
-
 % begin function: AND dont use hardcoded variable names!
 turbine_id  = [];
 t           = [];

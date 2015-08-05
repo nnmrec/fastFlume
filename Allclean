@@ -32,7 +32,7 @@ rm -rf *.out
 rm -rf turbineOutput/*
 rm -rf postProcessing
 # cp constant/polyMesh/blockMeshDict ./
-rm constant/polyMesh/points
+rm constant/polyMesh/boundary
 # mv ./blockMeshDict constant/polyMesh/blockMeshDict
 
 rm -rf 0

@@ -1,13 +1,23 @@
 %% preamble
 clear all;
-close all;
+% close all;
 clc;
+
+addpath([pwd filesep 'distinguishable_colors'])
+
 
 %% USER INPUTS
 
 % directory where FAST ouput is stored
 % dir_TurbineOutput = '/mnt/data-RAID-10/danny/fastFlume-RC4_LabScale_mesh=medium/turbineOutput';
-dir_TurbineOutput = '/mnt/data-RAID-0/danny/fastFlume-RC5_Turbine=LabScale1_Layout=SingleRotor_TSR=6.2_Mesh=medium/turbineOutput';
+% dir_TurbineOutput = '/mnt/data-RAID-0/danny/fastFlume-RC5_Turbine=LabScale1_Layout=SingleRotor_TSR=6.2_Mesh=medium/turbineOutput';
+
+% dir_TurbineOutput = '/mnt/data-RAID-0/danny/fastFlume_Turbine=3-LabScale_Spacing=5D_Layout=CoAxaial_TSR=6.2_Mesh=medium/turbineOutput';
+
+% dir_TurbineOutput = '/home/danny/OpenFOAM/danny-2.4.x/fastFlume-branches/branches-post-processing/coarse/turbineOutput';
+% dir_TurbineOutput = '/home/danny/OpenFOAM/danny-2.4.x/fastFlume-branches/branches-post-processing/medium1/turbineOutput';
+% dir_TurbineOutput = '/home/danny/OpenFOAM/danny-2.4.x/fastFlume-branches/branches-post-processing/medium2/turbineOutput';
+% dir_TurbineOutput = '/home/danny/OpenFOAM/danny-2.4.x/fastFlume-branches/branches-post-processing/medium3/turbineOutput';
 
 % select the turbine type (and modify corresponding flow conditions if needed)
 % an improvement would be to read these variables directory from the OpenFOAM case files
@@ -17,6 +27,7 @@ dir_TurbineOutput = '/mnt/data-RAID-0/danny/fastFlume-RC5_Turbine=LabScale1_Layo
 %                  'UW-LabScale-Array'
 %                  'UW-LabScale-Single'
 turbineType = 'UW-LabScale-Single';
+% turbineType = 'UW-LabScale-Array';
 switch turbineType       
     case{'DOE-RM1'}
         % DOE RM1 full scale hydrokinetic turbine dual rotor
@@ -60,8 +71,8 @@ switch turbineType
 end
 
 % subset of data (allows to focus on specific part of times series, e.g. to ignore transients)
-% perStart = 0;   % end point - fraction of time series (between 0 and 1)
-perStart = 0.2;   % end point - fraction of time series (between 0 and 1)
+perStart = 0;   % end point - fraction of time series (between 0 and 1)
+% perStart = 0.2;   % end point - fraction of time series (between 0 and 1)
 perEnd   = 1;   % end point - fraction of time series (between 0 and 1)
 
 %% END USER INPUTS
@@ -76,6 +87,14 @@ nameFolders = {DIR(isub).name}';                    % names of subfolders
 nameFolders(ismember(nameFolders,{'.','..'})) = []; % remove the . and .. directories
 
 restart_folders = nameFolders;
+
+%% get the list of filenames, and sort them sequentially, cannot rely on 'dir' to 
+%  return the file list in sequential order
+% files        = dir( [dir_data filesep '*.okc'] );   % list all files in the *.okc Xdmv format
+% files        = {files.name};                        % shape into a nicer list
+% [fsort, ind] = sort_nat(files, 'ascend');           % sort the file list with natural ordering
+% files_sorted = fsort(:);
+
 
 %% load the data
 data_filename  = 'powerRotor';
@@ -101,19 +120,44 @@ nHeaders       = 1;
 %                                    idTurbine, ...
 %                                    perStart, ...
 %                                    perEnd);
-                               
+
+% plot_FAST_variable(data_filename,)
+
+% duplicate time vector to make plotting more convenient
+t = repmat(time, [1, nTurbines]);
+
 %% Plot the power
 figure('Name', 'Rotor Power', ...
        'Color', 'white');
 
-% plot(time, Protor, 'LineWidth', 2)
-hold on;
-plot(time, Protor(:,1), '-b', 'LineWidth', 3)
-plot(time, Protor(:,2), '-k', 'LineWidth', 3)
-plot(time, Protor(:,3), '-r', 'LineWidth', 3)
+n_colors = size(Protor, 2);
+colors = distinguishable_colors(n_colors);
 
-legend('turbine upstream','turbine middle','turbine downstream', ...
-       'Location','best');
+% plot(t, Protor, 'color', colors, 'LineWidth', 2)
+
+% override the color order for improved colors
+set(gca, 'ColorOrder', colors, 'NextPlot', 'replacechildren');
+hold on;
+plot(t, Protor, 'LineWidth', 2)
+
+% for n = 1:nTurbines
+%     hold on;
+%     plot(t(:,n), Protor(:,n), 'color', colors(:,n), 'LineWidth', 2)
+% end
+
+
+
+
+% hold on;
+% plot(time, Protor(:,1), '-b', 'LineWidth', 3)
+% plot(time, Protor(:,2), '-k', 'LineWidth', 3)
+% plot(time, Protor(:,3), '-r', 'LineWidth', 3)
+
+% legend('turbine upstream','turbine middle','turbine downstream', ...
+%        'Location','best');
+   
+legend('mesh = medium-1','mesh = medium-2','mesh = medium-3', ...
+       'Location','best');   
    
 title('rotor power', 'FontSize', 16)
 xlabel('time, t (s)', 'FontSize', 16);
