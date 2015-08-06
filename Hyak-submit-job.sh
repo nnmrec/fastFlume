@@ -22,18 +22,19 @@
 
 
 ## --------------------------------------------------------
-## GROUP to run under
+## GROUP to run under, or run under backfill
 ## --------------------------------------------------------
 ## PBS -W group_list=hyak-motley
-#PBS -W group_list=hyak-stf
+## PBS -W group_list=hyak-stf
+#PBS -q bf
 
 
 ## --------------------------------------------------------
 ## NUMBER nodes, CPUs per node, and MEMORY
 ## --------------------------------------------------------
-#PBS -l nodes=1:ppn=16,mem=32gb,feature=intel
+## PBS -l nodes=1:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=2:ppn=16,mem=32gb,feature=intel
-## PBS -l nodes=4:ppn=16,mem=32gb,feature=intel
+#PBS -l nodes=4:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=16:ppn=16,mem=32gb,feature=intel
 
@@ -47,7 +48,6 @@
 ## --------------------------------------------------------
 ## QUEUE to submit job (default, or uncomment for backfill)
 ## --------------------------------------------------------
-## PBS -q bf
 
 
 ## --------------------------------------------------------
