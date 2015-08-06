@@ -24,8 +24,8 @@
 ## --------------------------------------------------------
 ## GROUP to run under
 ## --------------------------------------------------------
-#PBS -W group_list=hyak-motley
-## PBS -W group_list=hyak-stf
+## PBS -W group_list=hyak-motley
+#PBS -W group_list=hyak-stf
 
 
 ## --------------------------------------------------------
