@@ -15,14 +15,13 @@ cd ${0%/*} || exit 1 # run from this directory
 
 # revert to standard utilities
 nProc=$(sed -ne 's/^numberOfSubdomains *\(.*\);/\1/p' system/decomposeParDict)
-#echo $nProc
 
 
 # detect if using OpenMPI or Intel MPI
-# list out the modules in use, pipe into text file
-module list 2>&1 | tee log.modules
+# list out the modules in use, write into text file, hide output
+module list 2>&1 | tee log.modules > /dev/null
 
-# search for Intel or OpenMPI 
+# determine if Intel MPI or OpenMPI 
 if grep -q impi log.modules; then
     echo using Intel MPI
     bind="--bind-to-core"
@@ -30,17 +29,8 @@ else
     echo using OpenMPI
     bind="-binding cell=core"
 fi
-#echo "$bind"
 
 # Run the solver (parallel)
-
-# when using OpenMPI
-#mpirun -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
-#mpirun --bind-to-core -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
-
-# when using IntelMPI
-#mpirun -binding "cell=core" -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
-
-#
-mpirun $(bind) -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+#mpirun $(bind) -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+mpirun -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
 

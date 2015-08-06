@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # detect if using OpenMPI or Intel MPI
-# list out the modules in use, pipe into text file
-module list 2>&1 | tee log.modules
+# list out the modules in use, write into text file, hide output
+module list 2>&1 | tee log.modules > /dev/null
 
 # search for Intel or OpenMPI
 if grep -q impi log.modules; then
