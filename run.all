@@ -2,7 +2,7 @@
 cd ${0%/*} || exit 1 # run from this directory
 
 # Source tutorial run functions
-. $WM_PROJECT_DIR/bin/tools/RunFunctions
+source $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 
 
@@ -18,13 +18,30 @@ echo "* Starting OpenFOAM job at: " $(date)
 echo '*==============================================================================='
 
 
+# check if the decomposed mesh already exists
+DIR="./processor*"
+if [ "$(ls -A $DIR)" ]; then
+    echo "Do not re-create mesh because $DIR is not empty"
+    echo "Attempt to continue solver from last time step"
 
-./run.pre-mesh 2>&1 | tee log.run.pre-mesh
-./run.post-mesh 2>&1 | tee log.run.post-mesh
+else
+    echo "The processor directories $DIR are empty or not found"
+    echo "Re-create the mesh and decompose"
 
-# note: run time post-proccesing is performed in controlDict
+    # create mesh and decompose
+    ./run.meshing 2>&1 | tee log.run.meshing
+
+fi
+
+# continue running the solver
+./run.solver 2>&1 | tee log.run.solver
+
+
+# final post-process (note: run time post-proccesing is performed in controlDict)
 ./run.post-process 2>&1 | tee log.run.post-process
 
 
 
-echo "Ending OpenFOAM job at: " $(date)
+echo '*==============================================================================='
+echo "* Ending OpenFOAM job at: " $(date)
+echo '*==============================================================================='
