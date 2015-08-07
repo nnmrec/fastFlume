@@ -42,12 +42,7 @@
 ## --------------------------------------------------------
 ## WALLTIME (defaults to 1 hour, always specify for longer jobs)
 ## --------------------------------------------------------
-#PBS -l walltime=04:00:00
-
-
-## --------------------------------------------------------
-## QUEUE to submit job (default, or uncomment for backfill)
-## --------------------------------------------------------
+#PBS -l walltime=02:00:00
 
 
 ## --------------------------------------------------------
@@ -99,5 +94,9 @@ echo ""
 ## --------------------------------------------------------
 ## Specify the applications to run here
 ## -------------------------------------------------------- 
-./clean.all
+
+# my script to run all OpenFOAM things
 ./run.all
+
+# be CAREFUL about CLEANING, make sure your scripts do not 
+# clean the job (delete files) if re-submitting this case to queue

@@ -4,63 +4,37 @@ cd ${0%/*} || exit 1 # run from this directory
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
-# Post-Processing
-# ignore the 0 directory, it does not contain all the same fields
-# as later times, so it easiest to post-process by ignoring it
+
+## Post-Processing ##############################################
+
+
+## ignore the 0 directory, it does not contain all the same fields
+## as later times, so it easiest to post-process by ignoring it
 mv 0 0.unused
 
-# reconstruct the parallel filess for all times, or for only specific times
-# reconstructPar
+
+## reconstruct the parallel filess for all times, or for only specific times
 reconstructPar -latestTime
-# reconstructPar -fields '(U p nuSgs bodyForce)'
-# reconstructPar -noZero
-# reconstructPar -time '2,4'
-# USAGE="
-#       USAGE: $0 -n <NP> -f fields -o <OUTPUTFILE>
-#         -f (fields) is optional, fields given in the form T,U,p; option is passed on to reconstructPar
-#   -t (times) is optional, times given in the form tstart,tstop
-#         -o (output) is optional 
-# "
-
-# ret=$?
-# # -- remove processor-directories if reconstruction was successful
-# if [ $ret -eq 0 ] ; then
-#       for i in processor* ; do rm -rf $i & done
-#       wait 
-# fi
-# exit $ret
-
 
 
 ## compute additional fields, like vorticity
-# vorticity
-# foamCalc components vorticity
-# foamCalc components U
-# foamCalc components UMean
-# Lambda2
-# pPrime2
-
 vorticity -latestTime
 enstrophy -latestTime
 foamCalc components vorticity -latestTime
 foamCalc components U -latestTime
 foamCalc components UMean -latestTime
 Lambda2 -latestTime
-# pPrime2 -latestTime
-# uprime -latestTime
+
 
 ## convert OpenFOAM format to VTK files
-# foamToVTK -noZero -fields '(U p bodyForce vorticity Lambda2)'
-# foamToVTK
 foamToVTK -latestTime
 
+
 ## sample the fields
-# sample
 sample -latestTime
 
 
-## interpolate time stepstemporalInterpolate
-	
-
-## Interpolate fields between time-steps, e.g. for animation 
-## temporalInterpolate
+## Move/Copy the "important data" with intention to download off Hyak
+# add these folders to a zip file
+tar -zcvf $PBS_JOBNAME.tar.gz ./turbineOutput ./postProcessing ./VTK ./log.* 
+mv -v $PBS_JOBNAME.tar.gz /gscratch/stf/dsale/job_output
