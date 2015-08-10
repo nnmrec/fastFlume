@@ -10,10 +10,22 @@ cd ${0%/*} || exit 1 # run from this directory
 fileFAST=../primary.fst
 
 
-## find the name of last time directory
-lastDir=$asdf
+## Find the name of last time directory where OpenFOAM stopped
 
+## sort the directory names and list the time directories
 
+## or find the the most recently modified file
+lastTime=$(ls -t ./../turbineOutput/ | head -n 1)
+echo $lastTime
+
+## now find the lastTime directory of the FAST output files
+## (note: the rotorSpeed and azimuth files share same format)
+lastDir="./../turbineOutput/$lastTime/"
+echo $lastDir
+
+## now search the second column for the line of previous time step
+
+timesFAST=$(awk '{print $2}' $lastDir/azimuth)
 
 
 

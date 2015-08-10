@@ -8,7 +8,7 @@ cd ${0%/*} || exit 1 # run from this directory
 # but it seems that OpenFOAM's v2.4.x built in function does not work?
 #nProc=$(getNumberOfProcessors)
 
-# revert to standard utilities
+# Revert to standard utilities
 nProc=$(sed -ne 's/^numberOfSubdomains *\(.*\);/\1/p' system/decomposeParDict)
 
 
@@ -19,10 +19,10 @@ module list 2>&1 | tee log.modules > /dev/null
 # determine if Intel MPI or OpenMPI 
 if grep -q impi log.modules; then
     bind="-binding cell=core"
-#    echo using Intel MPI with flag: $bind
+    echo "using Intel MPI with flag:" $bind
 else
     bind="--bind-to core"
-#    echo using OpenMPI with flag: $bind
+    echo "using OpenMPI with flag:" $bind
 fi
 
 
