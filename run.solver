@@ -21,7 +21,7 @@ if grep -q impi log.modules; then
     bind="-binding cell=core"
 #    echo using Intel MPI with flag: $bind
 else
-    bind="--bind-to-core"
+    bind="--bind-to core"
 #    echo using OpenMPI with flag: $bind
 fi
 
