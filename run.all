@@ -24,6 +24,11 @@ if [ "$(ls -A $DIR)" ]; then
     echo "Do not re-create mesh because $DIR is not empty"
     echo "Attempt to continue solver from last time step"
 
+    echo "re-initializing FAST from last saved OpenFOAM timestep"
+    cd utilities
+    ./reinitialize-FAST
+    cd ..
+
 else
     echo "The processor directories $DIR are empty or not found"
     echo "Re-create the mesh and decompose"
