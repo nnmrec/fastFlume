@@ -41,7 +41,8 @@ turbine1
     rotationDir         "ccw";
     Azimuth             0;
     TorqueGen                                                9999.9;
-    RotSpeed            289.4;
+    // RotSpeed            289.45;      // for U_inflow = 1.1 m/s TSR = 6.2
+    RotSpeed            236.82;      // for U_inflow = 0.9 m/s TSR = 6.2
     Pitch               0;
     NacYaw              -90;
     fluidDensity        1000.0;

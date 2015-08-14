@@ -38,7 +38,7 @@ switch turbineType
 
     case{'UW-LabScale-Single'}
         % UW lab scale (rev 1) of DOE RM1 Tidal Turbine
-        U_inf     = 1.1;                                % free stream velocity of flume
+        U_inf     = 0.9;                                % free stream velocity of flume
         density   = 1000;                               % fluid density
         RotorRad  = 0.225;                              % 45:1 scaling of geometry
         Pavail    = 0.5*density*pi*RotorRad^2*U_inf^3;  % available KE of uniform flow

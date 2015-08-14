@@ -15,9 +15,13 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// InflowSpeed 1.1;
+InflowSpeed 0.9;
+
+
 dimensions      [ 0 1 -1 0 0 0 0 ];
 
-internalField   uniform ( 1.1 0 0 );
+internalField   uniform ( $InflowSpeed 0 0 );
 
 boundaryField
 {
@@ -39,7 +43,7 @@ boundaryField
     west
     {
       type            fixedValue;
-      value           uniform ( 1.1 0 0 );
+      value           uniform ( $InflowSpeed 0 0 );
     }
 
     // outlet
