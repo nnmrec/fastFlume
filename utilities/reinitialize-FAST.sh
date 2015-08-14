@@ -9,8 +9,10 @@
 
 
 ## The file to modify
-fileFAST=$(realpath ./../primary.fst)
-
+cd ..
+fileFAST=$PWD/primary.fst
+echo $fileFAST
+cd -
 
 ## Find the name of last time directory where OpenFOAM and FAST stopped
 ## these are the most recently modified files

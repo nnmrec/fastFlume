@@ -12,13 +12,13 @@
 ## --------------------------------------------------------
 ## RENAME for your job
 ## --------------------------------------------------------
-#PBS -N dsale-Hyak_fasfFlume-coarse
+#PBS -N dsale-Hyak_fasfFlume-Coarse-e1
 
 
 ## --------------------------------------------------------
 ## Specify the working directory for this job
 ## --------------------------------------------------------
-#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/coarse
+#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/fastFlume-Coarse-e1
 
 
 ## --------------------------------------------------------
