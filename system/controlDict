@@ -30,8 +30,8 @@ startTimeCorr     0.0;
 
 stopAt            endTime;
 
-//endTime           2.0;  // "steady state" should be acheived about 3 to 5 seconds, for single turbine
-endTime           30.0;
+endTime           2.0;  // "steady state" should be acheived about 3 to 5 seconds, for single turbine
+// endTime           30.0;
 
 deltaT            0.0025; // mesh = coarse
 // deltaT            0.0015; // mesh = medium1

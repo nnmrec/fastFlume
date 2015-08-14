@@ -34,7 +34,7 @@
 ## --------------------------------------------------------
 ## PBS -l nodes=1:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=2:ppn=16,mem=32gb,feature=intel
-#PBS -l nodes=4:ppn=16,mem=32gb,feature=intel
+#PBS -l nodes=4:ppn=16,mem=30gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=16:ppn=16,mem=32gb,feature=intel
 
@@ -42,7 +42,7 @@
 ## --------------------------------------------------------
 ## WALLTIME (defaults to 1 hour, always specify for longer jobs)
 ## --------------------------------------------------------
-#PBS -l walltime=02:00:00
+#PBS -l walltime=01:59:00
 
 
 ## --------------------------------------------------------

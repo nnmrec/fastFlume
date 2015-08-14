@@ -27,7 +27,5 @@ fi
 
 
 # Run the solver (parallel)
-#mpirun -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
 mpirun $bind -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
-#mpirun $bind MX_RCACHE=0 -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
 
