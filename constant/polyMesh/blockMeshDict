@@ -19,7 +19,7 @@ FoamFile
 
 convertToMeters 1;
 
-// dimensions of the Bamfield flume
+// dimensions of the Bamfield flume (use an adjusted length to make all mesh cells isotropic)
 xi   0.0;      // Minimum x coordinate (inlet of flume)
 xf   6.3;      // Maximum x coordinate (outlet of flume)
 yi   0.0;      // Minimum y coordinate
@@ -33,13 +33,13 @@ zf   0.8;      // Maximum z coordinate (free surface of flume)
 // 'Parameters-ActuatorMethod.ods' to help estimate reasonable values.
 
 // mesh=coarse
-Nx 315;
-Ny 50;
-Nz 40;
-// mesh=medium1
-// Nx 504;
-// Ny 80;
-// Nz 64;
+// Nx 315;
+// Ny 50;
+// Nz 40;
+// mesh=Coarse (for different epsilon values)
+Nx 504;
+Ny 80;
+Nz 64;
 // mesh=medium2
 // Nx 630;
 // Ny 100;
