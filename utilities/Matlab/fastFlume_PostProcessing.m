@@ -6,8 +6,10 @@ clc;
 %% USER INPUTS
 
 % directory where FAST ouput is stored
-% dir_TurbineOutput = '/mnt/data-RAID-10/danny/fastFlume-RC4_LabScale_mesh=medium/turbineOutput';
-dir_TurbineOutput = '/mnt/data-RAID-0/danny/fastFlume-RC5_Turbine=LabScale1_Layout=SingleRotor_TSR=6.2_Mesh=medium/turbineOutput';
+% dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e1/turbineOutput';
+% dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e2/turbineOutput';
+% dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e3/turbineOutput';
+dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e4/turbineOutput';
 
 % select the turbine type (and modify corresponding flow conditions if needed)
 % an improvement would be to read these variables directory from the OpenFOAM case files
@@ -60,8 +62,8 @@ switch turbineType
 end
 
 % subset of data (allows to focus on specific part of times series, e.g. to ignore transients)
-% perStart = 0;   % end point - fraction of time series (between 0 and 1)
-perStart = 0.2;   % end point - fraction of time series (between 0 and 1)
+perStart = 0;   % end point - fraction of time series (between 0 and 1)
+% perStart = 0.2;   % end point - fraction of time series (between 0 and 1)
 perEnd   = 1;   % end point - fraction of time series (between 0 and 1)
 
 %% END USER INPUTS

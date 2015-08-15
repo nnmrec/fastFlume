@@ -19,21 +19,27 @@ cd -
 lastTimeFAST=$(ls -t ./../turbineOutput/ | head -n 1)
 lastTimeFOAM=$(ls -t ./../processor0/ | head -n 1)
 
+echo $lastTimeFAST
+echo $lastTimeFOAM
 
 ## now find the lastTime directory of the FAST output files
 ## (note: the rotorSpeed and azimuth files share same format)
 lastDirFAST=$(realpath ./../turbineOutput/$lastTimeFAST/)
 
+echo $lastDirFAST
 
 ## now read the second column of the file
 timesFAST=$(awk '{print $2}' $lastDirFAST/azimuth)
 azimuth=$(awk '{print $4}' $lastDirFAST/azimuth)
-rotSpeed=$(awk '{print $4}' $lastDirFAST/rotSpeed)
+
 
 ## convert to list so we can refer to elements using index
 timesFAST=($timesFAST)
 azimuth=($azimuth)
-rotSpeed=($rotSpeed)
+
+echo $timesFAST
+echo $azimuth
+
 
 ## find the index of matching element in list
 for ((i=0; i < ${#timesFAST[@]}; ++i)); do
@@ -42,33 +48,27 @@ for ((i=0; i < ${#timesFAST[@]}; ++i)); do
     fi
 done
 
+echo $index
+
 
 ## define the new intital conditions to restart with
 init_azimuth=${azimuth[$index]}
-init_rotSpeed=${rotSpeed[$index]}
 
+echo $init_azimuth
 
 ## Read the last known blade azimuth, and overwite to FAST input file
 # fileName=./turbineOutput/$lastDir/azimuth
 # lastLine=$(tac $fileName | egrep -m 1 .)
 # lastWord=$(echo $lastLine | awk '{ print $(NF) }')
 lineNumb=72
-./overwrite-line.sh $lineNumb "$init_azimuth    Azimuth     - Initial azimuth angle for blade 1 (degrees)" $fileFAST > $fileFAST.replace
+./overwrite-line.sh $lineNumb "$init_azimuth    Azimuth     - Initial azimuth angle for blade 1 (degrees), using Azimuth from previous OpenFOAM timestep of t = asdf" $fileFAST > $fileFAST.replace
 mv $fileFAST.replace $fileFAST
 
 
-## Read the last known rotor speed, and overwite to FAST input file
-# fileName=./turbineOutput/$lastDir/rotSpeed
-# lastLine=$(tac $fileName | egrep -m 1 .)
-# lastWord=$(echo $lastLine | awk '{ print $(NF) }')
-lineNumb=73
-./overwrite-line.sh $lineNumb "$init_rotSpeed   RotSpeed    - Initial or fixed rotor speed (rpm)" $fileFAST > $fileFAST.replace
-mv $fileFAST.replace $fileFAST
 
+## also need to overwrite in the file constant/turbineArrayProperties
+## need to search for the line (or multiple lines) containing the "Azimuth" keyword
 
-## REMOVE last N lines from a file (note the format has empty lines every other line)
-## this is so FAST output files do not contain duplicate values if restarting
-#nLines=$(($index * 2 + 1))
-#head -n $nLines $lastDirFAST/azimuth > $lastDirFAST/azimuth.new
-#head -n $nLines $lastDirFAST/rotSpeed > $lastDirFAST/rotSpeed.new
+replace line with
 
+"Azimuth   $init_azimuth;   // using Azimuth from previous OpenFOAM timestep of t = asdf"

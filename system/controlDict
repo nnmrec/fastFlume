@@ -42,8 +42,8 @@ deltaT            0.0020; // mesh = Coarse (for different values of epsilon)
 
 writeControl      adjustableRunTime;
 
-writeInterval     0.02;      // write at 50 frames per second (for movies)
-// writeInterval     0.004;  // testing system calls
+// writeInterval     0.02;      // write at 50 frames per second (for movies)
+writeInterval     0.003;  // testing system calls
 
 // purgeWrite        0;
 purgeWrite        2;

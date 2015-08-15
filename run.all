@@ -26,7 +26,7 @@ if [ "$(ls -A $DIR)" ]; then
 
     echo "re-initializing FAST from last saved OpenFOAM timestep"
     cd utilities
-    ./reinitialize-FAST
+    ./reinitialize-FAST.sh
     cd ..
 
 else
