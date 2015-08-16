@@ -16,7 +16,7 @@
 
 
 ## --------------------------------------------------------
-## Specify the working directory for this job
+## SPECIFY the working directory for this job
 ## --------------------------------------------------------
 #PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/fastFlume-Coarse-e1
 
@@ -33,8 +33,8 @@
 ## NUMBER nodes, CPUs per node, and MEMORY
 ## --------------------------------------------------------
 ## PBS -l nodes=1:ppn=16,mem=32gb,feature=intel
-## PBS -l nodes=2:ppn=16,mem=32gb,feature=intel
-#PBS -l nodes=4:ppn=16,mem=30gb,feature=intel
+#PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
+## PBS -l nodes=4:ppn=16,mem=30gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=16:ppn=16,mem=32gb,feature=intel
 
@@ -42,7 +42,7 @@
 ## --------------------------------------------------------
 ## WALLTIME (defaults to 1 hour, always specify for longer jobs)
 ## --------------------------------------------------------
-#PBS -l walltime=01:59:00
+#PBS -l walltime=4:01:00
 
 
 ## --------------------------------------------------------
@@ -53,7 +53,7 @@
 
 
 ## --------------------------------------------------------
-## Email to send when job is aborted, begins, and terminates
+## EMAIL to send when job is aborted, begins, and terminates
 ## --------------------------------------------------------
 ## PBS -m abe -M dsale@uw.edu
 #PBS -m abe -M sale.danny@gmail.com
@@ -64,18 +64,18 @@
 ## --------------------------------------------------------
 
 
-## Load the appropriate environment modules and variables
+## LOAD the appropriate environment modules and variables
 module load icc_14.0.1-impi_4.1.3
 source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 
 
-# Some applications (particularly FORTRAN) require a larger 
-# than usual data stack size. Uncomment if your job exits unexpectedly
+## Some applications (particularly FORTRAN) require a larger 
+## than usual data stack size. Uncomment if your job exits unexpectedly
 #ulimit -s unlimited
 
 
-## Debugging information (include jobs logs in any help requests)
-# Total Number of nodes and processors (cores) to be used by the job
+## DUBUGGING information (include jobs logs in any help requests)
+## Total Number of nodes and processors (cores) to be used by the job
 echo "** JOB DEBUGGING INFORMATION  *************************"
 HYAK_NNODES=$(uniq $PBS_NODEFILE | wc -l )
 HYAK_NPE=$(wc -l < $PBS_NODEFILE)
@@ -95,8 +95,8 @@ echo ""
 ## Specify the applications to run here
 ## -------------------------------------------------------- 
 
-# my script to run all OpenFOAM things
+## my script to run all OpenFOAM things
 ./run.all
 
-# be CAREFUL about CLEANING, make sure your scripts do not 
-# clean the job (delete files) if re-submitting this case to queue
+## BE CAREFUL about CLEANING, make sure your scripts do not 
+## clean the job (delete files) if re-submitting this case to queue

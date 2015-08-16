@@ -22,25 +22,6 @@ turbine0
   hubz  0.4;
 }
 
-// turbine1
-// {
-//   // refx  6.25;
-//   refx  6.75;    // account for OverHang
-//   refy  0.5;
-//   refz  0.0;
-//   hubz  0.4;
-// }
-
-// turbine2
-// {
-//   // refx  8.5;
-//   refx  9.0;    // account for OverHang
-//   refy  0.55625;
-//   refz  0.0;
-//   hubz  0.4;
-// }
-
-general
 {
   yawAngle                0.0;
   numberofBld             2;

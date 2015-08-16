@@ -31,11 +31,12 @@ gradSchemes
 divSchemes
 {
     default                        Gauss linear;
-    div(phi,U)                     Gauss linear;
-    div(phi,T)                     Gauss linear;
+    // div(phi,U)                     Gauss linear;
+    div(phi,U)                     Gauss localBlended midPoint upwind;
+    // div(phi,T)                     Gauss linear;
     div(R)                         Gauss linear;
     div(U)                         Gauss linear;
-    div((nuEff*dev(grad(U).T())))  Gauss linear;
+    // div((nuEff*dev(grad(U).T())))  Gauss linear;
     div(B)                         Gauss linear;
     div(phi,B)                     Gauss linear;
 }
@@ -49,7 +50,7 @@ laplacianSchemes
     laplacian(interpolate((1|A(U))),pd) Gauss linear uncorrected;
     laplacian(nu,U)                Gauss linear uncorrected;
     laplacian(nuEff,U)             Gauss linear uncorrected;
-    laplacian(kappaEff,T)          Gauss linear uncorrected;
+    // laplacian(kappaEff,T)          Gauss linear uncorrected;
     laplacian(DBEff,B)             Gauss linear uncorrected;
     laplacian(nuSgs,U)             Gauss linear uncorrected;
 }
@@ -67,7 +68,7 @@ snGradSchemes
 fluxRequired
 {
     default                        no;
-    p                                ;
+    p;
 }
 
 //relaxationFactors
@@ -81,12 +82,12 @@ fluxRequired
 schemeBlending
 {
     // These inputs used in pisoFoamTurbine?
-    xBlending1      0.20;
-    xBlending2      0.40;
-    xBlending3      0.60;
-    xBlending4      0.80;
-    blendingFactor1 0.25;
-    blendingFactor2 0.75;
+    // xBlending1      0.20;
+    // xBlending2      0.40;
+    // xBlending3      0.60;
+    // xBlending4      0.80;
+    // blendingFactor1 0.25;
+    // blendingFactor2 0.75;
 
     // These inputs used in ABLSolvers?
     // faceSize1
@@ -102,5 +103,15 @@ schemeBlending
     // blendingFactorT3
     // blendingFactorT4
 }
+
+// schemeBlending
+//  {
+//     xBlending1                       -1.8;
+//     xBlending2                        0.0;
+//     xBlending3                        8.0;
+//     xBlending4                       10.0;
+//     blendingFactor1                   0.9;
+//     blendingFactor2                   1.0;
+// }
 
 // ************************************************************************* //
