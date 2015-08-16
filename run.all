@@ -1,7 +1,7 @@
 #!/bin/sh
 cd ${0%/*} || exit 1 # run from this directory
 
-# Source tutorial run functions
+## SOURCE OpenFOAM run functions
 source $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 
@@ -18,7 +18,7 @@ echo "* Starting OpenFOAM job at: " $(date)
 echo '*==============================================================================='
 
 
-# check if the decomposed mesh already exists
+## CHECK if the decomposed mesh already exists
 DIR="./processor*"
 if [ "$(ls -A $DIR)" ]; then
     echo "Do not re-create mesh because $DIR is not empty"
@@ -31,22 +31,41 @@ if [ "$(ls -A $DIR)" ]; then
 
 else
     echo "The processor directories $DIR are empty or not found"
-    echo "Re-create the mesh and decompose"
+    echo "Starting from a clean state"
+    echo "Re-create the mesh and decompose, reinitialize FAST"
 
-    # create mesh and decompose
+    ## create mesh and decompose
     ./run.meshing 2>&1 | tee log.run.meshing
+
+    ## keep a copy of the original FAST input files (only want GIT to track the initial files)
+    cp constant/turbineArrayProperties constant/original.turbineArrayProperties
+    cp primary.fst original.primary.fst
 
 fi
 
-# continue running the solver
+
+## CONTINUE running the solver
 ./run.solver 2>&1 | tee log.run.solver
 
 
-# final post-process (note: run time post-proccesing is performed in controlDict)
+## POST_PROCESS (note: run time post-proccesing is performed in controlDict)
 ./run.post-process 2>&1 | tee log.run.post-process
 
+
+## CLEANUP restore the initial FAST files that otherwise could have been changed due to checkpointing
+## it would be annoying if GIT tries to track these files after each run
+mv constant/original.turbineArrayProperties constant/turbineArrayProperties
+mv original.primary.fst primary.fst
 
 
 echo '*==============================================================================='
 echo "* Ending OpenFOAM job at: " $(date)
+echo '*                                                                               '
+echo '* ███████╗ █████╗ ███████╗████████╗███████╗██╗     ██╗   ██╗███╗   ███╗███████╗ '
+echo '* ██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔════╝██║     ██║   ██║████╗ ████║██╔════╝ '
+echo '* █████╗  ███████║███████╗   ██║   █████╗  ██║     ██║   ██║██╔████╔██║█████╗   '
+echo '* ██╔══╝  ██╔══██║╚════██║   ██║   ██╔══╝  ██║     ██║   ██║██║╚██╔╝██║██╔══╝   '
+echo '* ██║     ██║  ██║███████║   ██║   ██║     ███████╗╚██████╔╝██║ ╚═╝ ██║███████╗ '
+echo '* ╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝     ╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝ '
+echo '*                                                                               '
 echo '*==============================================================================='

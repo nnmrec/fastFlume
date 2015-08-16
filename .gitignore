@@ -13,5 +13,13 @@ docs/*.bbl
 docs/*.blg
 docs/*.run.xml
 
+
+# temporary OpenFOAM mesh files #
+###################
 /constant/polyMesh/points
 /constant/polyMesh/boundary
+
+
+# temporary files for the FAST code #
+###################
+constant/original.*
