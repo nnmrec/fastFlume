@@ -3,13 +3,17 @@ clear all;
 close all;
 clc;
 
+addpath([pwd filesep 'sort_nat']);
+
 %% USER INPUTS
 
 % directory where FAST ouput is stored
 % dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e1/turbineOutput';
 % dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e2/turbineOutput';
 % dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e3/turbineOutput';
-dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e4/turbineOutput';
+% dir_TurbineOutput = '/mnt/data-RAID-1/danny/fastFlume-Hyak-saved-runs/mesh=Coarse/Coarse-e4/turbineOutput';
+% dir_TurbineOutput = '/gscratch/stf/dsale/job_output/saved-runs-fastFlume/turbineOutput';
+dir_TurbineOutput = '../../turbineOutput';
 
 % select the turbine type (and modify corresponding flow conditions if needed)
 % an improvement would be to read these variables directory from the OpenFOAM case files
@@ -78,6 +82,7 @@ nameFolders = {DIR(isub).name}';                    % names of subfolders
 nameFolders(ismember(nameFolders,{'.','..'})) = []; % remove the . and .. directories
 
 restart_folders = nameFolders;
+restart_folders = sort_nat(restart_folders);
 
 %% load the data
 data_filename  = 'powerRotor';
@@ -104,6 +109,39 @@ nHeaders       = 1;
 %                                    perStart, ...
 %                                    perEnd);
                                
+data_filename  = 'azimuth';
+numCols        = 4;
+nHeaders       = 1;
+[time, azimuth] = load_FAST_scalars(dir_TurbineOutput, ...
+                                   data_filename, ...
+                                   numCols, ...
+                                   nHeaders, ...
+                                   restart_folders, ...
+                                   idTurbine, ...
+                                   perStart, ...
+                                   perEnd);
+                               
+%% Plot the azimuth
+figure('Name', 'azimuth Blade 1', ...
+       'Color', 'white');
+
+% plot(time, Protor, 'LineWidth', 2)
+hold on;
+plot(time, azimuth(:,1), 'o-b', 'LineWidth', 3)
+% plot(time, Protor(:,2), '-k', 'LineWidth', 3)
+% plot(time, Protor(:,3), '-r', 'LineWidth', 3)
+
+% legend('turbine upstream','turbine middle','turbine downstream', ...
+%        'Location','best');
+   
+title('azimuth', 'FontSize', 16)
+xlabel('time, t (s)', 'FontSize', 16);
+ylabel('azimuth (deg)', 'FontSize', 16);
+   
+set(gca,'FontSize', 16)
+box on
+grid on                               
+
 %% Plot the power
 figure('Name', 'Rotor Power', ...
        'Color', 'white');
@@ -124,6 +162,12 @@ ylabel('rotor power, P (W)', 'FontSize', 16);
 set(gca,'FontSize', 16)
 box on
 grid on
+
+%% Plot a histogram of Power
+figure('Name', 'Rotor Power', ...
+       'Color', 'white');
+   
+
 
 %% Plot the efficiency
 figure('Name', 'Rotor Efficiency', ...

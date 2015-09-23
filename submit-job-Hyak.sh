@@ -12,7 +12,7 @@
 ## --------------------------------------------------------
 ## RENAME for your job
 ## --------------------------------------------------------
-#PBS -N dsale-Hyak_fasfFlume-Coarse-e1
+#PBS -N dsale-Hyak_fasfFlume-Coarse-e1-restart
 
 
 ## --------------------------------------------------------
@@ -32,8 +32,9 @@
 ## --------------------------------------------------------
 ## NUMBER nodes, CPUs per node, and MEMORY
 ## --------------------------------------------------------
-## PBS -l nodes=1:ppn=16,mem=32gb,feature=intel
+## PBS -l nodes=1:ppn=16,mem=10gb,feature=intel
 #PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
+## PBS -l nodes=3:ppn=16,mem=30gb,feature=intel
 ## PBS -l nodes=4:ppn=16,mem=30gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=16:ppn=16,mem=32gb,feature=intel
@@ -42,14 +43,14 @@
 ## --------------------------------------------------------
 ## WALLTIME (defaults to 1 hour, always specify for longer jobs)
 ## --------------------------------------------------------
-#PBS -l walltime=4:01:00
+#PBS -l walltime=10:05:00
 
 
 ## --------------------------------------------------------
 ## LOG the (stderr and stdout) job output in the directory
 ## --------------------------------------------------------
 ## PBS -j oe -o /gscratch/motley/dsale/job_output
-#PBS -j oe -o /gscratch/stf/dsale/job_output
+#PBS -j oe -o /gscratch/stf/dsale/job_output/logs
 
 
 ## --------------------------------------------------------
@@ -63,9 +64,13 @@
 ## END of PBS commmands ... BASH from here and below
 ## --------------------------------------------------------
 
+## CHANGE directory to where job was submitted (careful, PBS defaults to user home directory)
+cd $PBS_O_WORKDIR
 
 ## LOAD the appropriate environment modules and variables
-module load icc_14.0.1-impi_4.1.3
+#module load icc_14.0.1-impi_4.1.3
+module load icc_15.0.3-impi_5.0.3
+#module load gcc_4.4.7-ompi_1.8.6
 source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 
 

@@ -28,4 +28,5 @@ fi
 
 # Run the solver (parallel)
 mpirun $bind -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
+#mpirun -np $nProc pisoFoamTurbine -parallel 2>&1 | tee log.pisoFoamTurbine
 

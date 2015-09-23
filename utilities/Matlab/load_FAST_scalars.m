@@ -36,7 +36,20 @@ for n = 1:numel(restart_folders)
     tmp  = {textscan(fid, repmat('%f ', 1, numCols), 'CollectOutput', 0)};
     data = cell2mat(tmp{:});
     
-    % sort the data
+    % removing duplicate time steps, use the most recent duplicates
+    if n > 1    % there can be duplicate time values      
+        t_restart = data(1,2);  
+        ii        = find(t >= t_restart, 1);
+        
+        % trim any duplicate values from previous time folder
+        turbine_id  =  turbine_id(1:ii);
+        t           =           t(1:ii);
+        dt          =          dt(1:ii);
+        tmp_varName = tmp_varName(1:ii);
+        
+    end
+    
+    % append the next restart folder data to previous (no duplicates)
     turbine_id  = [ turbine_id; data(:,1)];
     t           = [          t; data(:,2)];
     dt          = [         dt; data(:,3)];

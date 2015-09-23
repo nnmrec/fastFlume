@@ -18,7 +18,8 @@ FoamFile
 ddtSchemes
 {
 //  default                        backward;
-    default                        CrankNicolson 1.0;    // version 2.2+
+//    default                        CrankNicolson 1.0;    // version 2.2+
+    default                        CrankNicolson 0.90;    // version 2.2+
     // default                        CrankNicholson 1.0;   // version 2.1
 }
 
@@ -28,6 +29,18 @@ gradSchemes
     grad(U)                        Gauss linear;
 }
 
+
+//divSchemes
+//{
+//    default                        Gauss linear;
+//    div(phi,U)                     Gauss linear;
+//    div(phi,T)                     Gauss linear;
+//    div(R)                         Gauss linear;
+//    div(U)                         Gauss linear;
+//    div((nuEff*dev(grad(U).T())))  Gauss linear;
+//    div(B)                         Gauss linear;
+//    div(phi,B)                     Gauss linear;
+//}
 divSchemes
 {
     default                        Gauss linear;
@@ -41,6 +54,19 @@ divSchemes
     div(phi,B)                     Gauss linear;
 }
 
+//laplacianSchemes
+//{
+//    default                        Gauss linear uncorrected;
+//    laplacian(rUA,p)               Gauss linear uncorrected;
+//    laplacian((1|A(U)),p)          Gauss linear uncorrected;
+//    laplacian(interpolate((1|A(U))),p) Gauss linear uncorrected;
+//    laplacian(interpolate((1|A(U))),pd) Gauss linear uncorrected;
+//    laplacian(nu,U)                Gauss linear uncorrected;
+//    laplacian(nuEff,U)             Gauss linear uncorrected;
+//    laplacian(kappaEff,T)          Gauss linear uncorrected;
+//    laplacian(DBEff,B)             Gauss linear uncorrected;
+//    laplacian(nuSgs,U)             Gauss linear uncorrected;
+//}
 laplacianSchemes
 {
     default                        Gauss linear uncorrected;
@@ -90,12 +116,12 @@ schemeBlending
     // blendingFactor2 0.75;
     
 
-    xBlending1                        0.0;
-    xBlending2                        0.0;
-    xBlending3                        0.0;
-    xBlending4                        0.0;
-    blendingFactor1                   1.0;
-    blendingFactor2                   1.0;
+    xBlending1                        0.20;
+    xBlending2                        0.40;
+    xBlending3                        0.60;
+    xBlending4                        0.80;
+    blendingFactor1                   0.0;
+    blendingFactor2                   0.0;
 
     // These inputs used in ABLSolvers?
     // faceSize1
