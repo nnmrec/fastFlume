@@ -69,8 +69,8 @@ False       CompNoise   - Compute aerodynamic noise (flag)
    0.0      OoPDefl     - Initial out-of-plane blade-tip displacement (meters)
    0.0      IPDefl      - Initial in-plane blade-tip deflection (meters)
    0.0      TeetDefl    - Initial or fixed teeter angle (degrees) [unused for 3 blades]
-   0.0      Azimuth     - Initial azimuth angle for blade 1 (degrees)
-   327.0    RotSpeed    - Initial or fixed rotor speed (rpm)
+0.0      Azimuth     - Initial azimuth angle for blade 1 (degrees), using Azimuth from previous OpenFOAM timestep of t = 0.2
+267.38   RotSpeed    - Initial or fixed rotor speed (rpm)
    0.0      NacYaw      - Initial or fixed nacelle-yaw angle (degrees)
    0.0      TTDspFA     - Initial fore-aft tower-top displacement (meters)
    0.0      TTDspSS     - Initial side-to-side tower-top displacement (meters)
@@ -80,12 +80,12 @@ False       CompNoise   - Compute aerodynamic noise (flag)
    1        PSpnElN     - Number of the innermost blade element which is still part of the pitchable portion of the blade for partial-span pitch control [1 to BldNodes] [CURRENTLY IGNORED] (-)
    0.0      UndSling    - Undersling length [distance from teeter pin to the rotor apex] (meters) [unused for 3 blades]
    0.0      HubCM       - Distance from rotor apex to hub mass [positive downwind] (meters)
-  -0.5      OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)
+   -0.001   OverHang    - Distance from yaw axis to rotor apex [3 blades] or teeter pin [2 blades] (meters)  DCS: actual is -0.5
    0.0      NacCMxn     - Downwind distance from the tower-top to the nacelle CM (meters)
    0.0      NacCMyn     - Lateral  distance from the tower-top to the nacelle CM (meters)
-   0.0508   NacCMzn     - Vertical distance from the tower-top to the nacelle CM (meters)
-0.3429      TowerHt     - Height of tower above ground level [onshore] or MSL [offshore] (meters)
- 0.0508     Twr2Shft    - Vertical distance from the tower-top to the rotor shaft (meters)
+   0.001    NacCMzn     - Vertical distance from the tower-top to the nacelle CM (meters)                    DCS: actual is 0.0508
+   0.4      TowerHt     - Height of tower above ground level [onshore] or MSL [offshore] (meters)             DCS: actual is 0.3429
+  0.001     Twr2Shft    - Vertical distance from the tower-top to the rotor shaft (meters)                    DCS: actual is 0.0508
    0.0      TwrRBHt     - Tower rigid base height (meters)
    0.0      ShftTilt    - Rotor shaft tilt angle (degrees)
    0.0      Delta3      - Delta-3 angle for teetering rotors (degrees) [unused for 3 blades]

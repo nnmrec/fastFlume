@@ -1,4 +1,4 @@
- w/*-------------------------------*- C++ -*---------------------------------*\
+/*-------------------------------*- C++ -*---------------------------------*\
 |    =========                                                              |
 |    \\      /     OpenFOAM                                                 |
 |     \\    /                                                               |
@@ -17,9 +17,17 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-// number of domains should be at least the number of turbines, but usually larger
-numberOfSubdomains  16;
+// Number of domains should be at least the number of turbines, but usually larger
+// numberOfSubdomains  16;
+numberOfSubdomains  32;
+// numberOfSubdomains  48;
+// numberOfSubdomains  64;
+// numberOfSubdomains  128;
+
 method          simple;
+// method          scotch;
+
+
 preservePatches (bottom top north south);
 
 simpleCoeffs
@@ -74,37 +82,26 @@ simpleCoeffs
 // }
 
 
-
-distributed yes;
-
-roots 4
-(
-"/disk1/test/noh1"
-"/disk1/test/noh2"
-"/home/noh3"
-"/home/noh4"
-);
-
-manualCoeffs
-{
-    dataFile    "decompositionData";
-}
+// manualCoeffs
+// {
+//     dataFile    "decompositionData";
+// }
 
 
 // Is the case distributed
-// distributed     no;
-distributed     yes;
+distributed     no;
+// distributed     yes;
 
 // Per slave (so nProcs-1 entries) the directory above the case.
 // for example, if using 3 nodes (1 master and 2 slaves), each node
 // has 8 cores, so this adds to $numberOfSubdomains, with 
 // 8 cores being used on the master node.
-roots $numberOfSubdomains-1
-(
-   // "/scr/stf/dsale/fastFlume"
-   // "/scr/stf/dsale/fastFlume"
-   "machines"
-);
+// roots $numberOfSubdomains-1
+// (
+//    // "/scr/stf/dsale/fastFlume"
+//    // "/scr/stf/dsale/fastFlume"
+//    "machines"
+// );
 // where "machines" is the machine file generated
 // is the current working directory, I think it can be generated
 // by bash command:

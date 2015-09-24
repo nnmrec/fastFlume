@@ -1,0 +1,40 @@
+#!/bin/sh
+cd ${0%/*} || exit 1 # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+
+## Post-Processing ##############################################
+
+
+## ignore the 0 directory, it does not contain all the same fields
+## as later times, so it easiest to post-process by ignoring it
+mv 0 0.unused
+
+
+## reconstruct the parallel filess for all times, or for only specific times
+reconstructPar -latestTime
+
+
+## compute additional fields, like vorticity
+vorticity -latestTime
+enstrophy -latestTime
+foamCalc components vorticity -latestTime
+foamCalc components U -latestTime
+foamCalc components UMean -latestTime
+Lambda2 -latestTime
+
+
+## convert OpenFOAM format to VTK files
+foamToVTK -latestTime
+
+
+## sample the fields
+sample -latestTime
+
+
+## Move/Copy the "important data" with intention to download off Hyak
+# add these folders to a zip file
+tar -zcvf $PBS_JOBNAME.tar.gz ./turbineOutput ./postProcessing ./VTK ./log.* 
+mv -v $PBS_JOBNAME.tar.gz /gscratch/stf/dsale/job_output

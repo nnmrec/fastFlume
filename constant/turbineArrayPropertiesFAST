@@ -16,40 +16,48 @@ FoamFile
 
 turbine0
 {
-  // refx  4.0;
-  refx  4.5;    // account for OverHang
-  refy  0.44375;
-  refz  0.0;
-  hubz  0.4;
-}
-
-turbine1
-{
-  // refx  6.25;
-  refx  6.75;    // account for OverHang
+  refx  1.35;
   refy  0.5;
   refz  0.0;
   hubz  0.4;
 }
 
-turbine2
-{
-  // refx  8.5;
-  refx  9.0;    // account for OverHang
-  refy  0.55625;
-  refz  0.0;
-  hubz  0.4;
-}
-
-general
 {
   yawAngle                0.0;
   numberofBld             2;
   numberofBldPts          30;           
   rotorDiameter           0.45;
-  epsilon                 0.04;
-  smearRadius             0.1052;
-  effectiveRadiusFactor   1.467556;  
+
+  // epsilon              0.0526;          // mesh = coarse
+  epsilon             0.025000;         // mesh = Coarse-e1
+  // epsilon             0.029125;         // mesh = Coarse-e2
+  // epsilon             0.033250;         // mesh = Coarse-e3
+  // epsilon             0.037500;         // mesh = Coarse-e4
+  // epsilon              0.032875;        // mesh = medium1
+  // epsilon              0.0263;          // mesh = medium2
+  // epsilon              0.019725;        // mesh = medium3
+  // epsilon              0.017884;        // mesh = fine
+  
+  // smearRadius             0.138338;       // mesh=coarse
+  smearRadius             0.05000000;     // mesh=Coarse-e1
+  // smearRadius             0.06786125;     // mesh=Coarse-e2
+  // smearRadius             0.08844500;     // mesh=Coarse-e3
+  // smearRadius             0.11250000;     // mesh=Coarse-e4
+  // smearRadius             0.08646125;     // mesh=medium1
+  // smearRadius             0.069169;       // mesh=medium2
+  // smearRadius             0.05187675;     // mesh=medium3
+  // smearRadius             0.017884;       // mesh=fine
+  
+  // effectiveRadiusFactor   1.6148416717;    // mesh = coarse
+  effectiveRadiusFactor   1.2222303030;    // mesh = Coarse-e1
+  // effectiveRadiusFactor   1.3016131435;    // mesh = Coarse-e2
+  // effectiveRadiusFactor   1.3930959785;    // mesh = Coarse-e3
+  // effectiveRadiusFactor   1.5000065843;    // mesh = Coarse-e4
+  // effectiveRadiusFactor   1.384279357;     // mesh = medium1
+  // effectiveRadiusFactor   1.307425332;     // mesh = medium2
+  // effectiveRadiusFactor   1.2305713593;    // mesh = medium3
+  // effectiveRadiusFactor   1.2090522577;    // mesh = fine
+  
   pointInterpType         1;
 }
 

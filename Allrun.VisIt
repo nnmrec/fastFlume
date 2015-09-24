@@ -1,7 +1,0 @@
-#!/bin/sh
-cd ${0%/*} || exit 1 # run from this directory
-
-EXEC_VISIT=/usr/local/visit/bin/visit
-
-$EXEC_VISIT -sessionfile visit-fastFlume_Turbine=LabScale.session \ 
-            -source      VTK/*.vtk

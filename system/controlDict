@@ -20,26 +20,35 @@ application       fastfoam;
 libs              ("libuserfiniteVolume.so");
 
 // startFrom         startTime;
- startFrom         latestTime;
+startFrom         latestTime;
 
 startTime         0.0;
 
-startTimeMean     0.0;
+// startTimeMean     0.0;
+startTimeMean     5.0;
 
-startTimeCorr     0.0;
+// startTimeCorr     0.0;
+startTimeCorr     5.0;
 
 stopAt            endTime;
 
-endTime           2.0;
-// endTime           10.0;
+// endTime           2.0;  // "steady state" should be acheived about 2 to 4 seconds, for single turbine
+endTime           30.0;
 
-deltaT            0.0025;
+// deltaT            0.0025; // mesh = coarse
+deltaT            0.0020; // mesh = Coarse (for different values of epsilon)
+// deltaT            0.0015; // mesh = medium1
+// deltaT            0.0012; // mesh = medium2
+// deltaT            0.0008; // mesh = medium3
+// deltaT            0.0006; // mesh = fine
 
 writeControl      adjustableRunTime;
 
-writeInterval     0.02; 
+writeInterval     0.02;      // write at 50 frames per second (for movies)
+// writeInterval     0.003;  // testing (debigging) system calls by writing very frequently
 
-purgeWrite        0;
+// purgeWrite        0;
+purgeWrite        2;
 
 writeFormat       binary;
 //writeFormat       ascii;
@@ -53,80 +62,42 @@ timeFormat        general;
 
 timePrecision     12;
 
-runTimeModifiable yes;
+runTimeModifiable no;
+// runTimeModifiable yes;
 
-adjustTimeStep    no;
-// adjustTimeStep    yes;
+// adjustTimeStep    no;
+adjustTimeStep    yes;
 
-// maxCo             0.25;
-maxCo             0.75;
+maxCo             0.2;
+// maxCo             0.75;
 
-maxDeltaT         25.0;
+maxDeltaT         10.0;
+
 
 functions
-{
+  {
+      
+      sysCall
+      {
+          type systemCall;
+          functionObjectLibs ( "libsystemCall.so" );
+                   
+          outputControl outputTime;
+          outputInterval 1;
 
-	// I think we only need to send the processor directories back to my 
-	// local workstation to do further post-processing.
-	// Selectively get the files back into the host/master machine 
-	// through the bash command: (I think this runs on each slave node)
-	// > scp -r danny@master-node-on-Hyak:/scr/stf/dsale/fasFlume processor*/
+          // executeCalls 1("echo [sysCall] executeCalls: Execute system call before time iteration is done");
+          
+          // endCalls 1("echo [sysCall] endCalls: Finishing up with a system call, which seems to be before the write call...");
+          
+          writeCalls 1(
+                //"echo [sysCall] writeCalls: Writing to file call" 
+                 
+                // each write interval this script is run, for run time post-processing
+                "./run.master-node-sysCall"
 
-	// render a visualization using VisIt or ParaView:
-	// > "command to run VisIt on most current OpenFOAM time step"
+          );
 
-	// now send your rendered images, and other important directories back
-	// to your local workstation for further analysis
-	// >  scp -r  processor*/ danny@local-workstation:/mnt/data-RAID-1/danny/Hyak-runs/fastFlume
+      }
 
+  } //end functions
 
-
-    sysCall
-    {
-        type systemCall;
-        functionObjectLibs ( "libsystemCall.so" );
-        
-        // executeCalls 0();
-        // endCalls 0();
-        // writeCalls 0();
-        
-        executeCalls 1("echo Execute system call before time iteration is done");
-        endCalls 1("echo Finishing up with a system call, which is seems to be before the write call...");
-        writeCalls 4(
-        			"echo Writing to file call" 
-        			 
-        			"ls -l"
-        			 
-        			"if [ $MPI_PROCESS_CORE = 0 ]; then
-  						echo "Do what the master needs to do."
-			      	fi"
-
-			      	"cp * $PBS_O_WORKDIR"
-					);
-
-        // some calls we only want to execute on the MPI master node,
-        // how to tell when on the master node?  ... need to know the 
-        // environmental variables of the specific MPI library (OpenMPI)
-        // The two $ will expand in the shell to the PID number of the running shell
-        // 
-        // you should be able to see the variable that has stored the number 
-        // of the parallel process assigned by the MPI. Based on that number, 
-        // you will know which one is the master process, which is either 0 or 1, 
-        // depending on the number assignment scheme used by the MPI toolbox being used
-        if [ $MPI_PROCESS_CORE = 0 ]; then
-			echo "Do what the master needs to do."
-
-			// I think commands to visualize (VisIt, ParaView), and
-			// transter over network to local workstation
-			// should execute here:
-
-			reconstructPar
-
-
-		fi
-
-        outputControl outputTime;
-        outputInterval 1;
-    }
-
-}

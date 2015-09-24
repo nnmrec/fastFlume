@@ -1,0 +1,2 @@
+showq -w class=bf
+

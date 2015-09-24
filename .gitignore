@@ -1,10 +1,25 @@
 # auxillary LaTeX files #
 ###################
-docs/figures/*.aux
-docs/figures/*.fdb_latexmk
-docs/figures/*.log
-docs/figures/*.nav
-docs/figures/*.out
-docs/figures/*.snm
-docs/figures/*.synctex.gz
-docs/figures/*.toc
+docs/*.aux
+docs/*.fdb_latexmk
+docs/*.log
+docs/*.nav
+docs/*.out
+docs/*.snm
+docs/*.synctex.gz
+docs/*.toc
+docs/*-blx.bib
+docs/*.bbl
+docs/*.blg
+docs/*.run.xml
+
+
+# temporary OpenFOAM mesh files #
+###################
+/constant/polyMesh/points
+/constant/polyMesh/boundary
+
+
+# temporary files for the FAST code #
+###################
+constant/original.*
