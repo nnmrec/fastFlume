@@ -21,7 +21,8 @@ lastTimeFOAM=$(ls -t ./../processor0/ | head -n 1)
 
 ## now find the lastTime directory of the FAST output files
 ## (note: the rotorSpeed and azimuth files share same format)
-lastDirFAST=$(realpath ./../turbineOutput/$lastTimeFAST/)
+#lastDirFAST=$(realpath ./../turbineOutput/$lastTimeFAST/)
+lastDirFAST=(./../turbineOutput/$lastTimeFAST)
 
 
 ## now read the columns for Time and Azimuth
@@ -42,7 +43,6 @@ done
 
 ## define the new intital conditions to restart with
 init_azimuth=${azimuth[$index]}
-
 
 ## Read the last known blade azimuth, and overwite to FAST input file
 ./overwrite-line.sh 72 "$init_azimuth    Azimuth     - Initial azimuth angle for blade 1 (degrees), using Azimuth from previous OpenFOAM timestep of t = $lastTimeFOAM" $fileFAST_MAIN > $fileFAST_MAIN.replace

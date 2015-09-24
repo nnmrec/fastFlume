@@ -69,7 +69,7 @@ False       CompNoise   - Compute aerodynamic noise (flag)
    0.0      OoPDefl     - Initial out-of-plane blade-tip displacement (meters)
    0.0      IPDefl      - Initial in-plane blade-tip deflection (meters)
    0.0      TeetDefl    - Initial or fixed teeter angle (degrees) [unused for 3 blades]
-    Azimuth     - Initial azimuth angle for blade 1 (degrees), using Azimuth from previous OpenFOAM timestep of t = 1.478
+0.0      Azimuth     - Initial azimuth angle for blade 1 (degrees), using Azimuth from previous OpenFOAM timestep of t = 0.2
 267.38   RotSpeed    - Initial or fixed rotor speed (rpm)
    0.0      NacYaw      - Initial or fixed nacelle-yaw angle (degrees)
    0.0      TTDspFA     - Initial fore-aft tower-top displacement (meters)
