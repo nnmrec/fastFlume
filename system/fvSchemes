@@ -116,12 +116,12 @@ schemeBlending
     // blendingFactor2 0.75;
     
 
-    xBlending1                        0.20;
-    xBlending2                        0.40;
-    xBlending3                        0.60;
-    xBlending4                        0.80;
-    blendingFactor1                   0.0;
-    blendingFactor2                   0.0;
+    xBlending1                       -100;  // i think this puts the "blending region" outside the domain, so effectively no blending is performed
+    xBlending2                        -99;
+    xBlending3                        -98;
+    xBlending4                        -97;
+    blendingFactor1                   0.9;
+    blendingFactor2                   1.0;
 
     // These inputs used in ABLSolvers?
     // faceSize1
