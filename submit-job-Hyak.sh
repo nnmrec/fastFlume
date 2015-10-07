@@ -12,13 +12,13 @@
 ## --------------------------------------------------------
 ## RENAME for your job
 ## --------------------------------------------------------
-#PBS -N dsale-Hyak_fasfFlume-Coarse-e1-restart
+#PBS -N fastFlume
 
 
 ## --------------------------------------------------------
 ## SPECIFY the working directory for this job
 ## --------------------------------------------------------
-#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/fastFlume-Coarse-e1
+## PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/fastFlume-Coarse-e1
 
 
 ## --------------------------------------------------------
@@ -43,7 +43,7 @@
 ## --------------------------------------------------------
 ## WALLTIME (defaults to 1 hour, always specify for longer jobs)
 ## --------------------------------------------------------
-#PBS -l walltime=10:05:00
+#PBS -l walltime=2:05:00
 
 
 ## --------------------------------------------------------
@@ -68,15 +68,13 @@
 cd $PBS_O_WORKDIR
 
 ## LOAD the appropriate environment modules and variables
-#module load icc_14.0.1-impi_4.1.3
 module load icc_15.0.3-impi_5.0.3
-#module load gcc_4.4.7-ompi_1.8.6
 source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 
 
 ## Some applications (particularly FORTRAN) require a larger 
 ## than usual data stack size. Uncomment if your job exits unexpectedly
-#ulimit -s unlimited
+ulimit -s unlimited
 
 
 ## DUBUGGING information (include jobs logs in any help requests)
@@ -95,7 +93,7 @@ echo "** END DEBUGGING INFORMATION  *************************"
 echo ""
 
 
- 
+
 ## --------------------------------------------------------
 ## Specify the applications to run here
 ## -------------------------------------------------------- 
