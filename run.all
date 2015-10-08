@@ -5,8 +5,8 @@ cd ${0%/*} || exit 1 # run from this directory
 source $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 ## select the turbine type and scenario
-DIR_turbine='turbineSources/tidal-turbine-lab-scale'
-# DIR_turbine='turbineSources/tidal-turbine-full-scale'
+# DIR_turbine='turbineSources/tidal-turbine-lab-scale'
+DIR_turbine='turbineSources/tidal-turbine-full-scale'
 
 
 echo '*==============================================================================='
@@ -76,17 +76,11 @@ fi
 
 
 ## CONTINUE running the solver
-# ./run.solver 2>&1 | tee log.run.solver
+./run.solver 2>&1 | tee log.run.solver
 
 
 ## POST_PROCESS (note: run time post-proccesing is performed in controlDict)
-# ./run.post-process 2>&1 | tee log.run.post-process
-
-
-## CLEANUP restore the initial FAST files that otherwise could have been changed due to checkpointing
-## it would be annoying if GIT tries to track these files after each run
-# mv constant/original.turbineArrayProperties constant/turbineArrayProperties
-# mv original.primary.fst primary.fst
+./run.post-process 2>&1 | tee log.run.post-process
 
 
 echo '*==============================================================================='
