@@ -4,6 +4,9 @@ cd ${0%/*} || exit 1 # run from this directory
 ## SOURCE OpenFOAM run functions
 source $WM_PROJECT_DIR/bin/tools/RunFunctions
 
+## select the turbine type and scenario
+DIR_turbine='turbineSources/tidal-turbine-lab-scale'
+# DIR_turbine='turbineSources/tidal-turbine-full-scale'
 
 
 echo '*==============================================================================='
@@ -21,41 +24,69 @@ echo '*=========================================================================
 ## CHECK if the decomposed mesh already exists
 DIR="./processor*"
 if [ "$(ls -A $DIR)" ]; then
+    echo ""
     echo "Do not re-create mesh because $DIR is not empty"
     echo "Attempt to continue solver from last time step"
-
+    echo ""
     echo "re-initializing FAST from last saved OpenFOAM timestep"
+    echo ""
+
     cd utilities
     ./reinitialize-FAST.sh
     cd ..
 
 else
+    echo ""
     echo "The processor directories $DIR are empty or not found"
     echo "Starting from a clean state"
-    echo "Re-create the mesh and decompose, initialize FAST"
+    echo ""
+    echo "Copying the input files from turbineSources into SOWFA directories"
+    echo ""
+
+    cp $DIR_turbine/SOWFA/U 0.original/U
+    cp $DIR_turbine/SOWFA/blockMeshDict constant/polyMesh/blockMeshDict
+    cp $DIR_turbine/SOWFA/controlDict system/controlDict
+    cp $DIR_turbine/SOWFA/decomposeParDict system/decomposeParDict
+    cp $DIR_turbine/SOWFA/sampleDict system/sampleDict
+
+    rm -rf constant/turbineProperties/
+    rm -rf constant/airfoilProperties/
+    rm -rf AeroData/
+    cp -r $DIR_turbine/SOWFA/turbineProperties constant/turbineProperties
+    cp -r $DIR_turbine/SOWFA/airfoilProperties constant/airfoilProperties
+    cp -r $DIR_turbine/SOWFA/AeroData AeroData
+
+    cp $DIR_turbine/SOWFA/turbineArrayProperties constant/turbineArrayProperties
+    cp $DIR_turbine/SOWFA/turbineArrayPropertiesFAST constant/turbineArrayPropertiesFAST 
+    cp $DIR_turbine/SOWFA/AeroDyn.ipt AeroDyn.ipt
+    cp $DIR_turbine/SOWFA/Blade.dat Blade.dat
+    cp $DIR_turbine/SOWFA/Tower.dat Tower.dat
+    cp $DIR_turbine/SOWFA/primary.fst primary.fst
+
+
+
+    echo ""
+    echo "Re-create the mesh, decompose and initialize FAST"
+    echo ""
 
     ## create mesh and decompose
     ./run.meshing 2>&1 | tee log.run.meshing
-
-    ## keep a copy of the original FAST input files (only want GIT to track the initial files)
-    cp constant/turbineArrayProperties constant/original.turbineArrayProperties
-    cp primary.fst original.primary.fst
 
 fi
 
 
 ## CONTINUE running the solver
-./run.solver 2>&1 | tee log.run.solver
+# ./run.solver 2>&1 | tee log.run.solver
 
 
 ## POST_PROCESS (note: run time post-proccesing is performed in controlDict)
-./run.post-process 2>&1 | tee log.run.post-process
+# ./run.post-process 2>&1 | tee log.run.post-process
 
 
 ## CLEANUP restore the initial FAST files that otherwise could have been changed due to checkpointing
 ## it would be annoying if GIT tries to track these files after each run
-mv constant/original.turbineArrayProperties constant/turbineArrayProperties
-mv original.primary.fst primary.fst
+# mv constant/original.turbineArrayProperties constant/turbineArrayProperties
+# mv original.primary.fst primary.fst
 
 
 echo '*==============================================================================='

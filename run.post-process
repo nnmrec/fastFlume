@@ -36,5 +36,5 @@ sample -latestTime
 
 ## Move/Copy the "important data" with intention to download off Hyak
 # add these folders to a zip file
-tar -zcvf $PBS_JOBNAME.tar.gz ./turbineOutput ./postProcessing ./VTK ./log.* 
-mv -v $PBS_JOBNAME.tar.gz /gscratch/stf/dsale/job_output
+tar -zcvf saved-archive_$PBS_JOBNAME.tar.gz ./turbineOutput ./postProcessing ./VTK ./log.* 
+mv -v saved-archive_$PBS_JOBNAME.tar.gz /gscratch/stf/dsale/job_output

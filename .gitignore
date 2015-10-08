@@ -18,8 +18,3 @@ docs/*.run.xml
 ###################
 /constant/polyMesh/points
 /constant/polyMesh/boundary
-
-
-# temporary files for the FAST code #
-###################
-constant/original.*

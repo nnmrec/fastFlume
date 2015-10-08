@@ -21,7 +21,7 @@ NumBl                                   2;
 TipRad                           0.225000;
 HubRad                           0.028575;
 UndSling                              0.0;
-OverHang                           -0.001;    // DCS: actual is -0.5.  code crashses if OverHang = 0.0, why ???
+OverHang                           -0.001;    // DCS: actual is -0.5.  code crashses if OverHang = 0.0
 TowerHt                               0.4;    // DCS: actual is 0.3429
 Twr2Shft                            0.001;    // DCS: actual is 0.0508    
 ShftTilt                              0.0;

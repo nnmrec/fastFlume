@@ -15,7 +15,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-InflowSpeed 1.9;
+// InflowSpeed 1.15;
+InflowSpeed 0.9;
 
 
 dimensions      [ 0 1 -1 0 0 0 0 ];
