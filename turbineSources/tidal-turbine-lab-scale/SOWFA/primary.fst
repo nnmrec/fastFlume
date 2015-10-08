@@ -132,7 +132,7 @@ False       GBRevers    - Gearbox reversal {T: if rotor and generator rotate in 
             PtfmFile    - Name of file containing platform properties (quoted string) [unused when PtfmModel=0]
 ---------------------- TOWER ---------------------------------------------------
   20        TwrNodes    - Number of tower nodes used for analysis (-)
-"DOE-Tidal-Ref-Model_LabScale_Tower.dat"          TwrFile     - Name of file containing tower properties (quoted string)
+"Tower.dat"          TwrFile     - Name of file containing tower properties (quoted string)
 ---------------------- NACELLE-YAW ---------------------------------------------
 9028.32E6   YawSpr      - Nacelle-yaw spring constant (N-m/rad)
   19.16E6   YawDamp     - Nacelle-yaw damping constant (N-m/(rad/s))
@@ -154,11 +154,11 @@ False       Furling     - Read in additional model properties for furling turbin
    0.0      TBDrConD    - Tip-brake drag constant during fully-deployed operation, Cd*Area (m^2)
    0.0      TpBrDT      - Time for tip-brake to reach full deployment once released (sec)
 ---------------------- BLADE ---------------------------------------------------
-"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(1)  - Name of file containing properties for blade 1 (quoted string)
-"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(2)  - Name of file containing properties for blade 2 (quoted string)
-"DOE-Tidal-Ref-Model_LabScale_Blade.dat"                  BldFile(3)  - Name of file containing properties for blade 3 (quoted string) [unused for 2 blades]
+"Blade.dat"                  BldFile(1)  - Name of file containing properties for blade 1 (quoted string)
+"Blade.dat"                  BldFile(2)  - Name of file containing properties for blade 2 (quoted string)
+"Blade.dat"                  BldFile(3)  - Name of file containing properties for blade 3 (quoted string) [unused for 2 blades]
 ---------------------- AERODYN -------------------------------------------------
-"DOE-Tidal-Ref-Model_LabScale_AeroDyn.ipt"                ADFile      - Name of file containing AeroDyn input parameters (quoted string)
+"AeroDyn.ipt"                ADFile      - Name of file containing AeroDyn input parameters (quoted string)
 ---------------------- NOISE ---------------------------------------------------
             NoiseFile   - Name of file containing aerodynamic noise input parameters (quoted string) [used only when CompNoise=True]
 ---------------------- ADAMS ---------------------------------------------------
