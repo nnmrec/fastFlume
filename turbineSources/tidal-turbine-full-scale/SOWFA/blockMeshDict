@@ -20,12 +20,12 @@ FoamFile
 convertToMeters 1;
 
 // dimensions of the Bamfield flume adjusted for mesh = coarse
-xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-xf 499.2;      // Maximum x coordinate (outlet of "infinite" domain)
-yi   0.0;      // Minimum y coordinate
-yf 248.4;      // Maximum y coordinate (width of flume)
-zi   0.0;      // Minimum z coordinate
-zf  50.4;      // Maximum z coordinate (free surface of flume)
+// xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
+// xf 499.2;      // Maximum x coordinate (outlet of "infinite" domain)
+// yi   0.0;      // Minimum y coordinate
+// yf 248.4;      // Maximum y coordinate (width of flume)
+// zi   0.0;      // Minimum z coordinate
+// zf  50.4;      // Maximum z coordinate (free surface of flume)
 
 // dimensions of the Bamfield flume adjusted for mesh = medium1
 // xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
@@ -36,12 +36,12 @@ zf  50.4;      // Maximum z coordinate (free surface of flume)
 // zf  50.0;      // Maximum z coordinate (free surface of flume)
 
 // dimensions of the Bamfield flume adjusted for mesh = medium2
-// xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-// xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
-// yi   0.0;      // Minimum y coordinate
-// yf 248.0;      // Maximum y coordinate (width of flume)
-// zi   0.0;      // Minimum z coordinate
-// zf  50.4;      // Maximum z coordinate (free surface of flume)
+xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
+xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
+yi   0.0;      // Minimum y coordinate
+yf 248.0;      // Maximum y coordinate (width of flume)
+zi   0.0;      // Minimum z coordinate
+zf  50.4;      // Maximum z coordinate (free surface of flume)
 
 // dimensions of the Bamfield flume (adjusted for mesh = fine)
 // xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
@@ -58,17 +58,17 @@ zf  50.4;      // Maximum z coordinate (free surface of flume)
 // 'Parameters-ActuatorMethod.ods' to help estimate reasonable values.
 
 // mesh=coarse
-Nx 416;
-Ny 207;
-Nz 42;
+// Nx 416;
+// Ny 207;
+// Nz 42;
 // mesh=medium1
 // Nx 500;
 // Ny 248;
 // Nz 50;
 // mesh=medium2
-// Nx 625;
-// Ny 310;
-// Nz 63;
+Nx 625;
+Ny 310;
+Nz 63;
 // mesh=fine
 // Nx 834;
 // Ny 414;
