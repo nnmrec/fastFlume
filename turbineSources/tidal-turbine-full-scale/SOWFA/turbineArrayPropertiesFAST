@@ -43,10 +43,10 @@ general
   // epsilon             2.00;         // mesh = medium1-e1
   // epsilon             2.25;         // mesh = medium1-e2
   // epsilon             2.50;         // mesh = medium1-e3
-  epsilon             1.60;         // mesh = medium2-e1
+  // epsilon             1.60;         // mesh = medium2-e1
   // epsilon             1.80;         // mesh = medium2-e2
   // epsilon             2.00;         // mesh = medium2-e3
-  // epsilon             1.20;         // mesh = fine-e1
+  epsilon             1.20;         // mesh = fine-e1
 
   // smearRadius             4.80000;         // mesh = coarse-e1
   // smearRadius             6.07500;         // mesh = coarse-e2
@@ -54,10 +54,10 @@ general
   // smearRadius             4.00000;         // mesh = medium1-e1
   // smearRadius             5.06250;         // mesh = medium1-e2
   // smearRadius             6.25000;         // mesh = medium1-e3
-  smearRadius             3.20000;         // mesh = medium2-e1
+  // smearRadius             3.20000;         // mesh = medium2-e1
   // smearRadius             4.05000;         // mesh = medium2-e2
   // smearRadius             5.00000;         // mesh = medium2-e3
-  // smearRadius             2.40000;         // mesh = fine-e1
+  smearRadius             2.40000;         // mesh = fine-e1
 
   // effectiveRadiusFactor             1.4800000034;         // mesh = coarse-e1
   // effectiveRadiusFactor             1.6075000031;         // mesh = coarse-e2
@@ -65,10 +65,10 @@ general
   // effectiveRadiusFactor             1.4000000036;         // mesh = medium1-e1
   // effectiveRadiusFactor             1.5062500033;         // mesh = medium1-e2
   // effectiveRadiusFactor             1.6250000031;         // mesh = medium1-e3
-  effectiveRadiusFactor             1.3200000038;         // mesh = medium2-e1
+  // effectiveRadiusFactor             1.3200000038;         // mesh = medium2-e1
   // effectiveRadiusFactor             1.4050000036;         // mesh = medium2-e2
   // effectiveRadiusFactor             1.5000000033;         // mesh = medium2-e3
-  // effectiveRadiusFactor             1.2400000040;         // mesh = fine-e1
+  effectiveRadiusFactor             1.2400000040;         // mesh = fine-e1
 
 
   // pointInterpType         1;

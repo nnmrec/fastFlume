@@ -39,10 +39,10 @@ turbine1
     // epsilon             2.00;         // mesh = medium1-e1
     // epsilon             2.25;         // mesh = medium1-e2
     // epsilon             2.50;         // mesh = medium1-e3
-    epsilon             1.60;         // mesh = medium2-e1
+    // epsilon             1.60;         // mesh = medium2-e1
     // epsilon             1.80;         // mesh = medium2-e2
     // epsilon             2.00;         // mesh = medium2-e3
-    // epsilon             1.20;         // mesh = fine-e1
+    epsilon             1.20;         // mesh = fine-e1
 
     tipRootLossCorrType "Glauert";
     rotationDir         "ccw";
@@ -69,10 +69,10 @@ turbine2
     // epsilon             2.00;         // mesh = medium1-e1
     // epsilon             2.25;         // mesh = medium1-e2
     // epsilon             2.50;         // mesh = medium1-e3
-    epsilon             1.60;         // mesh = medium2-e1
+    // epsilon             1.60;         // mesh = medium2-e1
     // epsilon             1.80;         // mesh = medium2-e2
     // epsilon             2.00;         // mesh = medium2-e3
-    // epsilon             1.20;         // mesh = fine-e1
+    epsilon             1.20;         // mesh = fine-e1
 
     tipRootLossCorrType "Glauert";
     rotationDir         "cw";

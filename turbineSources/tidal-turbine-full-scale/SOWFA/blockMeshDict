@@ -36,20 +36,20 @@ convertToMeters 1;
 // zf  50.0;      // Maximum z coordinate (free surface of flume)
 
 // dimensions of the Bamfield flume adjusted for mesh = medium2
-xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
-yi   0.0;      // Minimum y coordinate
-yf 248.0;      // Maximum y coordinate (width of flume)
-zi   0.0;      // Minimum z coordinate
-zf  50.4;      // Maximum z coordinate (free surface of flume)
-
-// dimensions of the Bamfield flume (adjusted for mesh = fine)
 // xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-// xf 500.4;      // Maximum x coordinate (outlet of "infinite" domain)
+// xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
 // yi   0.0;      // Minimum y coordinate
-// yf 248.4;      // Maximum y coordinate (width of flume)
+// yf 248.0;      // Maximum y coordinate (width of flume)
 // zi   0.0;      // Minimum z coordinate
 // zf  50.4;      // Maximum z coordinate (free surface of flume)
+
+// dimensions of the Bamfield flume (adjusted for mesh = fine)
+xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
+xf 500.4;      // Maximum x coordinate (outlet of "infinite" domain)
+yi   0.0;      // Minimum y coordinate
+yf 248.4;      // Maximum y coordinate (width of flume)
+zi   0.0;      // Minimum z coordinate
+zf  50.4;      // Maximum z coordinate (free surface of flume)
 
 
 // adjust mesh size (number of cells in x, y, z)
@@ -66,13 +66,13 @@ zf  50.4;      // Maximum z coordinate (free surface of flume)
 // Ny 248;
 // Nz 50;
 // mesh=medium2
-Nx 625;
-Ny 310;
-Nz 63;
+// Nx 625;
+// Ny 310;
+// Nz 63;
 // mesh=fine
-// Nx 834;
-// Ny 414;
-// Nz 84;
+Nx 834;
+Ny 414;
+Nz 84;
 
 // define the bounding box
 vertices
