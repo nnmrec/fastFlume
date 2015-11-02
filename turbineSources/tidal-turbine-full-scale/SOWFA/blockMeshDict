@@ -19,60 +19,25 @@ FoamFile
 
 convertToMeters 1;
 
-// dimensions of the Bamfield flume adjusted for mesh = coarse
-// xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-// xf 499.2;      // Maximum x coordinate (outlet of "infinite" domain)
-// yi   0.0;      // Minimum y coordinate
-// yf 248.4;      // Maximum y coordinate (width of flume)
-// zi   0.0;      // Minimum z coordinate
-// zf  50.4;      // Maximum z coordinate (free surface of flume)
+diameter 20;  // rotor diameter
 
-// dimensions of the Bamfield flume adjusted for mesh = medium1
-// xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-// xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
-// yi   0.0;      // Minimum y coordinate
-// yf 248.0;      // Maximum y coordinate (width of flume)
-// zi   0.0;      // Minimum z coordinate
-// zf  50.0;      // Maximum z coordinate (free surface of flume)
-
-// dimensions of the Bamfield flume adjusted for mesh = medium2
-// xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-// xf 500.0;      // Maximum x coordinate (outlet of "infinite" domain)
-// yi   0.0;      // Minimum y coordinate
-// yf 248.0;      // Maximum y coordinate (width of flume)
-// zi   0.0;      // Minimum z coordinate
-// zf  50.4;      // Maximum z coordinate (free surface of flume)
-
-// dimensions of the Bamfield flume (adjusted for mesh = fine)
-xi   0.0;      // Minimum x coordinate (inlet of "infinite" domain)
-xf 500.4;      // Maximum x coordinate (outlet of "infinite" domain)
+// dimensions of domain (adjusted lengths for mesh = fine-e1)
+xi   0.0;      // Minimum x coordinate
+xf 199.8;      // Maximum x coordinate
 yi   0.0;      // Minimum y coordinate
-yf 248.4;      // Maximum y coordinate (width of flume)
+yf 199.8;      // Maximum y coordinate
 zi   0.0;      // Minimum z coordinate
-zf  50.4;      // Maximum z coordinate (free surface of flume)
-
+zf  49.8;      // Maximum z coordinate (depth)
 
 // adjust mesh size (number of cells in x, y, z)
 // note that size of epsilon (body force spreading) and time step 
 // are effected by mesh size ... see the included spreadsheet file
 // 'Parameters-ActuatorMethod.ods' to help estimate reasonable values.
 
-// mesh=coarse
-// Nx 416;
-// Ny 207;
-// Nz 42;
-// mesh=medium1
-// Nx 500;
-// Ny 248;
-// Nz 50;
-// mesh=medium2
-// Nx 625;
-// Ny 310;
-// Nz 63;
-// mesh=fine
-Nx 834;
-Ny 414;
-Nz 84;
+// mesh = fine-e1
+Nx 333;
+Ny 333;
+Nz 83;
 
 // define the bounding box
 vertices

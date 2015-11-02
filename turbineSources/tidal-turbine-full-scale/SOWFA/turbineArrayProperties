@@ -27,7 +27,7 @@ globalProperties
 turbine1
 {
     turbineType         "DOE-Tidal-Ref-Model_FullScale";
-    baseLocation        (100.0 110.0 0.0);   // no account for OverHang distance
+    baseLocation        (50.1 130.1 0.0);   // no account for OverHang distance
     numBladePoints      30;
     pointDistType       "uniform";
     pointInterpType     "linear";
@@ -44,20 +44,21 @@ turbine1
     // epsilon             2.00;         // mesh = medium2-e3
     epsilon             1.20;         // mesh = fine-e1
 
-    tipRootLossCorrType "Glauert";
+    // tipRootLossCorrType "Glauert";
+    tipRootLossCorrType "none";
     rotationDir         "ccw";
     Azimuth             0;
     TorqueGen                                                9999.9;
     RotSpeed            11.5;
     Pitch               0;
-    NacYaw              -90;
+    NacYaw              -45;
     fluidDensity        1025.0;
 }
 
 turbine2
 {
     turbineType         "DOE-Tidal-Ref-Model_FullScale";
-    baseLocation        (100.0 138.0 0.0);   // no account for OverHang distance
+    baseLocation        (69.9 149.9 0.0);   // no account for OverHang distance
     numBladePoints      30;
     pointDistType       "uniform";
     pointInterpType     "linear";
@@ -74,12 +75,13 @@ turbine2
     // epsilon             2.00;         // mesh = medium2-e3
     epsilon             1.20;         // mesh = fine-e1
 
-    tipRootLossCorrType "Glauert";
+    // tipRootLossCorrType "Glauert";
+    tipRootLossCorrType "none";
     rotationDir         "cw";
     Azimuth             90;
     TorqueGen                                                9999.9;
     RotSpeed            11.5;   // for U_inflow = 1.9 and TSR = 6.338 
     Pitch               0;
-    NacYaw              -90;
+    NacYaw              -45;
     fluidDensity        1025.0;
 }

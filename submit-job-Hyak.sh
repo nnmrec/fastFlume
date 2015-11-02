@@ -18,7 +18,7 @@
 ## --------------------------------------------------------
 ## SPECIFY the working directory for this job
 ## --------------------------------------------------------
-## PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/fastFlume-Coarse-e1
+#PBS -d /gscratch/stf/dsale/OpenFOAM/dsale-2.4.x/fastFlume-branches/fastFlume-master
 
 
 ## --------------------------------------------------------
@@ -32,8 +32,8 @@
 ## --------------------------------------------------------
 ## NUMBER nodes, CPUs per node, and MEMORY
 ## --------------------------------------------------------
-## PBS -l nodes=1:ppn=16,mem=10gb,feature=intel
-#PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
+#PBS -l nodes=1:ppn=16,mem=10gb,feature=intel
+## PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
 ## PBS -l nodes=3:ppn=16,mem=30gb,feature=intel
 ## PBS -l nodes=4:ppn=16,mem=30gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel

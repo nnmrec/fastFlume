@@ -30,18 +30,18 @@ echo '======================================================================='
 
 
  	# reconstruct before sampling or converting
- 	# reconstructPar -latestTime 2>&1 | tee log.reconstructPar
+ 	reconstructPar -latestTime 2>&1 | tee log.reconstructPar
 
  	# compute any additional fields that would be sampled
-	# foamCalc components U -latestTime
-	# foamCalc components UMean -latestTime
-  	# vorticity -latestTime
-	# foamCalc components vorticity -latestTime
-	# enstrophy -latestTime
-	# Lambda2 -latestTime
+	foamCalc components U -latestTime
+	foamCalc components UMean -latestTime
+  	vorticity -latestTime
+	foamCalc components vorticity -latestTime
+	enstrophy -latestTime
+	Lambda2 -latestTime
 
 	## convert OpenFOAM format to VTK files
-	# foamToVTK -latestTime 2>&1 | tee log.foamToVTK
+	foamToVTK -latestTime 2>&1 | tee log.foamToVTK
 
 	## sample the fields (this hangs using planes ... change to point cloud method requiring )
 	# sample -latestTime 2>&1 | tee log.sample

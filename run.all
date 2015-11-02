@@ -43,27 +43,32 @@ else
     echo "Copying the input files from turbineSources into SOWFA directories"
     echo ""
 
-    cp $DIR_turbine/SOWFA/U 0.original/U
-    cp $DIR_turbine/SOWFA/blockMeshDict constant/polyMesh/blockMeshDict
-    cp $DIR_turbine/SOWFA/controlDict system/controlDict
-    cp $DIR_turbine/SOWFA/decomposeParDict system/decomposeParDict
-    cp $DIR_turbine/SOWFA/sampleDict system/sampleDict
+    # the "parent" folder
+    cp $DIR_turbine/SOWFA/AeroDyn.ipt   AeroDyn.ipt
+    cp $DIR_turbine/SOWFA/Blade.dat     Blade.dat
+    cp $DIR_turbine/SOWFA/Tower.dat     Tower.dat
+    cp $DIR_turbine/SOWFA/primary.fst   primary.fst
+        
+    # the "system" folder
+    cp $DIR_turbine/SOWFA/controlDict       system/controlDict
+    cp $DIR_turbine/SOWFA/decomposeParDict  system/decomposeParDict
+    cp $DIR_turbine/SOWFA/sampleDict        system/sampleDict
 
+    # the "constant" folder
     rm -rf constant/turbineProperties/
     rm -rf constant/airfoilProperties/
-    rm -rf AeroData/
     cp -r $DIR_turbine/SOWFA/turbineProperties constant/turbineProperties
     cp -r $DIR_turbine/SOWFA/airfoilProperties constant/airfoilProperties
+    cp $DIR_turbine/SOWFA/blockMeshDict                 constant/polyMesh/blockMeshDict
+    cp $DIR_turbine/SOWFA/turbineArrayProperties        constant/turbineArrayProperties
+    cp $DIR_turbine/SOWFA/turbineArrayPropertiesFAST    constant/turbineArrayPropertiesFAST 
+    
+    # the "AeroData" folder
+    rm -rf AeroData/
     cp -r $DIR_turbine/SOWFA/AeroData AeroData
 
-    cp $DIR_turbine/SOWFA/turbineArrayProperties constant/turbineArrayProperties
-    cp $DIR_turbine/SOWFA/turbineArrayPropertiesFAST constant/turbineArrayPropertiesFAST 
-    cp $DIR_turbine/SOWFA/AeroDyn.ipt AeroDyn.ipt
-    cp $DIR_turbine/SOWFA/Blade.dat Blade.dat
-    cp $DIR_turbine/SOWFA/Tower.dat Tower.dat
-    cp $DIR_turbine/SOWFA/primary.fst primary.fst
-
-
+    # the "initial" folder
+    cp $DIR_turbine/SOWFA/U 0.original/U
 
     echo ""
     echo "Re-create the mesh, decompose and initialize FAST"

@@ -16,16 +16,16 @@ FoamFile
 
 turbine0
 {
-  refx  100.0;    // no account for OverHang
-  refy  110.0;
+  refx   50.1;    // no account for OverHang
+  refy  130.1;
   refz    0.0;
   hubz   30.0;
 }
 
 turbine1
 {
-  refx  100.0;    // no account for OverHang
-  refy  138.0;
+  refx   69.9;    // no account for OverHang
+  refy  149.9;
   refz    0.0;
   hubz   30.0;
 }

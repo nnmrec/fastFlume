@@ -19,7 +19,7 @@ FoamFile
 
 NumBl                                   2;
 TipRad                               10.0;
-HubRad                                2.0;
+HubRad                                1.0;
 UndSling                              0.0;
 OverHang                           -0.001;    // DCS: code crashses if OverHang = 0.0, why ???
 TowerHt                              30.0;    

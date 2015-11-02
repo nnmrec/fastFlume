@@ -15,12 +15,14 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-InflowSpeed 1.9;
+// InflowSpeed 1.9; 
+InflowSpeed 1.34350;  // adjust inflow of 1.9 m/s at angle 45 degrees
 
 
 dimensions      [ 0 1 -1 0 0 0 0 ];
 
-internalField   uniform ( $InflowSpeed 0 0 );
+// internalField   uniform ( $InflowSpeed 0 0 );
+internalField   uniform ( $InflowSpeed $InflowSpeed 0 ); // adjust inflow of 1.9 m/s at angle 45 degrees
 
 boundaryField
 {
@@ -38,32 +40,43 @@ boundaryField
       // type zeroGradient       
     }
 
+
+    // inlet
+    north
+    {
+      // type cyclic;
+      // type slip;  
+      // type zeroGradient  
+      type            fixedValue;
+      value           uniform ( $InflowSpeed $InflowSpeed 0 ); // adjust inflow of 1.9 m/s at angle 45 degrees        
+    }
+
     // inlet
     west
     {
+      // type cyclic;
+      // type slip;  
+      // type zeroGradient  
       type            fixedValue;
-      value           uniform ( $InflowSpeed 0 0 );
+      value           uniform ( $InflowSpeed $InflowSpeed 0 ); // adjust inflow of 1.9 m/s at angle 45 degrees
+    }
+
+    // outlet
+    south
+    {
+      // type cyclic;
+      // type slip; 
+      type zeroGradient           
     }
 
     // outlet
     east
     {
-      type            zeroGradient;
+      // type cyclic;
+      // type slip; 
+      type zeroGradient;
     }
 
-    north
-    {
-      // type cyclic;
-      type slip;  
-      // type zeroGradient          
-    }
-
-    south
-    {
-      // type cyclic;
-      type slip; 
-      // type zeroGradient           
-    }
 }
 
 

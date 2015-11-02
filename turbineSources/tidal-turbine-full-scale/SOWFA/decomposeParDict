@@ -18,7 +18,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // Number of domains should be at least the number of turbines, but usually larger
-numberOfSubdomains  8;
+numberOfSubdomains  16;
 // numberOfSubdomains  32;
 // numberOfSubdomains  48;
 // numberOfSubdomains  64;
@@ -33,7 +33,7 @@ preservePatches (bottom top north south);
 simpleCoeffs
 {
     // n           (1 1 1);
-    n           ($numberOfSubdomains 1 1);
+    n           ($numberOfSubdomains/4 $numberOfSubdomains/4 1);
     delta       0.001;
 }
 
