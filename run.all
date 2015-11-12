@@ -5,8 +5,8 @@ cd ${0%/*} || exit 1 # run from this directory
 source $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 ## select the turbine type and scenario
-# DIR_turbine='turbineSources/tidal-turbine-lab-scale'
-DIR_turbine='turbineSources/tidal-turbine-full-scale'
+DIR_turbine='turbineSources/tidal-turbine-lab-scale'
+# DIR_turbine='turbineSources/tidal-turbine-full-scale'
 
 
 echo '*==============================================================================='
