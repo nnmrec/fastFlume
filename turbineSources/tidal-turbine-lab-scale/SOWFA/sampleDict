@@ -41,22 +41,23 @@ surfaceFormat vtk;
 // // 1] vertex values determined from neighbouring cell-centre values
 // // 2] face values determined using the current face interpolation scheme
 // //    for the field (linear, gamma, etc.)
-interpolationScheme cellPoint;
+interpolationScheme cell;
 
 // Fields to sample.
 fields
 (
-    // U
+    p
     Ux
-    // Uy
-    // Uz
-    // Umean
-    // p
+    Uy
+    Uz
+    UMeanx
+    UMeany
+    UMeanz
+    // upMean
+    // uuMean
+    // bodyForceFAST
 );
 
-// offset   0.000001111111;    // offset coordinates by small amount to avoid case when
-                            // sample point is same as faces, so perturb like ~0.1 % cell size
-    
 // // Set sampling definition: choice of
 // //      uniform             evenly distributed points on line
 // //      face                one point per face intersection
@@ -80,162 +81,51 @@ fields
 // //      curve, cloud: list of coordinates
 sets
 (
-    
+    // (lab-scale)
     // diameters relative 
     // to upstream turbine      location x
     // =======================================
-    // -3  0
-    // -2  0.45
-    // -1  0.9
-    // 0   1.35
-    // 1   1.8
-    // 2   2.25
-    // 3   2.7
-    // 4   3.15
-    // 5   3.6
-    // 6   4.05
-    // 7   4.5
-    // 8   4.95
-    // 9   5.4
-    // 10  5.85
-    // 11  6.3
+    // -3    0
+    // -2    0.4500
+    // -1    0.9000
+    // 0     1.3500
+    // 1     1.8000
+    // 2     2.2500
+    // 3     2.7000
+    // 4     3.1500
+    // 5     3.6000
+    // 6     4.0500
+    // 7     4.5000
+    // 8     4.9500
+    // 9     5.4000
+    // 10    5.8500
+    // 11    6.3000
 
-
-    // relative to upstream turbine, horizontal line probe Diameters = -3
-    // line-yx_x=-3D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (0.0 0.0 0.4);
-    //     end         (0.0 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = -2
-    // line-yx_x=-2D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (0.45 0.0 0.4);
-    //     end         (0.45 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = -1
-    // line-yx_x=-1D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (0.9 0.0 0.4);
-    //     end         (0.9 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +0
-    // line-yx_x=+0D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (1.35 0.0 0.4);
-    //     end         (1.35 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +1
-    // line-yx_x=+1D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (1.8 0.0 0.4);
-    //     end         (1.8 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +2
-    // line-yx_x=+2D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (2.25 0.0 0.4);
-    //     end         (2.25 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +3
-    // line-yx_x=+3D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (2.7 0.0 0.4);
-    //     end         (2.7 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +4
-    // line-yx_x=+4D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (3.15 0.0 0.4);
-    //     end         (3.15 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +5
-    // line-yx_x=+5D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (3.6 0.0 0.4);
-    //     end         (3.6 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +6
-    // line-yx_x=+6D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (4.05 0.0 0.4);
-    //     end         (4.05 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +7
-    // line-yx_x=+7D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (4.5 0.0 0.4);
-    //     end         (4.5 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +8
-    // line-yx_x=+8D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (4.95 0.0 0.4);
-    //     end         (4.95 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +9
-    // line-yx_x=+9D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (5.4 0.0 0.4);
-    //     end         (5.4 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +10
-    // line-yx_x=+10D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (5.85 0.0 0.4);
-    //     end         (5.85 1.0 0.4);
-    //     nPoints     32;
-    // }
-    // // relative to upstream turbine, horizontal line probe Diameters = +11
-    // line-yx_x=+11D
-    // {
-    //     type        uniform;
-    //     axis        distance;
-    //     start       (6.3 0.0 0.4);
-    //     end         (6.3 1.0 0.4);
-    //     nPoints     32;
-    // }
+    // set probe positions to match middle of PIV windows at [0.5D 2.5D 4.5D]
+    lineX1
+    {
+        type        uniform;
+        axis        distance;
+        start       (1.575   0.001 0.400);
+        end         (1.575   0.999 0.400);
+        nPoints     32;
+    }
+    lineX2
+    {
+        type        uniform;
+        axis        distance;    
+        start       (2.4750   0.001 0.400);
+        end         (2.4750   0.999 0.400);
+        nPoints     32;
+    }
+    lineX3
+    {
+        type        uniform;
+        axis        distance;
+        start       (3.3750   0.001 0.400);
+        end         (3.3750   0.999 0.400);
+        nPoints     32;
+    } 
 
 );
 
@@ -246,134 +136,48 @@ sets
 // 1] patches are not triangulated by default
 // 2] planes are always triangulated
 // 3] iso-surfaces are always triangulated
-surfaces
-(
-
-    // relative to upstream turbine, yz plane at  Diameters = -3
-    plane-yz_x=-3D
-    {
-        type            plane;    // always triangulated
-        basePoint       (0.0 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = -2
-    plane-yz_x=-2D
-    {
-        type            plane;    // always triangulated
-        basePoint       (0.45 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = -1
-    plane-yz_x=-1D
-    {
-        type            plane;    // always triangulated
-        basePoint       (0.9 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +0
-    plane-yz_x=+0D
-    {
-        type            plane;    // always triangulated
-        basePoint       (1.35 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +1
-    plane-yz_x=+1D
-    {
-        type            plane;    // always triangulated
-        basePoint       (1.8 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +2
-    plane-yz_x=+2D
-    {
-        type            plane;    // always triangulated
-        basePoint       (2.25 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +3
-    plane-yz_x=+3D
-    {
-        type            plane;    // always triangulated
-        basePoint       (2.7 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +4
-    plane-yz_x=+4D
-    {
-        type            plane;    // always triangulated
-        basePoint       (3.15 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +5
-    plane-yz_x=+5D
-    {
-        type            plane;    // always triangulated
-        basePoint       (3.6 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +6
-    plane-yz_x=+6D
-    {
-        type            plane;    // always triangulated
-        basePoint       (4.05 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +7
-    plane-yz_x=+7D
-    {
-        type            plane;    // always triangulated
-        basePoint       (4.5 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +8
-    plane-yz_x=+8D
-    {
-        type            plane;    // always triangulated
-        basePoint       (4.95 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +9
-    plane-yz_x=+9D
-    {
-        type            plane;    // always triangulated
-        basePoint       (5.4 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +10
-    plane-yz_x=+10D
-    {
-        type            plane;    // always triangulated
-        basePoint       (5.85 0.0 0.4);
-        normalVector    (1 0 0);
-    }
-    // relative to upstream turbine, yz plane at  Diameters = +11
-    plane-yz_x=+11D
-    {
-        type            plane;    // always triangulated
-        basePoint       (6.3 0.0 0.4);
-        normalVector    (1 0 0);
-    }
+// surfaces
+// (
+//     // set probe positions to match middle of PIV windows at [0.5D 2.5D 4.5D]
+//     constantPlane1
+//     {
+//         type            plane;    // always triangulated
+//         basePoint       (1.575 0.5 0.4);
+//         normalVector    (1 0 0);
+//     }
+//     constantPlane2
+//     {
+//         type            plane;    // always triangulated
+//         basePoint       (2.4750 0.5 0.4);
+//         normalVector    (1 0 0);
+//     }
+//     constantPlane3
+//     {
+//         type            plane;    // always triangulated
+//         basePoint       (3.3750 0.5 0.4);
+//         normalVector    (1 0 0);
+//     }
+//     constantPlane4
+//     {
+//         type            plane;    // always triangulated
+//         basePoint       (1.35 0.5 0.4);
+//         normalVector    (0 0 1);
+//     }
+//     constantPlane5
+//     {
+//         type            plane;    // always triangulated
+//         basePoint       (1.35 0.5 0.4);
+//         normalVector    (0 1 0);
+//     }
+//     
+// );
 
 
-    // zx plane, through turbine centerline
-    plane-zx_y=0.5
-    {
-        type            plane;    // always triangulated
-        basePoint       (0.0 0.5 0.0);
-        normalVector    (0 1 0);
-    }
 
 
-    // yx plane, through flume mid-depth (and turbine centerline)
-    plane-yx_z=0.4
-    {
-        type            plane;    // always triangulated
-        basePoint       (0.0 0.0 0.4);
-        normalVector    (0 0 1);
-    }
 
-);
+
+
 
 
 
@@ -557,4 +361,3 @@ surfaces
 
 
 // // *********************************************************************** //
-

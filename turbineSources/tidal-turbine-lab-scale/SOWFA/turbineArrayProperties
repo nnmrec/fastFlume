@@ -55,8 +55,8 @@ turbine1
   // epsilon             0.016875;         // mesh = medium2-e2
   // epsilon             0.018750;         // mesh = medium2-e3
 
-    // RotSpeed            236.82;      // [for U_inflow 0.9 m/s, TSR 6.2, RotSpeed=236.82]
-    RotSpeed            267.38;      // [for U_inflow 0.9 m/s, TSR 7.0, RotSpeed=267.38]
+    RotSpeed            236.82;      // [for U_inflow 0.9 m/s, TSR 6.2, RotSpeed=236.82]
+    // RotSpeed            267.38;      // [for U_inflow 0.9 m/s, TSR 7.0, RotSpeed=267.38]
     // RotSpeed            324.68;      // [for U_inflow 0.9 m/s, TSR 8.5, RotSpeed=324.68]
     // RotSpeed            297.09;      // [for U_inflow 1.0 m/s, TSR 7.0, RotSpeed=297.09] 
     // RotSpeed            356.51;      // [for U_inflow 1.2 m/s, TSR 7.0, RotSpeed=356.51]

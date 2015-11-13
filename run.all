@@ -10,13 +10,12 @@ DIR_turbine='turbineSources/tidal-turbine-lab-scale'
 
 
 echo '*==============================================================================='
-echo '* ███████╗ █████╗ ███████╗████████╗███████╗██╗     ██╗   ██╗███╗   ███╗███████╗ '
-echo '* ██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔════╝██║     ██║   ██║████╗ ████║██╔════╝ '
-echo '* █████╗  ███████║███████╗   ██║   █████╗  ██║     ██║   ██║██╔████╔██║█████╗   '
-echo '* ██╔══╝  ██╔══██║╚════██║   ██║   ██╔══╝  ██║     ██║   ██║██║╚██╔╝██║██╔══╝   '
-echo '* ██║     ██║  ██║███████║   ██║   ██║     ███████╗╚██████╔╝██║ ╚═╝ ██║███████╗ '
-echo '* ╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝     ╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝ '
-echo '*                                                                               '
+echo '* ______ ___   _____ _____  ______ _     _   ____  ___ _____ '
+echo '* |  ___/ _ \ /  ___|_   _| |  ___| |   | | | |  \/  ||  ___|'
+echo '* | |_ / /_\ \\ `--.  | |   | |_  | |   | | | | .  . || |__  '
+echo '* |  _||  _  | `--. \ | |   |  _| | |   | | | | |\/| ||  __| '
+echo '* | |  | | | |/\__/ / | |   | |   | |___| |_| | |  | || |___ '
+echo '* \_|  \_| |_/\____/  \_/   \_|   \_____/\___/\_|  |_/\____/ '
 echo "* Starting OpenFOAM job at: " $(date)                                           
 echo '*==============================================================================='
 
@@ -81,6 +80,11 @@ fi
 
 ## POST_PROCESS (note: run time post-proccesing is performed in controlDict)
 ./run.post-process 2>&1 | tee log.run.post-process
+
+## Move/Copy the "important data" with intention to download off Hyak
+tar -zcvf fastFlume_saved-archive.tar.gz ./turbineOutput ./VTK ./log.*
+#tar -zcvf fastFlume_saved-archive.tar.gz ./turbineOutput ./postProcessing ./VTK ./log.*
+#mv -v fastFlume_saved-archive.tar.gz /gscratch/stf/dsale/job_output
 
 
 echo '*==============================================================================='

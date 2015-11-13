@@ -15,12 +15,12 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-InflowSpeed 1.9;
+InflowSpeed 0.9;  // [for U_inflow 0.9 m/s, TSR 6.2, RotSpeed=236.82] [for U_inflow 0.9 m/s, TSR 7.0, RotSpeed=267.38] [for U_inflow 0.9 m/s, TSR 8.5, RotSpeed=324.68] [for U_inflow 1.0 m/s, TSR 7.0, RotSpeed=297.09] [for U_inflow 1.2 m/s, TSR 7.0, RotSpeed=356.51]
 
 
 dimensions      [ 0 1 -1 0 0 0 0 ];
 
-internalField   uniform ( $InflowSpeed 0 0 );
+internalField   uniform ( $InflowSpeed 0 0 );  
 
 boundaryField
 {

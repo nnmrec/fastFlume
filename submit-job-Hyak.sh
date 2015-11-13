@@ -12,7 +12,7 @@
 ## --------------------------------------------------------
 ## RENAME for your job
 ## --------------------------------------------------------
-#PBS -N fastFlume
+#PBS -N mps0p9_tsr6p2_yaw0
 
 
 ## --------------------------------------------------------
@@ -25,17 +25,17 @@
 ## GROUP to run under, or run under backfill
 ## --------------------------------------------------------
 ## PBS -W group_list=hyak-motley
-## PBS -W group_list=hyak-stf
-#PBS -q bf
+#PBS -W group_list=hyak-stf
+## PBS -q bf
 
 
 ## --------------------------------------------------------
 ## NUMBER nodes, CPUs per node, and MEMORY
 ## --------------------------------------------------------
 ## PBS -l nodes=1:ppn=16,mem=10gb,feature=intel
-#PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
-## PBS -l nodes=3:ppn=16,mem=30gb,feature=intel
-## PBS -l nodes=4:ppn=16,mem=30gb,feature=intel
+## PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
+## PBS -l nodes=3:ppn=16,mem=50gb,feature=intel
+#PBS -l nodes=4:ppn=16,mem=50gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=16:ppn=16,mem=32gb,feature=intel
 
@@ -43,7 +43,7 @@
 ## --------------------------------------------------------
 ## WALLTIME (defaults to 1 hour, always specify for longer jobs)
 ## --------------------------------------------------------
-#PBS -l walltime=2:05:00
+#PBS -l walltime=12:00:00
 
 
 ## --------------------------------------------------------
@@ -69,8 +69,7 @@ cd $PBS_O_WORKDIR
 
 ## LOAD the appropriate environment modules and variables
 module load icc_15.0.3-impi_5.0.3
-source /gscratch/stf/dsale/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
-
+source /sw/contrib/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
 
 ## Some applications (particularly FORTRAN) require a larger 
 ## than usual data stack size. Uncomment if your job exits unexpectedly

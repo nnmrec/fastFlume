@@ -70,7 +70,7 @@ False       CompNoise   - Compute aerodynamic noise (flag)
    0.0      IPDefl      - Initial in-plane blade-tip deflection (meters)
    0.0      TeetDefl    - Initial or fixed teeter angle (degrees) [unused for 3 blades]
 0.0      Azimuth     - Initial azimuth angle for blade 1 (degrees)
-267.38   RotSpeed    - Initial or fixed rotor speed (rpm)  [for U_inflow 0.9 m/s, TSR 6.2, RotSpeed=236.82] [for U_inflow 0.9 m/s, TSR 7.0, RotSpeed=267.38] [for U_inflow 0.9 m/s, TSR 8.5, RotSpeed=324.68] [for U_inflow 1.0 m/s, TSR 7.0, RotSpeed=297.09] [for U_inflow 1.2 m/s, TSR 7.0, RotSpeed=356.51]
+236.82   RotSpeed    - Initial or fixed rotor speed (rpm)  [for U_inflow 0.9 m/s, TSR 6.2, RotSpeed=236.82] [for U_inflow 0.9 m/s, TSR 7.0, RotSpeed=267.38] [for U_inflow 0.9 m/s, TSR 8.5, RotSpeed=324.68] [for U_inflow 1.0 m/s, TSR 7.0, RotSpeed=297.09] [for U_inflow 1.2 m/s, TSR 7.0, RotSpeed=356.51]
    0.0      NacYaw      - Initial or fixed nacelle-yaw angle (degrees)
    0.0      TTDspFA     - Initial fore-aft tower-top displacement (meters)
    0.0      TTDspSS     - Initial side-to-side tower-top displacement (meters)
