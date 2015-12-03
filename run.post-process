@@ -4,17 +4,11 @@ cd ${0%/*} || exit 1 # run from this directory
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
-
 ## Post-Processing ##############################################
 
-
-## ignore the 0 directory, it does not contain all the same fields
-## as later times, so it easiest to post-process by ignoring it
-mv 0 0.unused
-
-
-## reconstruct the parallel filess for all times, or for only specific times
-reconstructPar -latestTime
+## reconstruct before sampling or converting
+reconstructPar -latestTime 2>&1 | tee log.reconstructPar
+dir_recon="$(\ls -1dt ./*/ | head -n 1)"
 
 
 ## compute additional fields, like vorticity
@@ -26,15 +20,16 @@ foamCalc components UMean -latestTime
 Lambda2 -latestTime
 
 
-## convert OpenFOAM format to VTK files
-foamToVTK -latestTime
+## convert OpenFOAM format to VTK files (files get big, maybe save fewer fields)
+#foamToVTK -latestTime
+#foamToVTK -latestTime -fields '(bodyForce enstrophy kMean Lambda2 p pMean UMean UMeanx UMeany UMeanz uuMean U Ux Uy Uz vorticity vorticityx vorticityy vorticityz)'
+foamToVTK -latestTime -noZero -fields '(bodyForce enstrophy kMean Lambda2 p pMean UMeanx UMeany UMeanz Ux Uy Uz vorticityx vorticityy vorticityz)'
+
+## sample the fields (this always crashes on sample planes for unknown reason)
+#sample -latestTime
+
+## delete the reconstructed fields, only keep the VTK files (delete the latest created directory)
+rm -rf $dir_recon
 
 
-## sample the fields
-sample -latestTime
 
-
-## Move/Copy the "important data" with intention to download off Hyak
-# add these folders to a zip file
-tar -zcvf saved-archive_$PBS_JOBNAME.tar.gz ./turbineOutput ./postProcessing ./VTK ./log.* 
-mv -v saved-archive_$PBS_JOBNAME.tar.gz /gscratch/stf/dsale/job_output
