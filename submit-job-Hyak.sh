@@ -12,7 +12,7 @@
 ## --------------------------------------------------------
 ## RENAME for your job
 ## --------------------------------------------------------
-#PBS -N fastFlume-LEMOS
+#PBS -N fastFlume-LEMOS-full
 
 
 ## --------------------------------------------------------
@@ -34,8 +34,8 @@
 ## --------------------------------------------------------
 ## PBS -l nodes=1:ppn=16,mem=10gb,feature=intel
 ## PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
-#PBS -l nodes=3:ppn=16,mem=50gb,feature=intel
-## PBS -l nodes=4:ppn=16,mem=30gb,feature=intel
+## PBS -l nodes=3:ppn=16,mem=50gb,feature=intel
+#PBS -l nodes=5:ppn=16,mem=300gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=16:ppn=16,mem=32gb,feature=intel
 
