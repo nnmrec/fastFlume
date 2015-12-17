@@ -12,21 +12,21 @@ dir_recon="$(\ls -1dt ./*/ | head -n 1)"
 
 
 ## compute additional fields, like vorticity
-vorticity -latestTime
-enstrophy -latestTime
-foamCalc components vorticity -latestTime
+# vorticity -latestTime
+# enstrophy -latestTime
+# foamCalc components vorticity -latestTime
 foamCalc components U -latestTime
-foamCalc components UMean -latestTime
-Lambda2 -latestTime
+# foamCalc components UMean -latestTime
+# Lambda2 -latestTime
 
 
 ## convert OpenFOAM format to VTK files (files get big, maybe save fewer fields)
 #foamToVTK -latestTime
 #foamToVTK -latestTime -fields '(bodyForce enstrophy kMean Lambda2 p pMean UMean UMeanx UMeany UMeanz uuMean U Ux Uy Uz vorticity vorticityx vorticityy vorticityz)'
-foamToVTK -latestTime -noZero -fields '(bodyForce enstrophy kMean Lambda2 p pMean UMeanx UMeany UMeanz Ux Uy Uz vorticityx vorticityy vorticityz)'
+# foamToVTK -latestTime -noZero -fields '(bodyForce enstrophy kMean Lambda2 p pMean UMeanx UMeany UMeanz Ux Uy Uz vorticityx vorticityy vorticityz)'
 
 ## sample the fields (this always crashes on sample planes for unknown reason)
-#sample -latestTime
+sample -latestTime
 
 ## delete the reconstructed fields, only keep the VTK files (delete the latest created directory)
 rm -rf $dir_recon

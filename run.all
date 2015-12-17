@@ -6,9 +6,9 @@ source $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 ## select the turbine type and scenario
 # DIR_turbine='turbineSources/tidal-turbine-lab-scale'
-# DIR_turbine='turbineSources/tidal-turbine-lab-scale-turbInflow'
+DIR_turbine='turbineSources/tidal-turbine-lab-scale-turbInflow'
 # DIR_turbine='turbineSources/tidal-turbine-full-scale'
-DIR_turbine='turbineSources/tidal-turbine-full-scale-turbInflow'
+# DIR_turbine='turbineSources/tidal-turbine-full-scale-turbInflow'
 
 
 echo '*==============================================================================='
