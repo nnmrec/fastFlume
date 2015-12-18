@@ -37,6 +37,11 @@ if [ "$(ls -A $DIR)" ]; then
     ./reinitialize-FAST.sh
     cd ..
 
+    # decompose again, incase changed number of CPUs
+    # Decompose the mesh and solution files (serial)
+    decomposePar 2>&1 | tee log.decomposePar
+
+
 else
     echo ""
     echo "The processor directories $DIR are empty or not found"
