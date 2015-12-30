@@ -39,7 +39,7 @@ if [ "$(ls -A $DIR)" ]; then
 
     # decompose again, incase changed number of CPUs
     # Decompose the mesh and solution files (serial)
-    decomposePar 2>&1 | tee log.decomposePar
+    decomposePar -force 2>&1 | tee log.decomposePar
 
 
 else

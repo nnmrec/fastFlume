@@ -10,14 +10,19 @@
 #
 
 dir_main=$(pwd)
-dir_post=postProcessing/surfaces/test
+dir_post=postProcessing/surfaces
 
 # improvement: read these variable names from the sampleDict file
 vars=(Ux Uy Uz)
 
+# the OpenFOAM time directories (careful to sort these numerically)
+#IN_DIRS=($(ls -d */))
+
 for ((i=0;i<=${#vars[*]}-1;i++)); do
 
-    IN_FILES=`find $dir_post -maxdepth 2 -name "${vars[i]}*.vtk" | sort`
+    # careful to sort these files numerically 
+#    IN_FILES=`find $dir_post -maxdepth 2 -name "${vars[i]}*.vtk" | sort`
+    IN_FILES=`find $dir_post -maxdepth 2 -name "${vars[i]}*.vtk" | ls -l -d */`
 
     k=1
     for file in $IN_FILES

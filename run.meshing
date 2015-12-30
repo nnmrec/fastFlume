@@ -15,5 +15,6 @@ cp -rf 0.original 0
 
 
 # Decompose the mesh and solution files (serial)
-decomposePar 2>&1 | tee log.decomposePar
+#decomposePar 2>&1 | tee log.decomposePar
+decomposePar -force 2>&1 | tee log.decomposePar
 
