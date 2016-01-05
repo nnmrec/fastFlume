@@ -64,7 +64,8 @@ boundaryField
       // value     nonuniform List<vector> ...
         LField          uniform 0.09;
         refField        uniform ( $InflowSpeed 0 0 );
-        RField          uniform (0.0081 0.006075 0.004536 0.00455625 0.003402 0.00254016);
+        RField          uniform (0.0081 0 0 0.00455625 0 0.00254016);
+        // RField          uniform (0.0081 0.006075 0.004536 0.00455625 0.003402 0.00254016);
         value           uniform ( $InflowSpeed 0 0 );
     }
 
