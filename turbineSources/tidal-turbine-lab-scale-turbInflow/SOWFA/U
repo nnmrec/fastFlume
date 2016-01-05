@@ -16,8 +16,8 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // InflowSpeed 1.15;
-InflowSpeed 1.0;
-// InflowSpeed 0.9;
+// InflowSpeed 1.0;
+InflowSpeed 0.9;
 
 
 dimensions      [ 0 1 -1 0 0 0 0 ];
@@ -62,9 +62,9 @@ boundaryField
       // refField  nonuniform List<vector> ...
       // RField    nonuniform List<symmTensor> ...
       // value     nonuniform List<vector> ...
-        LField          uniform 0.02;
+        LField          uniform 0.09;
         refField        uniform ( $InflowSpeed 0 0 );
-        RField          uniform (0.1 0 0 0.1 0 0.1);
+        RField          uniform (0.0081 0.006075 0.004536 0.00455625 0.003402 0.00254016);
         value           uniform ( $InflowSpeed 0 0 );
     }
 

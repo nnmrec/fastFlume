@@ -38,8 +38,8 @@ LESModel "standardSmagorinsky";
 // Smagorinsky Constant
 // Cs 0.125
 // Cs 0.135;
-// Cs 0.168;
-Cs 0.17
+Cs 0.168;
+// Cs 0.17
 
 // LES filter width scalar
 deltaLESCoeff 1.0;

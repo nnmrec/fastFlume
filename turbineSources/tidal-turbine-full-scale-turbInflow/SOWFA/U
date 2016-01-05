@@ -59,9 +59,9 @@ boundaryField
       // refField  nonuniform List<vector> ...
       // RField    nonuniform List<symmTensor> ...
       // value     nonuniform List<vector> ...
-        LField          uniform 1.20;
+        LField          uniform 4.0;
         refField        uniform ( $InflowSpeed 0 0 );
-        RField          uniform (0.1 0 0 0.1 0 0.1);
+        RField          uniform (0.0361 0.027075 0.020216 0.02030625 0.015162 0.01132096);
         value           uniform ( $InflowSpeed 0 0 );
     }
 
