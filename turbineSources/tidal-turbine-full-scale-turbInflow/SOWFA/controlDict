@@ -35,10 +35,10 @@ stopAt            endTime;
 // endTime           2.0;  // "steady state" should be acheived about 2 to 4 seconds, for single turbine
 endTime           120.0;
 
-// deltaT            0.09; // mesh = coarse   (for different values of epsilon)
+deltaT            0.09; // mesh = coarse   (for different values of epsilon)
 // deltaT            0.08; // mesh = medium1  (for different values of epsilon)
 // deltaT            0.06; // mesh = medium2  (for different values of epsilon)
-deltaT            0.04; // mesh = fine     (for different values of epsilon)
+// deltaT            0.04; // mesh = fine     (for different values of epsilon)
 
 
 

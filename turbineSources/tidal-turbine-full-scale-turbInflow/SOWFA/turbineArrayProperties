@@ -33,7 +33,7 @@ turbine1
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
     
-    // epsilon             2.40;         // mesh = coarse-e1
+    epsilon             2.40;         // mesh = coarse-e1
     // epsilon             2.70;         // mesh = coarse-e2
     // epsilon             3.00;         // mesh = coarse-e3
     // epsilon             2.00;         // mesh = medium1-e1
@@ -42,7 +42,7 @@ turbine1
     // epsilon             1.60;         // mesh = medium2-e1
     // epsilon             1.80;         // mesh = medium2-e2
     // epsilon             2.00;         // mesh = medium2-e3
-    epsilon             1.20;         // mesh = fine-e1
+    // epsilon             1.20;         // mesh = fine-e1
 
     tipRootLossCorrType "Glauert";
     rotationDir         "ccw";
@@ -63,7 +63,7 @@ turbine2
     pointInterpType     "linear";
     bladeUpdateType     "oldPosition";
     
-    // epsilon             2.40;         // mesh = coarse-e1
+    epsilon             2.40;         // mesh = coarse-e1
     // epsilon             2.70;         // mesh = coarse-e2
     // epsilon             3.00;         // mesh = coarse-e3
     // epsilon             2.00;         // mesh = medium1-e1
@@ -72,7 +72,7 @@ turbine2
     // epsilon             1.60;         // mesh = medium2-e1
     // epsilon             1.80;         // mesh = medium2-e2
     // epsilon             2.00;         // mesh = medium2-e3
-    epsilon             1.20;         // mesh = fine-e1
+    // epsilon             1.20;         // mesh = fine-e1
 
     tipRootLossCorrType "Glauert";
     rotationDir         "cw";
