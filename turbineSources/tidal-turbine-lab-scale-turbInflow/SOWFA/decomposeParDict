@@ -18,9 +18,9 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // Number of domains should be at least the number of turbines, but usually larger
-// numberOfSubdomains  16;
+numberOfSubdomains  16;
 // numberOfSubdomains  32;
-numberOfSubdomains  48;
+// numberOfSubdomains  48;
 // numberOfSubdomains  64;
 // numberOfSubdomains  128;
 
