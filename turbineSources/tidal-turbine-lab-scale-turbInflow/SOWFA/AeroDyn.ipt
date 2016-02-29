@@ -4,7 +4,7 @@ BEDDOES     StallMod    - Dynamic stall included [BEDDOES or STEADY] (unquoted s
 NO_CM       UseCm       - Use aerodynamic pitching moment model? [USE_CM or NO_CM] (unquoted string)
 EQUIL       InfModel    - Inflow model [DYNIN or EQUIL] (unquoted string)
 NONE        IndModel    - Induction-factor model [NONE or WAKE or SWIRL] (unquoted string)
-0.005       AToler      - Induction-factor tolerance (convergence criteria) (-)
+0.001       AToler      - Induction-factor tolerance (convergence criteria) (-)
 PRAND       TLModel     - Tip-loss model (EQUIL only) [PRAND, GTECH, or NONE] (unquoted string)
 PRAND       HLModel     - Hub-loss model (EQUIL only) [PRAND or NONE] (unquoted string)
 "USERWIND.wnd"          - Name of file containing wind data (quoted string)
@@ -78,4 +78,3 @@ RNodes      AeroTwst    DRNodes     Chord    NFoil  PrnElm
 0.208631	 1.190646	0.0065475   0.013647	28	NOPRINT
 0.215179	 0.948268	0.0065475   0.012841	29	NOPRINT
 0.221726	 0.689477	0.0065475   0.011987	30	NOPRINT
-

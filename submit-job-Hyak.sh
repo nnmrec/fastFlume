@@ -34,8 +34,8 @@
 ## --------------------------------------------------------
 ## PBS -l nodes=1:ppn=16,mem=10gb,feature=intel
 ## PBS -l nodes=2:ppn=16,mem=30gb,feature=intel
-#PBS -l nodes=3:ppn=16,mem=50gb,feature=intel
-## PBS -l nodes=5:ppn=16,mem=300gb,feature=intel
+## PBS -l nodes=3:ppn=16,mem=50gb,feature=intel
+#PBS -l nodes=6:ppn=16,mem=300gb,feature=intel
 ## PBS -l nodes=8:ppn=16,mem=32gb,feature=intel
 ## PBS -l nodes=16:ppn=16,mem=32gb,feature=intel
 
@@ -43,14 +43,14 @@
 ## --------------------------------------------------------
 ## WALLTIME (defaults to 1 hour, always specify for longer jobs)
 ## --------------------------------------------------------
-#PBS -l walltime=18:05:00
+#PBS -l walltime=4:05:00
 
 
 ## --------------------------------------------------------
 ## LOG the (stderr and stdout) job output in the directory
 ## --------------------------------------------------------
-## PBS -j oe -o /gscratch/motley/dsale/job_output
-#PBS -j oe -o /gscratch/stf/dsale/job_output/logs
+#PBS -j oe -o /gscratch/motley/dsale/job_logs
+## PBS -j oe -o /gscratch/stf/dsale/job_output/logs
 
 
 ## --------------------------------------------------------

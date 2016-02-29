@@ -88,7 +88,7 @@ fi
 
 ## POST_PROCESS (note: run time post-proccesing is performed in controlDict)
 ./run.post-process 2>&1 | tee log.run.post-process
-
+./run.post-post-process 2>&1 | tee log.run.post-post-process
 
 echo '*==============================================================================='
 echo "* Ending OpenFOAM job at: " $(date)

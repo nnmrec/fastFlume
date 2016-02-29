@@ -45,13 +45,13 @@ turbine1
     bladeUpdateType     "oldPosition";
     TorqueGen                                                9999.9;    
 
-  epsilon             0.025000;         // mesh = coarse-e1
+  // epsilon             0.025000;         // mesh = coarse-e1
   // epsilon             0.028125;         // mesh = coarse-e2
   // epsilon             0.031250;         // mesh = coarse-e3
   // epsilon             0.020000;         // mesh = medium1-e1
   // epsilon             0.022500;         // mesh = medium1-e2
   // epsilon             0.025000;         // mesh = medium1-e3
-  // epsilon             0.015000;         // mesh = medium2-e1
+  epsilon             0.015000;         // mesh = medium2-e1
   // epsilon             0.016875;         // mesh = medium2-e2
   // epsilon             0.018750;         // mesh = medium2-e3
 
