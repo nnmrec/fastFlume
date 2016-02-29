@@ -7,7 +7,8 @@ cd ${0%/*} || exit 1 # run from this directory
 ## Post-Processing ##############################################
 
 ## reconstruct before sampling or converting
-reconstructPar -latestTime 2>&1 | tee log.reconstructPar
+#reconstructPar -latestTime 2>&1 | tee log.reconstructPar
+reconstructPar -latestTime -fields '(U p)' 2>&1 | tee log.reconstructPar
 dir_recon="$(\ls -1dt ./*/ | head -n 1)"
 
 
