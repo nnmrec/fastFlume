@@ -36,8 +36,8 @@ turbine1
     Pitch               0;
     Azimuth             0.0;         // Initial azimuth angle for blade 1 (degrees)
 
-    // tipRootLossCorrType "Glauert";
-    tipRootLossCorrType "none";  
+    tipRootLossCorrType "Glauert";
+    // tipRootLossCorrType "none";  
     rotationDir         "ccw";
     pointDistType       "uniform";
     pointInterpType     "linear";
