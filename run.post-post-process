@@ -26,3 +26,8 @@ foamToVTK -latestTime
 ## Creates symbolic links to all VTK files in a post-processing directory, putting
 #  all the time-step directories into proper sorted order, so VisIt and ParaView can recognize as a sequence
 ./foamSequenceVTKFiles.sh
+
+## Runs the VisIt session to make image sequence
+
+## creates a movie from the image sequence
+
