@@ -15,6 +15,5 @@ cp -rf 0.original 0
 
 
 # Decompose the mesh and solution files (serial)
-#decomposePar 2>&1 | tee log.decomposePar
-decomposePar -force 2>&1 | tee log.decomposePar
-
+# if the processor directories already exist then this is skipped
+decomposePar 2>&1 | tee log.decomposePar

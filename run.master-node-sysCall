@@ -6,15 +6,17 @@ module list 2>&1 | tee log.modules > /dev/null
 
 # search for Intel or OpenMPI
 if grep -q impi log.modules; then
-    # echo using Intel MPI
+    echo using Intel MPI
     MPI_RANK=$PMI_RANK
 else
-    # echo using OpenMPI
+    echo using OpenMPI
     MPI_RANK=$OMPI_COMM_WORLD_RANK
 fi
 
-if [ "$MPI_RANK" -eq 0 ]
-then
+echo $MPI_RANK
+echo MPI_RANK = $MPI_RANK
+
+if [ "$MPI_RANK" -eq 0 ]; then
 
 echo '======================================================================='	
 echo '___  ___  ___   _____ _____ ___________        _   _ ___________ _____ '

@@ -37,9 +37,9 @@ if [ "$(ls -A $DIR)" ]; then
     ./reinitialize-FAST.sh
     cd ..
 
-    # decompose again, incase changed number of CPUs
     # Decompose the mesh and solution files (serial)
-    decomposePar -force 2>&1 | tee log.decomposePar
+    # if the processor directories already exist then this is skipped
+    decomposePar 2>&1 | tee log.decomposePar
 
 
 else
