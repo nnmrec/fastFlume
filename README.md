@@ -24,3 +24,4 @@ change wall boundary conditions, add a controller for the rotor drivetrain ...
 
 ![turbine-photo-stitch](https://raw.githubusercontent.com/nnmrec/fastFlume/master/docs/figures/turbine-photostitch-63-79-93-resized.png)
 
+[![DOI](https://zenodo.org/badge/29706763.svg)](https://zenodo.org/badge/latestdoi/29706763)
